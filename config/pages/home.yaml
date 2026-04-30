@@ -1,0 +1,8 @@
+id: home
+title: Home
+template: hero
+content:
+  heading: "WFGY 5.0 — Avatar"
+  subheading: "The flagship: governed avatar runtime, branchable behavior, multilingual calibration."
+  cta_text: "Read the paper"
+  cta_href: "./paper.html"

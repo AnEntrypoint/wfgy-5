@@ -1,0 +1,22 @@
+id: skills
+title: Skills
+template: grid
+content:
+  heading: "Capabilities"
+  description: "Recognition patterns that compose this project's skill set."
+  items:
+    - name: "avatar-boot"
+      description: "See skills/avatar-boot.md"
+      href: "https://github.com"
+    - name: "persona-branching"
+      description: "See skills/persona-branching.md"
+      href: "https://github.com"
+    - name: "behavior-tuning"
+      description: "See skills/behavior-tuning.md"
+      href: "https://github.com"
+    - name: "multilingual-calibration"
+      description: "See skills/multilingual-calibration.md"
+      href: "https://github.com"
+    - name: "persona-recovery"
+      description: "See skills/persona-recovery.md"
+      href: "https://github.com"

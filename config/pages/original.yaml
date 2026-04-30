@@ -1,0 +1,7 @@
+id: original
+title: Original
+template: longform
+content:
+  heading: "Original WFGY artifacts"
+  description: "The canonical research substrate for this extraction, copied verbatim."
+  source: wfgy-core/
