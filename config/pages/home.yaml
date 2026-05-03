@@ -1,8 +1,43 @@
 id: home
 title: Home
-template: hero
+template: home
 content:
-  heading: "WFGY 5.0 — Avatar"
-  subheading: "The flagship: governed avatar runtime, branchable behavior, multilingual calibration."
-  cta_text: "Read the paper"
-  cta_href: "./paper.html"
+  heading: WFGY 5.0 — Avatar
+  subheading: The flagship governed runtime for persistent language selves.
+  body: A protocol layer for engineered language and human-machine interaction, launching 2026/5/5.
+  badges:
+    - label: governed runtime
+    - label: branchable
+    - label: multilingual
+  cta_text: Read the paper
+  cta_href: ./paper.html
+features:
+  heading: Why Avatar
+  items:
+    - name: One shared runtime
+      desc: Replaces scattered persona files with a single governed runtime.
+      cat: kit
+    - name: Natural-language tuning
+      desc: Shape behavior without brittle prompt hacking.
+      cat: think
+    - name: Reusable builds
+      desc: Keep stronger variants instead of chasing one-off luck.
+      cat: kit
+    - name: Recovery operations
+      desc: Restore avatars after corruption or drift.
+      cat: talk
+examples:
+  heading: Explore
+  items:
+    - name: Paper
+      href: ./paper.html
+      cta: open
+      cat: doc
+    - name: Skills
+      href: ./skills.html
+      cta: open
+      cat: doc
+    - name: Original Artifacts
+      href: ./original.html
+      cta: open
+      cat: doc

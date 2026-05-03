@@ -2,6 +2,31 @@ id: original
 title: Original
 template: longform
 content:
-  heading: "Original WFGY artifacts"
-  description: "The canonical research substrate for this extraction, copied verbatim."
+  heading: Original WFGY artifacts
+  description: The canonical research substrate for this extraction, copied verbatim from onestardao/WFGY.
   source: wfgy-core/
+  items:
+    - name: Avatar/
+      kind: directory
+      cat: kit
+    - name: README.md
+      kind: file
+      cat: doc
+    - name: downloads/
+      kind: directory
+      cat: kit
+    - name: docs/
+      kind: directory
+      cat: doc
+    - name: eval/
+      kind: directory
+      cat: think
+    - name: highlights/
+      kind: directory
+      cat: talk
+    - name: research/
+      kind: directory
+      cat: think
+    - name: community/
+      kind: directory
+      cat: talk

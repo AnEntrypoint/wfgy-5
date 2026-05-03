@@ -108,30 +108,51 @@ function renderShell(site, page, dataJson) {
     });
 
     function renderHome(p) {
+      const features = p.content.features || {};
+      const examples = p.content.examples || {};
       return [
         C.Hero({
           title: p.content.heading,
-          body: p.content.subheading,
+          body: p.content.body || p.content.subheading,
+          badges: p.content.badges,
           accent: '— ' + (p.content.cta_text || 'read the paper'),
+          accentHref: p.content.cta_href,
         }),
-        C.Section({
-          title: '// pages',
+        features.items ? C.Section({
+          title: features.heading || '// features',
           children: C.Panel({
-            title: 'in this extraction',
-            count: data.nav.length,
-            children: data.nav.map(([label, href], i) =>
-              C.RowLink({
+            title: 'what makes avatar unique',
+            count: features.items.length,
+            children: features.items.map((it, i) =>
+              C.Row({
                 key: i,
                 code: String(i + 1).padStart(2, '0'),
-                title: label,
-                sub: '',
-                meta: '→',
-                href,
+                title: it.name,
+                sub: it.desc,
+                class: it.cat ? `rail rail-${it.cat}` : '',
               })
             ),
           }),
-        }),
-      ];
+        }) : null,
+        examples.items ? C.Section({
+          title: examples.heading || '// explore',
+          children: C.Panel({
+            title: 'project pages',
+            count: examples.items.length,
+            children: examples.items.map((it, i) =>
+              C.RowLink({
+                key: i,
+                code: String(i + 1).padStart(2, '0'),
+                title: it.name,
+                sub: '',
+                meta: it.cta || 'open',
+                href: it.href,
+                class: it.cat ? `rail rail-${it.cat}` : '',
+              })
+            ),
+          }),
+        }) : null,
+      ].filter(Boolean);
     }
 
     function renderPaper(p) {
@@ -181,6 +202,7 @@ function renderShell(site, page, dataJson) {
                 sub: it.description,
                 meta: 'open',
                 href: it.href || '#',
+                class: it.cat ? `rail rail-${it.cat}` : '',
               })
             ),
           }),
@@ -190,6 +212,7 @@ function renderShell(site, page, dataJson) {
 
     function renderOriginal(p) {
       const items = data.extras.originalArtifacts || [];
+      const pageItems = p.content.items || items;
       return [
         C.Hero({
           title: p.content.heading,
@@ -200,14 +223,14 @@ function renderShell(site, page, dataJson) {
           title: '// artifacts',
           children: C.Panel({
             title: 'wfgy-core/',
-            count: items.length,
-            children: items.map((it, i) =>
+            count: pageItems.length,
+            children: pageItems.map((it, i) =>
               C.Row({
                 key: i,
                 code: it.kind === 'directory' ? 'dir' : 'file',
                 title: it.name,
                 sub: '',
-                meta: '',
+                class: it.cat ? `rail rail-${it.cat}` : '',
               })
             ),
           }),

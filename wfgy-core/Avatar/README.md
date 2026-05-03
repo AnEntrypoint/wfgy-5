@@ -51,9 +51,10 @@ Next-page routing:
 AI_NOTE_END
 -->
 
-# ⭐️ WFGY 5.0 Avatar ⭐️ (Work in Progress) Released before 15th
+# ⭐️ WFGY 5.0 Avatar (Work in Progress)
 
-> **A protocol layer for engineered language and human machine interaction.** 
+> A protocol layer for engineered language and human machine interaction.  
+> Scheduled for public release on **2026/5/5**.
 
 [![WFGY Avatar](https://github.com/user-attachments/assets/5f220659-8245-4cb0-8d13-6d287eacde70)](https://github.com/onestardao/WFGY/blob/main/Avatar/README.md)
 

@@ -2,21 +2,26 @@ id: skills
 title: Skills
 template: grid
 content:
-  heading: "Capabilities"
-  description: "Recognition patterns that compose this project's skill set."
+  heading: Capabilities
+  description: Recognition patterns that compose this project's skill set, using 247420 indicator rails for category separation.
   items:
-    - name: "avatar-boot"
-      description: "See skills/avatar-boot.md"
-      href: "https://github.com"
-    - name: "persona-branching"
-      description: "See skills/persona-branching.md"
-      href: "https://github.com"
-    - name: "behavior-tuning"
-      description: "See skills/behavior-tuning.md"
-      href: "https://github.com"
-    - name: "multilingual-calibration"
-      description: "See skills/multilingual-calibration.md"
-      href: "https://github.com"
-    - name: "persona-recovery"
-      description: "See skills/persona-recovery.md"
-      href: "https://github.com"
+    - name: avatar-boot
+      description: Boot lawful persona, invoke PSBigBig/miniPS/YOUR_AVATAR_NAME.
+      href: ./skills/avatar-boot.md
+      cat: kit
+    - name: persona-branching
+      description: Create derivative selves with shared anchors, reconcilable branches.
+      href: ./skills/persona-branching.md
+      cat: think
+    - name: behavior-tuning
+      description: Adjust WFGY_BRAIN parameters without losing the self.
+      href: ./skills/behavior-tuning.md
+      cat: think
+    - name: multilingual-calibration
+      description: Cross-language route carry, drift control, no silent rewrite.
+      href: ./skills/multilingual-calibration.md
+      cat: doc
+    - name: persona-recovery
+      description: Restore avatars after corruption, attenuation, or over-cleaning.
+      href: ./skills/persona-recovery.md
+      cat: talk
