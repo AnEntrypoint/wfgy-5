@@ -129,7 +129,7 @@ function renderShell(site, page, dataJson) {
                 code: String(i + 1).padStart(2, '0'),
                 title: it.name,
                 sub: it.desc,
-                class: it.cat ? `rail rail-${it.cat}` : '',
+                class: it.cat ? 'rail rail-' + it.cat : '',
               })
             ),
           }),
@@ -147,7 +147,7 @@ function renderShell(site, page, dataJson) {
                 sub: '',
                 meta: it.cta || 'open',
                 href: it.href,
-                class: it.cat ? `rail rail-${it.cat}` : '',
+                class: it.cat ? 'rail rail-' + it.cat : '',
               })
             ),
           }),
@@ -202,7 +202,7 @@ function renderShell(site, page, dataJson) {
                 sub: it.description,
                 meta: 'open',
                 href: it.href || '#',
-                class: it.cat ? `rail rail-${it.cat}` : '',
+                class: it.cat ? 'rail rail-' + it.cat : '',
               })
             ),
           }),
