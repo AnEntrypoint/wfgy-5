@@ -230,7 +230,7 @@ function renderShell(site, page, dataJson) {
                 code: it.kind === 'directory' ? 'dir' : 'file',
                 title: it.name,
                 sub: '',
-                class: it.cat ? `rail rail-${it.cat}` : '',
+                'data-cat': it.cat || '',
               })
             ),
           }),
