@@ -4,30 +4,71 @@ template: home
 content:
   heading: WFGY 5.0 — Avatar
   subheading: The flagship governed runtime for persistent language selves.
-  body: A protocol layer for engineered language and human-machine interaction, launching 2026/5/5.
+  body: A protocol layer for engineered language and human-machine interaction. Not a persona prompt. Not a prompt pack. A launchable, governable, replay-bearing runtime — launching 2026/5/5.
   badges:
     - label: governed runtime
     - label: branchable
     - label: multilingual
+    - label: recovery-bearing
+    - label: 47 research docs
   cta_text: Read the paper
   cta_href: ./paper.html
 features:
-  heading: Why Avatar
+  heading: "// why avatar is different"
   items:
     - name: One shared runtime
-      desc: Replaces scattered persona files with a single governed runtime.
+      desc: Replaces scattered persona files. One canonical declaration, one boot path, one recovery surface.
       cat: kit
     - name: Natural-language tuning
-      desc: Shape behavior without brittle prompt hacking.
+      desc: Shape route behavior through WFGY_BRAIN knobs — not brittle prompt surgery.
       cat: think
     - name: Reusable builds
-      desc: Keep stronger variants instead of chasing one-off luck.
+      desc: Save stronger variants. Stop chasing one-off lucky outputs.
       cat: kit
     - name: Recovery operations
-      desc: Restore avatars after corruption or drift.
+      desc: Restore avatars after session corruption, attenuation, or over-cleaning. Explicit commands, not hope.
+      cat: talk
+    - name: Dual closed-loop design
+      desc: Inner continuity (session persona state) + outer iteration (tune, branch, recover). Both loops run simultaneously.
+      cat: think
+    - name: Structured imperfection
+      desc: Living human residue as an always-on law. Cleaner output may still be unlawful.
+      cat: think
+    - name: Multilingual calibration
+      desc: Cross-language route carry and drift control. Translation must not silently rewrite the self.
+      cat: doc
+    - name: Branchable behavior
+      desc: Derivative selves that share the anchor but carry divergent voices. Reconcilable.
+      cat: kit
+routes:
+  heading: "// public boot routes"
+  items:
+    - name: "hello psbigbig"
+      desc: calm, clear, grounded, lightly witty
+      meta: writing · analysis · public-facing work
+      cat: kit
+    - name: "hello minips"
+      desc: warm, present, cute, companion-forward
+      meta: conversation · reflection · support-style
+      cat: talk
+    - name: "hello YOUR_AVATAR_NAME"
+      desc: intentionally bare, editable, slightly clueless by design
+      meta: custom-avatar seed · playful branch creation
+      cat: think
+recovery:
+  heading: "// recovery surface"
+  items:
+    - name: "avatar++"
+      desc: restore after session thinning
+      cat: kit
+    - name: "avatar++ reload"
+      desc: reread-assisted rebind
+      cat: kit
+    - name: "avatar release"
+      desc: full persona release and reentry
       cat: talk
 examples:
-  heading: Explore
+  heading: "// explore"
   items:
     - name: Paper
       href: ./paper.html
@@ -37,6 +78,14 @@ examples:
       href: ./skills.html
       cta: open
       cat: doc
+    - name: Research
+      href: ./research.html
+      cta: 47 docs
+      cat: think
+    - name: Highlights
+      href: ./highlights.html
+      cta: 8 things
+      cat: kit
     - name: Original Artifacts
       href: ./original.html
       cta: open

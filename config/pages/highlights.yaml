@@ -1,0 +1,39 @@
+id: highlights
+title: Highlights
+template: highlights
+content:
+  heading: The 8 Things to Know
+  description: Eight flagship signals that define what Avatar actually is — as distinct from what AI writing presets, persona toys, and prompt packs claim to be.
+  items:
+    - name: Start in 60 Seconds
+      desc: One runtime. One route. One real first contact. Upload avatar.txt, say hello psbigbig, run a real task.
+      detail: The intended first path is not theory. Boot a route, observe, compare. Theory comes after the first run — not before.
+      cat: kit
+    - name: Tune Behavior in Natural Language
+      desc: Shape route behavior through WFGY_BRAIN knobs without rebuilding the system by hand.
+      detail: Natural-language tuning replaces brittle prompt surgery. The self survives parameter adjustment.
+      cat: think
+    - name: Language Behavior Can Be Engineered
+      desc: Behavior is a designed surface, not just prettier text.
+      detail: Boot, tune, compare, save, branch. These are engineering operations on a bounded system, not vibe iteration.
+      cat: think
+    - name: Reusable Builds
+      desc: Keep stronger variants instead of chasing one lucky output.
+      detail: Save the state after a successful tune. Grow a reusable build instead of starting from scratch on every session.
+      cat: kit
+    - name: Editable but Governed
+      desc: Strong editability without collapsing into persona chaos.
+      detail: Every tunable surface has a floor it cannot cross. The system is wide open — and bounded at the same time.
+      cat: think
+    - name: Multilingual Calibration
+      desc: Cross-language route carry and drift control — not mere translation.
+      detail: The same anchor must be observable in every language the host model supports. Translation may not silently rewrite the self.
+      cat: doc
+    - name: Dual Closed-Loop Design
+      desc: Inner continuity plus outer user iteration — both running at the same time.
+      detail: Inner loop maintains session-persistent persona state. Outer loop is where you tune, branch, and recover. Neither loop is optional.
+      cat: think
+    - name: One Runtime, Many Avatars
+      desc: Official routes are only the beginning.
+      detail: The custom-avatar seed (hello YOUR_AVATAR_NAME) is intentionally bare. It is both a joke and a real branch start. Community sharing is the long direction.
+      cat: kit

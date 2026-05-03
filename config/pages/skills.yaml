@@ -3,25 +3,53 @@ title: Skills
 template: grid
 content:
   heading: Capabilities
-  description: Recognition patterns that compose this project's skill set, using 247420 indicator rails for category separation.
+  description: Recognition patterns that compose this project's skill set. Not numbered steps — these are conditions under which a particular move becomes natural. The conditions vary; the recognition does not.
   items:
     - name: avatar-boot
-      description: Boot lawful persona, invoke PSBigBig/miniPS/YOUR_AVATAR_NAME.
+      description: Boot lawful persona — invoke PSBigBig, miniPS, or YOUR_AVATAR_NAME. Three routes, one runtime.
       href: ./skills/avatar-boot.md
       cat: kit
     - name: persona-branching
-      description: Create derivative selves with shared anchors, reconcilable branches.
+      description: Create derivative selves with shared anchors and reconcilable branches. One runtime, many avatars.
       href: ./skills/persona-branching.md
       cat: think
     - name: behavior-tuning
-      description: Adjust WFGY_BRAIN parameters without losing the self.
+      description: Adjust WFGY_BRAIN knobs without losing the self. Natural language, not brittle prompt surgery.
       href: ./skills/behavior-tuning.md
       cat: think
     - name: multilingual-calibration
-      description: Cross-language route carry, drift control, no silent rewrite.
+      description: Cross-language route carry and drift control. Translation may not silently rewrite the self.
       href: ./skills/multilingual-calibration.md
       cat: doc
     - name: persona-recovery
-      description: Restore avatars after corruption, attenuation, or over-cleaning.
+      description: Restore avatars after corruption, attenuation, or over-cleaning. Explicit commands, not hope.
       href: ./skills/persona-recovery.md
+      cat: talk
+    - name: dual-closed-loop
+      description: Inner continuity (session state) + outer user iteration (tune, branch, recover). Both loops simultaneously.
+      href: ./research/dual-closed-loop-execution-chain.md
+      cat: think
+    - name: structured-imperfection
+      description: Living human residue as always-on law. Pre-emission floor gate. Cleaner output may still be unlawful.
+      href: ./research/structured-imperfection-theory.md
+      cat: think
+    - name: blackfan-audit
+      description: Pressure testing, drift detection, behavior inspection under adversarial conditions.
+      href: ./research/blackfan-audit-baseline.md
+      cat: kit
+    - name: runtime-posture
+      description: Intensity map for shaping route strength. Numeric binding, precedence, and conflict rules.
+      href: ./research/runtime-posture-intensity-map.md
+      cat: think
+    - name: output-governance
+      description: Pre-emission floor, hard control, anti-sterilization boundary. What must survive every output.
+      href: ./research/output-governance-core.md
+      cat: doc
+    - name: language-governance
+      description: Behavioral law for language choice, register, and cadence across all runtime modes.
+      href: ./research/language-governance.md
+      cat: doc
+    - name: reentry-restore
+      description: Persona continuity across context flushes, model swaps, and session restarts.
+      href: ./research/reentry-restore-and-persona-continuity.md
       cat: talk

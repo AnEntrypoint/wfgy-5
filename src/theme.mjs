@@ -8,8 +8,6 @@ const DESIGN_CSS = 'https://unpkg.com/anentrypoint-design@latest/dist/247420.css
 const DESIGN_JS  = 'https://unpkg.com/anentrypoint-design@latest/dist/247420.js';
 
 function inlineMarkdown(md) {
-  // Returns an array of paragraphs/headings suitable for Manifesto({ paragraphs })
-  // plus a parallel HTML rendering for fallback. Each entry: { text, dim?, kind }.
   const lines = md.split(/\r?\n/);
   const out = [];
   let buf = [];
@@ -50,12 +48,13 @@ function listOriginalArtifacts(rel) {
 const NAV = [
   ['home', './index.html'],
   ['paper', './paper.html'],
+  ['highlights', './highlights.html'],
+  ['research', './research.html'],
   ['skills', './skills.html'],
   ['original', './original.html'],
 ];
 
 function pageBundle(site, nav, page, extras) {
-  // The data the inline browser script needs to render the page through the SDK.
   return JSON.stringify({
     site: { title: site.title, description: site.description, brand: site.brand || site.title },
     nav,
@@ -64,6 +63,10 @@ function pageBundle(site, nav, page, extras) {
       title: page.title,
       template: page.template,
       content: page.content,
+      routes: page.routes,
+      recovery: page.recovery,
+      features: page.features,
+      examples: page.examples,
     },
     extras,
   });
@@ -108,20 +111,25 @@ function renderShell(site, page, dataJson) {
     });
 
     function renderHome(p) {
-      const features = p.content.features || {};
-      const examples = p.content.examples || {};
+      const features = p.features || p.content.features || {};
+      const routes = p.routes || p.content.routes || {};
+      const recovery = p.recovery || p.content.recovery || {};
+      const examples = p.examples || p.content.examples || {};
+      const c = p.content;
+
       return [
         C.Hero({
-          title: p.content.heading,
-          body: p.content.body || p.content.subheading,
-          badges: p.content.badges,
-          accent: '— ' + (p.content.cta_text || 'read the paper'),
-          accentHref: p.content.cta_href,
+          title: c.heading,
+          body: c.body || c.subheading,
+          badges: c.badges,
+          accent: '— ' + (c.cta_text || 'read the paper'),
+          accentHref: c.cta_href,
         }),
+
         features.items ? C.Section({
-          title: features.heading || '// features',
+          title: features.heading || '// why avatar is different',
           children: C.Panel({
-            title: 'what makes avatar unique',
+            title: 'eight structural differences',
             count: features.items.length,
             children: features.items.map((it, i) =>
               C.Row({
@@ -134,10 +142,45 @@ function renderShell(site, page, dataJson) {
             ),
           }),
         }) : null,
+
+        routes.items ? C.Section({
+          title: routes.heading || '// public boot routes',
+          children: C.Panel({
+            title: 'three routes, one runtime',
+            count: routes.items.length,
+            children: routes.items.map((it, i) =>
+              C.Row({
+                key: i,
+                code: String(i + 1).padStart(2, '0'),
+                title: it.name,
+                sub: it.desc + ' — ' + it.meta,
+                'data-cat': it.cat || '',
+              })
+            ),
+          }),
+        }) : null,
+
+        recovery.items ? C.Section({
+          title: recovery.heading || '// recovery surface',
+          children: C.Panel({
+            title: 'restore after corruption or drift',
+            count: recovery.items.length,
+            children: recovery.items.map((it, i) =>
+              C.Row({
+                key: i,
+                code: String(i + 1).padStart(2, '0'),
+                title: it.name,
+                sub: it.desc,
+                'data-cat': it.cat || '',
+              })
+            ),
+          }),
+        }) : null,
+
         examples.items ? C.Section({
           title: examples.heading || '// explore',
           children: C.Panel({
-            title: 'project pages',
+            title: 'pages',
             count: examples.items.length,
             children: examples.items.map((it, i) =>
               C.RowLink({
@@ -157,7 +200,6 @@ function renderShell(site, page, dataJson) {
 
     function renderPaper(p) {
       const blocks = data.extras.paperBlocks || [];
-      // Group consecutive non-heading blocks into paragraphs; turn headings into Section titles.
       const sections = [];
       let current = { title: p.content.heading, paragraphs: [] };
       for (const b of blocks) {
@@ -179,6 +221,74 @@ function renderShell(site, page, dataJson) {
           children: C.Manifesto({ paragraphs: s.paragraphs, maxWidth: 760 }),
         })
       );
+    }
+
+    function renderHighlights(p) {
+      const items = p.content.items || [];
+      return [
+        C.Hero({
+          title: p.content.heading,
+          body: p.content.description,
+          accent: '8 structural signals.',
+        }),
+        C.Section({
+          title: '// eight things',
+          children: C.Panel({
+            title: 'flagship concepts',
+            count: items.length,
+            children: items.map((it, i) =>
+              C.Row({
+                key: i,
+                code: String(i + 1).padStart(2, '0'),
+                title: it.name,
+                sub: it.desc + (it.detail ? ' — ' + it.detail : ''),
+                'data-cat': it.cat || '',
+              })
+            ),
+          }),
+        }),
+      ];
+    }
+
+    function renderResearch(p) {
+      const items = p.content.items || [];
+      const bycat = { think: [], kit: [], doc: [], talk: [] };
+      for (const it of items) {
+        const c = it.cat || 'doc';
+        if (!bycat[c]) bycat[c] = [];
+        bycat[c].push(it);
+      }
+      const catLabel = { think: '// reasoning + architecture', kit: '// runtime + engineering', doc: '// governance + law', talk: '// persona + recovery' };
+      const sections = [];
+      for (const [cat, catItems] of Object.entries(bycat)) {
+        if (!catItems.length) continue;
+        sections.push(
+          C.Section({
+            title: catLabel[cat] || ('// ' + cat),
+            children: C.Panel({
+              title: cat + ' layer',
+              count: catItems.length,
+              children: catItems.map((it, i) =>
+                C.Row({
+                  key: cat + i,
+                  code: String(i + 1).padStart(2, '0'),
+                  title: it.name,
+                  sub: it.desc,
+                  'data-cat': it.cat || '',
+                })
+              ),
+            }),
+          })
+        );
+      }
+      return [
+        C.Hero({
+          title: p.content.heading,
+          body: p.content.description,
+          accent: items.length + ' documents.',
+        }),
+        ...sections,
+      ];
     }
 
     function renderSkills(p) {
@@ -238,8 +348,15 @@ function renderShell(site, page, dataJson) {
       ];
     }
 
-    const renderers = { home: renderHome, paper: renderPaper, skills: renderSkills, original: renderOriginal };
-    const renderer = renderers[data.page.id] || renderHome;
+    const renderers = {
+      home: renderHome,
+      paper: renderPaper,
+      highlights: renderHighlights,
+      research: renderResearch,
+      skills: renderSkills,
+      original: renderOriginal,
+    };
+    const renderer = renderers[data.page.id] || renderers[data.page.template] || renderHome;
 
     mount(document.getElementById('app'), () => C.AppShell({
       topbar,
