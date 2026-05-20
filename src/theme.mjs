@@ -75,7 +75,7 @@ function pageBundle(site, nav, page, extras) {
 function renderShell(site, page, dataJson) {
   const fullTitle = page.id === 'home' ? site.title : `${page.title} — ${site.title}`;
   return `<!doctype html>
-<html lang="en" class="ds-247420" data-theme="light">
+<html lang="en" class="ds-247420" data-theme="paper" data-density="comfortable">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,6 +86,30 @@ function renderShell(site, page, dataJson) {
     { "imports": { "anentrypoint-design": "${DESIGN_JS}" } }
   </script>
   <title>${fullTitle}</title>
+  <style>
+    /* Archive-specific theming */
+    :root {
+      --accent: var(--purple);
+    }
+
+    /* Prose rhythm for editorial pages */
+    .ds-prose {
+      --prose-stack-md: 24px;
+      --measure: 68ch;
+    }
+
+    /* Category-based visual indicators */
+    [data-cat="think"] { --cat-accent: var(--purple); }
+    [data-cat="kit"] { --cat-accent: var(--green); }
+    [data-cat="doc"] { --cat-accent: var(--sky); }
+    [data-cat="talk"] { --cat-accent: var(--mascot); }
+
+    /* File type indicators */
+    [data-file-type="directory"] { border-left-color: var(--green); }
+    [data-file-type="text"] { border-left-color: var(--sky); }
+    [data-file-type="code"] { border-left-color: var(--green-2); }
+    [data-file-type="other"] { border-left-color: var(--panel-text-2); }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -215,12 +239,19 @@ function renderShell(site, page, dataJson) {
         }
       }
       if (current.paragraphs.length) sections.push(current);
-      return sections.map(s =>
-        C.Section({
-          title: s.title,
-          children: C.Manifesto({ paragraphs: s.paragraphs, maxWidth: 760 }),
-        })
-      );
+      return [
+        C.Hero({
+          title: p.content.heading,
+          body: 'The complete Avatar research archive, preserved for study and historical continuity.',
+          accent: '47 documents.',
+        }),
+        ...sections.map(s =>
+          C.Section({
+            title: s.title,
+            children: C.Manifesto({ paragraphs: s.paragraphs, maxWidth: 760 }),
+          })
+        ),
+      ];
     }
 
     function renderHighlights(p) {
@@ -232,9 +263,10 @@ function renderShell(site, page, dataJson) {
           accent: '8 structural signals.',
         }),
         C.Section({
-          title: '// eight things',
+          eyebrow: '// archive essence',
+          title: 'Eight Flagship Concepts',
           children: C.Panel({
-            title: 'flagship concepts',
+            title: 'Avatar research highlights',
             count: items.length,
             children: items.map((it, i) =>
               C.Row({
@@ -293,54 +325,72 @@ function renderShell(site, page, dataJson) {
 
     function renderSkills(p) {
       const items = p.content.items || [];
+      const bycat = { think: [], kit: [], doc: [], talk: [] };
+      for (const it of items) {
+        const c = it.cat || 'think';
+        if (!bycat[c]) bycat[c] = [];
+        bycat[c].push(it);
+      }
+      const catLabel = { think: '// reasoning & design', kit: '// engineering & operations', doc: '// governance & law', talk: '// recovery & continuity' };
       return [
         C.Hero({
           title: p.content.heading,
           body: p.content.description,
-          accent: 'recognition patterns, not procedures.',
+          accent: '12 capability patterns.',
         }),
-        C.Section({
-          title: '// capabilities',
-          children: C.Panel({
-            title: 'skills in this extraction',
-            count: items.length,
-            children: items.map((it, i) =>
-              C.RowLink({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: it.description,
-                meta: 'open',
-                href: it.href || '#',
-                'data-cat': it.cat || '',
-              })
-            ),
-          }),
-        }),
+        ...Object.entries(bycat).map(([cat, catItems]) => {
+          if (!catItems.length) return null;
+          return C.Section({
+            title: catLabel[cat] || ('// ' + cat),
+            children: C.Panel({
+              title: cat + ' layer',
+              count: catItems.length,
+              children: catItems.map((it, i) =>
+                C.RowLink({
+                  key: cat + i,
+                  code: String(i + 1).padStart(2, '0'),
+                  title: it.name,
+                  sub: it.description,
+                  meta: 'github',
+                  href: it.href || '#',
+                  'data-cat': it.cat || '',
+                })
+              ),
+            }),
+          });
+        }).filter(Boolean),
       ];
     }
 
     function renderOriginal(p) {
       const items = data.extras.originalArtifacts || [];
       const pageItems = p.content.items || items;
+      const getFileType = (item) => {
+        if (item.kind === 'directory') return 'directory';
+        if (item.name.endsWith('.md')) return 'text';
+        if (item.name.endsWith('.yaml') || item.name.endsWith('.yml')) return 'text';
+        if (item.name.endsWith('.json')) return 'text';
+        return 'file';
+      };
       return [
         C.Hero({
           title: p.content.heading,
           body: p.content.description,
-          accent: 'copied verbatim from the upstream WFGY repository.',
+          accent: 'complete Avatar research library.',
         }),
         C.Section({
-          title: '// artifacts',
+          title: '// wfgy-core archive',
           children: C.Panel({
-            title: 'wfgy-core/',
+            title: 'Original research artifacts',
             count: pageItems.length,
             children: pageItems.map((it, i) =>
               C.Row({
                 key: i,
-                code: it.kind === 'directory' ? 'dir' : 'file',
+                code: it.kind === 'directory' ? '/' : getFileType(it).charAt(0).toUpperCase(),
                 title: it.name,
-                sub: '',
+                sub: it.kind === 'directory' ? 'folder' : getFileType(it),
                 'data-cat': it.cat || '',
+                'data-file-type': getFileType(it),
               })
             ),
           }),

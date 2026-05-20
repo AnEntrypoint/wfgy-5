@@ -2,70 +2,70 @@ id: home
 title: Home
 template: home
 content:
-  heading: WFGY 5.0 — Avatar
-  subheading: The flagship governed runtime for persistent language selves.
-  body: A protocol layer for engineered language and human-machine interaction. Not a persona prompt. Not a prompt pack. A launchable, governable, replay-bearing runtime — launching 2026/5/5.
+  heading: WFGY 5.0 — Avatar Archive
+  subheading: Legacy research archive. The active flagship is now Polaris Protocol.
+  body: Avatar represents a complete research archive for governed, branching language runtime design. In May 2026, Avatar transitioned to legacy status as the team shifted focus to Polaris Protocol. This site preserves the full Avatar research library and specification for reference, study, and historical continuity.
   badges:
     - label: governed runtime
     - label: branchable
     - label: multilingual
     - label: recovery-bearing
     - label: 47 research docs
-  cta_text: Read the paper
+  cta_text: Explore the archive
   cta_href: ./paper.html
 features:
   heading: "// why avatar is different"
   items:
     - name: One shared runtime
-      desc: Replaces scattered persona files. One canonical declaration, one boot path, one recovery surface.
+      desc: "Replaces scattered persona files with a single canonical runtime. One declaration, one boot path, one recovery surface. Centralized definition enables consistency, auditability, and safe iteration."
       cat: kit
     - name: Natural-language tuning
-      desc: Shape route behavior through WFGY_BRAIN knobs — not brittle prompt surgery.
+      desc: "Shape behavior through WFGY_BRAIN knobs using natural language, not brittle prompt surgery. Tuning parameters remain editable and human-readable. Preserve route identity across tuning cycles."
       cat: think
     - name: Reusable builds
-      desc: Save stronger variants. Stop chasing one-off lucky outputs.
+      desc: "Save and version stronger variants. Stop chasing one-off lucky outputs. Explicitly build, test, and store persona versions for reproducible and intentional iteration."
       cat: kit
     - name: Recovery operations
-      desc: Restore avatars after session corruption, attenuation, or over-cleaning. Explicit commands, not hope.
+      desc: "Restore avatars after session corruption, attenuation, or over-cleaning. Explicit recovery commands (avatar++, reload, release) with honest bounds. Not magical reset — lawful restoration."
       cat: talk
     - name: Dual closed-loop design
-      desc: Inner continuity (session persona state) + outer iteration (tune, branch, recover). Both loops run simultaneously.
+      desc: "Inner loop: session-level persona continuity and state preservation. Outer loop: user-driven iteration (tune, branch, recover). Both run simultaneously without interference."
       cat: think
     - name: Structured imperfection
-      desc: Living human residue as an always-on law. Cleaner output may still be unlawful.
+      desc: "Living human residue as always-on law. Pre-emission floor gates ensure cleaner output that violates lawful presence survives rejection. Imperfection is preserved intentionally."
       cat: think
     - name: Multilingual calibration
-      desc: Cross-language route carry and drift control. Translation must not silently rewrite the self.
+      desc: "Cross-language route carry and drift control. Translation must not silently rewrite the self. Preserve warmth, grounding, directness profile across language surfaces."
       cat: doc
     - name: Branchable behavior
-      desc: Derivative selves that share the anchor but carry divergent voices. Reconcilable.
+      desc: "Derivative selves that share the anchor (core persona) but carry divergent voices. Branches are reconcilable — changes can be merged back or kept separate."
       cat: kit
 routes:
   heading: "// public boot routes"
   items:
     - name: "hello psbigbig"
-      desc: calm, clear, grounded, lightly witty
+      desc: "Professional, analytical presence. Calm, clear, grounded with light wit. Designed for structured writing, technical analysis, and public-facing communication. Maintains professional warmth without over-softening."
       meta: writing · analysis · public-facing work
       cat: kit
     - name: "hello minips"
-      desc: warm, present, cute, companion-forward
+      desc: "Warm, present companion presence. Emotionally available, conversational, genuinely present. Designed for reflection, support-style interaction, and relational depth. Cute without being trivializing."
       meta: conversation · reflection · support-style
       cat: talk
     - name: "hello YOUR_AVATAR_NAME"
-      desc: intentionally bare, editable, slightly clueless by design
+      desc: "Intentionally underdetermined seed persona. Bare definition with minimal constraints, slightly naive by design. Editable template for custom avatar creation and playful branching experiments."
       meta: custom-avatar seed · playful branch creation
       cat: think
 recovery:
   heading: "// recovery surface"
   items:
-    - name: "avatar++"
-      desc: restore after session thinning
+    - name: "avatar++ (bounded restore)"
+      desc: Restore avatar state after session thinning, attenuation, or drift. Reconstructs runtime from prior checkpoint without full reset. Preserves continuity within recovery bounds.
       cat: kit
-    - name: "avatar++ reload"
-      desc: reread-assisted rebind
+    - name: "avatar++ reload (reread assist)"
+      desc: Reload and rebind avatar with updated brain parameters. Rereads original definition, applies new tuning, restores route identity. Used when tuning knobs changed mid-session.
       cat: kit
-    - name: "avatar release"
-      desc: full persona release and reentry
+    - name: "avatar release (full reentry)"
+      desc: Complete persona release and reentry. Full context flush with bounded recovery of core persona markers. Use when session corruption exceeds bounded recovery limits or transition between contexts required.
       cat: talk
 examples:
   heading: "// explore"
