@@ -24,6 +24,7 @@ node_modules/
 .gm/last-instruction-ts
 .gm/last-prompt.txt
 .gm/long-gap-retry-state
+.gm/residual-check-fired
 # tracked: .gm/rs-learn.db, .gm/code-search/, .gm/disciplines/, .gm/instructions/, AGENTS.md, .gm/prd.yml, CLAUDE.md
 # <<< gm managed
 .plugkit-browser-profile/
