@@ -17,9 +17,19 @@ node_modules/
 .gm/prd.paused.yml
 .gm/rs-learn.db-shm
 .gm/rs-learn.db-wal
-# tracked: .gm/rs-learn.db, .gm/code-search/, AGENTS.md, .gm/prd.yml
+.gm/exec-spool/
+.gm/browser-state/
+.gm/next-step.md
+.gm/last-dispatch-ts
+.gm/last-instruction-ts
+.gm/last-prompt.txt
+.gm/long-gap-retry-state
+# tracked: .gm/rs-learn.db, .gm/code-search/, .gm/disciplines/, .gm/instructions/, AGENTS.md, .gm/prd.yml, CLAUDE.md
 # <<< gm managed
 .plugkit-browser-profile/
 .plugkit-browser-profile-*/
 .plugkit-agent-worktree/
 *.stackdump
+.gm/pw-sock-*/
+.gm/browser-profile/
+.gm/browser-profile-*/

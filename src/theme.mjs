@@ -66,6 +66,8 @@ function pageBundle(site, nav, page, extras) {
       routes: page.routes,
       recovery: page.recovery,
       features: page.features,
+      polaris: page.polaris,
+      timeline: page.timeline,
       examples: page.examples,
     },
     extras,
@@ -92,30 +94,36 @@ function renderShell(site, page, dataJson) {
       --accent: var(--purple);
     }
 
-    /* Prose rhythm for editorial pages */
-    .ds-prose {
-      --prose-stack-md: 24px;
-      --measure: 68ch;
-    }
+    /* Category-based visual indicators. Rows carry rail-<tone> (SDK-native);
+       these rules apply to any element we tag with a real data-cat attribute
+       directly (see .cat-chip below), since Row/RowLink cannot carry one. */
+    [data-cat="think"] { --cat-accent: var(--cat-purple); }
+    [data-cat="kit"]   { --cat-accent: var(--cat-green); }
+    [data-cat="doc"]   { --cat-accent: var(--cat-sky); }
+    [data-cat="talk"]  { --cat-accent: var(--cat-mascot); }
+    .cat-chip[data-cat] { border-left: 3px solid var(--cat-accent); padding-left: var(--space-2); }
 
-    /* Category-based visual indicators */
-    [data-cat="think"] { --cat-accent: var(--purple); }
-    [data-cat="kit"] { --cat-accent: var(--green); }
-    [data-cat="doc"] { --cat-accent: var(--sky); }
-    [data-cat="talk"] { --cat-accent: var(--mascot); }
-
-    /* File type indicators */
-    [data-file-type="directory"] { border-left-color: var(--green); }
-    [data-file-type="text"] { border-left-color: var(--sky); }
-    [data-file-type="code"] { border-left-color: var(--green-2); }
-    [data-file-type="other"] { border-left-color: var(--panel-text-2); }
+    /* File type indicators (real SDK contract: dir|image|video|audio|code|text|archive|document|symlink|other) */
+    .file-cell[data-file-type] { border-left: 3px solid transparent; padding-left: var(--space-2); }
+    [data-file-type="dir"]     { border-left-color: var(--accent); }
+    [data-file-type="text"]    { border-left-color: var(--sky); }
+    [data-file-type="code"]    { border-left-color: var(--green-2); }
+    [data-file-type="document"]{ border-left-color: var(--amber); }
+    [data-file-type="other"]   { border-left-color: var(--fg-3); }
   </style>
 </head>
 <body>
   <div id="app"></div>
   <script type="module">
-    import { mount, components as C } from 'anentrypoint-design';
+    import { mount, components as C, h } from 'anentrypoint-design';
     const data = ${dataJson};
+
+    // cat (think/kit/doc/talk) -> Row's \`rail\` tone prop. \`rail\` is the SDK's
+    // real, supported per-row accent mechanism (rail-<tone> class); a bare
+    // data-cat prop passed into C.Row is silently dropped since Row
+    // destructures a fixed prop list with no rest/spread, so it never reaches
+    // the DOM.
+    const CAT_RAIL = { think: 'purple', kit: 'green', doc: 'sky', talk: 'mascot' };
 
     const topbar = C.Topbar({
       brand: data.site.brand,
@@ -129,94 +137,129 @@ function renderShell(site, page, dataJson) {
       leaf: data.page.id,
     });
 
-    const status = C.Status({
-      left: ['main'],
-      right: ['live'],
-    });
+    // Built inside the render loop (not hoisted like topbar/crumb) because
+    // ThemeToggle's own label reflects current theme state and must refresh
+    // when the toggle is clicked.
+    function buildStatus(rerender) {
+      return C.Status({
+        left: ['main'],
+        right: [C.ThemeToggle({ compact: true, onChange: () => rerender && rerender() }), 'live'],
+      });
+    }
+
+    // Wraps a data-cat value onto a real DOM node -- Row/RowLink cannot carry
+    // an arbitrary attribute (fixed prop destructure, no passthrough), so the
+    // category tag renders as a small leading chip beside the row instead.
+    function catChip(cat) {
+      if (!cat) return null;
+      return h('span', { class: 'cat-chip', 'data-cat': cat }, cat);
+    }
+
+    function itemsPanel(heading, panelTitle, items, mapFn) {
+      return C.Section({
+        title: heading,
+        children: C.Panel({
+          title: panelTitle,
+          count: items.length,
+          children: items.map(mapFn),
+        }),
+      });
+    }
 
     function renderHome(p) {
       const features = p.features || p.content.features || {};
       const routes = p.routes || p.content.routes || {};
       const recovery = p.recovery || p.content.recovery || {};
+      const polaris = p.polaris || p.content.polaris || {};
+      const timeline = p.timeline || p.content.timeline || {};
       const examples = p.examples || p.content.examples || {};
       const c = p.content;
 
+      const ctas = [{ label: c.cta_text || 'read the paper', href: c.cta_href, primary: true }];
+      if (c.cta2_text && c.cta2_href) ctas.push({ label: c.cta2_text, href: c.cta2_href });
+
       return [
-        C.Hero({
-          title: c.heading,
-          body: c.body || c.subheading,
+        C.HeroFromPageData({
+          heading: c.heading,
+          subheading: c.subheading,
+          body: c.body,
           badges: c.badges,
-          accent: '— ' + (c.cta_text || 'read the paper'),
-          accentHref: c.cta_href,
+          ctas,
         }),
 
-        features.items ? C.Section({
-          title: features.heading || '// why avatar is different',
-          children: C.Panel({
-            title: 'eight structural differences',
-            count: features.items.length,
-            children: features.items.map((it, i) =>
-              C.Row({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: it.desc,
-                'data-cat': it.cat || '',
-              })
-            ),
-          }),
-        }) : null,
+        polaris.items ? itemsPanel(
+          polaris.heading || '// the active flagship: polaris protocol',
+          polaris.description || 'polaris components',
+          polaris.items,
+          (it, i) => C.Row({
+            key: 'pl' + i,
+            code: String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc + (it.meta ? ' — ' + it.meta : ''),
+            rail: CAT_RAIL[it.cat] || null,
+            leading: catChip(it.cat),
+          })
+        ) : null,
 
-        routes.items ? C.Section({
-          title: routes.heading || '// public boot routes',
-          children: C.Panel({
-            title: 'three routes, one runtime',
-            count: routes.items.length,
-            children: routes.items.map((it, i) =>
-              C.Row({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: it.desc + ' — ' + it.meta,
-                'data-cat': it.cat || '',
-              })
-            ),
-          }),
-        }) : null,
+        features.items ? itemsPanel(
+          features.heading || '// why avatar is different',
+          'eight structural differences',
+          features.items,
+          (it, i) => C.Row({
+            key: 'f' + i,
+            code: String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc,
+            rail: CAT_RAIL[it.cat] || null,
+          })
+        ) : null,
 
-        recovery.items ? C.Section({
-          title: recovery.heading || '// recovery surface',
-          children: C.Panel({
-            title: 'restore after corruption or drift',
-            count: recovery.items.length,
-            children: recovery.items.map((it, i) =>
-              C.Row({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: it.desc,
-                'data-cat': it.cat || '',
-              })
-            ),
-          }),
-        }) : null,
+        routes.items ? itemsPanel(
+          routes.heading || '// public boot routes',
+          'three routes, one runtime',
+          routes.items,
+          (it, i) => C.Row({
+            key: 'r' + i,
+            code: String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc + ' — ' + it.meta,
+            rail: CAT_RAIL[it.cat] || null,
+          })
+        ) : null,
+
+        recovery.items ? itemsPanel(
+          recovery.heading || '// recovery surface',
+          'restore after corruption or drift',
+          recovery.items,
+          (it, i) => C.Row({
+            key: 'rc' + i,
+            code: String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc,
+            rail: CAT_RAIL[it.cat] || null,
+          })
+        ) : null,
+
+        timeline.items ? itemsPanel(
+          timeline.heading || '// shipped history',
+          timeline.description || 'release timeline',
+          timeline.items,
+          (it, i) => C.Row({
+            key: 'tl' + i,
+            code: it.meta || String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc,
+            rail: CAT_RAIL[it.cat] || null,
+          })
+        ) : null,
 
         examples.items ? C.Section({
           title: examples.heading || '// explore',
-          children: C.Panel({
-            title: 'pages',
+          children: C.PanelFromItems({
+            heading: 'pages',
             count: examples.items.length,
-            children: examples.items.map((it, i) =>
-              C.RowLink({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: '',
-                meta: it.cta || 'open',
-                href: it.href,
-                'data-cat': it.cat || '',
-              })
-            ),
+            keyPrefix: 'e',
+            items: examples.items.map(it => ({ title: it.name, sub: '', meta: it.cta || 'open', href: it.href })),
           }),
         }) : null,
       ].filter(Boolean);
@@ -262,115 +305,96 @@ function renderShell(site, page, dataJson) {
           body: p.content.description,
           accent: '8 structural signals.',
         }),
-        C.Section({
-          eyebrow: '// archive essence',
-          title: 'Eight Flagship Concepts',
-          children: C.Panel({
-            title: 'Avatar research highlights',
-            count: items.length,
-            children: items.map((it, i) =>
-              C.Row({
-                key: i,
-                code: String(i + 1).padStart(2, '0'),
-                title: it.name,
-                sub: it.desc + (it.detail ? ' — ' + it.detail : ''),
-                'data-cat': it.cat || '',
-              })
-            ),
-          }),
-        }),
+        itemsPanel(
+          '// archive essence',
+          'Avatar research highlights',
+          items,
+          (it, i) => C.Row({
+            key: i,
+            code: String(i + 1).padStart(2, '0'),
+            title: it.name,
+            sub: it.desc + (it.detail ? ' — ' + it.detail : ''),
+            rail: CAT_RAIL[it.cat] || null,
+          })
+        ),
       ];
+    }
+
+    // Groups items by cat, renders one filterable panel per category, plus a
+    // FilterPills control that toggles visibility client-side via re-render.
+    function renderByCategory(p, items, catLabel, defaultCat, keyPrefix, toRow) {
+      const bycat = { think: [], kit: [], doc: [], talk: [] };
+      for (const it of items) {
+        const c = it.cat || defaultCat;
+        if (!bycat[c]) bycat[c] = [];
+        bycat[c].push(it);
+      }
+      let activeFilter = null;
+      return (rerender) => {
+        const options = Object.keys(bycat).filter(c => bycat[c].length).map(c => ({ id: c, label: c }));
+        const filterPills = C.FilterPills({
+          options,
+          selected: activeFilter,
+          label: 'filter by category',
+          onSelect: (id) => { activeFilter = activeFilter === id ? null : id; rerender && rerender(); },
+        });
+        const sections = Object.entries(bycat)
+          .filter(([cat, catItems]) => catItems.length && (!activeFilter || activeFilter === cat))
+          .map(([cat, catItems]) =>
+            itemsPanel(catLabel[cat] || ('// ' + cat), cat + ' layer', catItems,
+              (it, i) => toRow(it, i, cat, keyPrefix))
+          );
+        return [
+          C.Hero({
+            title: p.content.heading,
+            body: p.content.description,
+            accent: items.length + (items.length === 1 ? ' item.' : ' items.'),
+          }),
+          filterPills,
+          ...sections,
+        ];
+      };
     }
 
     function renderResearch(p) {
       const items = p.content.items || [];
-      const bycat = { think: [], kit: [], doc: [], talk: [] };
-      for (const it of items) {
-        const c = it.cat || 'doc';
-        if (!bycat[c]) bycat[c] = [];
-        bycat[c].push(it);
-      }
       const catLabel = { think: '// reasoning + architecture', kit: '// runtime + engineering', doc: '// governance + law', talk: '// persona + recovery' };
-      const sections = [];
-      for (const [cat, catItems] of Object.entries(bycat)) {
-        if (!catItems.length) continue;
-        sections.push(
-          C.Section({
-            title: catLabel[cat] || ('// ' + cat),
-            children: C.Panel({
-              title: cat + ' layer',
-              count: catItems.length,
-              children: catItems.map((it, i) =>
-                C.Row({
-                  key: cat + i,
-                  code: String(i + 1).padStart(2, '0'),
-                  title: it.name,
-                  sub: it.desc,
-                  'data-cat': it.cat || '',
-                })
-              ),
-            }),
-          })
-        );
-      }
-      return [
-        C.Hero({
-          title: p.content.heading,
-          body: p.content.description,
-          accent: items.length + ' documents.',
-        }),
-        ...sections,
-      ];
+      return renderByCategory(p, items, catLabel, 'doc', 'res', (it, i, cat, kp) => C.Row({
+        key: kp + cat + i,
+        code: String(i + 1).padStart(2, '0'),
+        title: it.name,
+        sub: it.desc,
+        rail: CAT_RAIL[it.cat] || null,
+      }));
     }
 
     function renderSkills(p) {
       const items = p.content.items || [];
-      const bycat = { think: [], kit: [], doc: [], talk: [] };
-      for (const it of items) {
-        const c = it.cat || 'think';
-        if (!bycat[c]) bycat[c] = [];
-        bycat[c].push(it);
-      }
       const catLabel = { think: '// reasoning & design', kit: '// engineering & operations', doc: '// governance & law', talk: '// recovery & continuity' };
-      return [
-        C.Hero({
-          title: p.content.heading,
-          body: p.content.description,
-          accent: '12 capability patterns.',
-        }),
-        ...Object.entries(bycat).map(([cat, catItems]) => {
-          if (!catItems.length) return null;
-          return C.Section({
-            title: catLabel[cat] || ('// ' + cat),
-            children: C.Panel({
-              title: cat + ' layer',
-              count: catItems.length,
-              children: catItems.map((it, i) =>
-                C.RowLink({
-                  key: cat + i,
-                  code: String(i + 1).padStart(2, '0'),
-                  title: it.name,
-                  sub: it.description,
-                  meta: 'github',
-                  href: it.href || '#',
-                  'data-cat': it.cat || '',
-                })
-              ),
-            }),
-          });
-        }).filter(Boolean),
-      ];
+      // RowLink is a thin wrapper with a fixed prop list (code/title/sub/meta/
+      // href/key/target) that does not forward rail -- using Row directly
+      // with kind:link gets both the link behavior and the category tone.
+      return renderByCategory(p, items, catLabel, 'think', 'sk', (it, i, cat, kp) => C.Row({
+        key: kp + cat + i,
+        kind: 'link',
+        code: String(i + 1).padStart(2, '0'),
+        title: it.name,
+        sub: it.description,
+        meta: 'github',
+        href: it.href || '#',
+        rail: CAT_RAIL[it.cat] || null,
+      }));
     }
 
     function renderOriginal(p) {
       const items = data.extras.originalArtifacts || [];
       const pageItems = p.content.items || items;
       const getFileType = (item) => {
-        if (item.kind === 'directory') return 'directory';
+        if (item.kind === 'directory') return 'dir';
         if (item.name.endsWith('.md')) return 'text';
         if (item.name.endsWith('.yaml') || item.name.endsWith('.yml')) return 'text';
         if (item.name.endsWith('.json')) return 'text';
-        return 'file';
+        return 'other';
       };
       return [
         C.Hero({
@@ -383,16 +407,17 @@ function renderShell(site, page, dataJson) {
           children: C.Panel({
             title: 'Original research artifacts',
             count: pageItems.length,
-            children: pageItems.map((it, i) =>
-              C.Row({
-                key: i,
-                code: it.kind === 'directory' ? '/' : getFileType(it).charAt(0).toUpperCase(),
-                title: it.name,
-                sub: it.kind === 'directory' ? 'folder' : getFileType(it),
-                'data-cat': it.cat || '',
-                'data-file-type': getFileType(it),
-              })
-            ),
+            children: pageItems.map((it, i) => {
+              const ft = getFileType(it);
+              return h('div', { key: i, class: 'file-cell', 'data-file-type': ft },
+                C.Row({
+                  code: it.kind === 'directory' ? '/' : ft.charAt(0).toUpperCase(),
+                  title: it.name,
+                  sub: it.kind === 'directory' ? 'folder' : ft,
+                  rail: CAT_RAIL[it.cat] || null,
+                })
+              );
+            }),
           }),
         }),
       ];
@@ -407,13 +432,16 @@ function renderShell(site, page, dataJson) {
       original: renderOriginal,
     };
     const renderer = renderers[data.page.id] || renderers[data.page.template] || renderHome;
+    // Call the page renderer exactly once, outside the mount render loop, so
+    // a stateful renderer (renderByCategory's activeFilter closure) survives
+    // across re-renders. Calling renderer(data.page) fresh inside viewFn would
+    // reset that closure -- and any local state -- on every re-render.
+    const mainResult = renderer(data.page);
 
-    mount(document.getElementById('app'), () => C.AppShell({
-      topbar,
-      crumb,
-      main: renderer(data.page),
-      status,
-    }));
+    mount(document.getElementById('app'), (rerender) => {
+      const main = typeof mainResult === 'function' ? mainResult(rerender) : mainResult;
+      return C.AppShell({ topbar, crumb, main, status: buildStatus(rerender) });
+    });
   </script>
 </body>
 </html>`;

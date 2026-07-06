@@ -3,8 +3,8 @@ title: Home
 template: home
 content:
   heading: WFGY 5.0 — Avatar Archive
-  subheading: Legacy research archive. The active flagship is now Polaris Protocol.
-  body: Avatar represents a complete research archive for governed, branching language runtime design. In May 2026, Avatar transitioned to legacy status as the team shifted focus to Polaris Protocol. This site preserves the full Avatar research library and specification for reference, study, and historical continuity.
+  subheading: "WFGY: Wan Fa Gui Yi — all methods return to one. Avatar is now a legacy archive; the active flagship is Polaris Protocol."
+  body: Avatar represents a complete research archive for governed, branching language runtime design — one public direction of WFGY 5.0. In the weeks around its April 2026 research expansion, the project moved its active entry point to Polaris Protocol, a broader governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. This site preserves the full Avatar research library and specification for reference, study, and historical continuity, and points to Polaris for current work.
   badges:
     - label: governed runtime
     - label: branchable
@@ -13,6 +13,20 @@ content:
     - label: 47 research docs
   cta_text: Explore the archive
   cta_href: ./paper.html
+  cta2_text: "onestardao/WFGY ->"
+  cta2_href: https://github.com/onestardao/WFGY
+polaris:
+  heading: "// the active flagship: polaris protocol"
+  description: "Avatar's successor. A governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds — now in staged public rollout across evidence packages, portable protocols, reproducibility materials, runtime structures, and engine components."
+  items:
+    - name: Polaris Goal Compiler
+      desc: "A portable human-AI execution protocol for assistants, agents, and skill workflows. Distributed as a TXT-based execution constitution — compile the goal before acting, not after. Validated so far on ChatGPT."
+      meta: "compile the goal first. then shoot."
+      cat: kit
+    - name: Fifth-Dimension Engine
+      desc: "The core problem-solving tool of Polaris. Invoked with shoot + [your problem], it lifts a target into a higher problem-coordinate and returns an inspectable, attackable, expandable, testable route: a Route, Structure, Candidate Lemmas, Objections, Open Debt, and a Next Command."
+      meta: "usable for theorem work, product strategy, engineering, and everyday decisions"
+      cat: think
 features:
   heading: "// why avatar is different"
   items:
@@ -67,6 +81,34 @@ recovery:
     - name: "avatar release (full reentry)"
       desc: Complete persona release and reentry. Full context flush with bounded recovery of core persona markers. Use when session corruption exceeds bounded recovery limits or transition between contexts required.
       cat: talk
+timeline:
+  heading: "// shipped history"
+  description: "WFGY's staged release history, grounding the Avatar-to-Polaris transition in what actually shipped rather than a single asserted date."
+  items:
+    - name: "v1.0 — Self-Healing Variance Gate"
+      desc: First public engine release.
+      meta: "2025-06-12"
+      cat: doc
+    - name: "v2.0 — Core Engine + Starter Village"
+      desc: OneLine and Flagship editions.
+      meta: "2025-08-17"
+      cat: doc
+    - name: "v3.0 — Singularity Demo"
+      desc: "S131, a 131-problem effective-layer pack."
+      meta: "2026-02-03"
+      cat: doc
+    - name: "v4.0 — Twin Atlas + Inverse Atlas"
+      desc: Public governance-engine release.
+      meta: "2026-03-30"
+      cat: doc
+    - name: "Cite First Verification"
+      desc: "Easter-egg release, framed as a thank-you gift before the larger work — Polaris — went online."
+      meta: "2026-05-05"
+      cat: talk
+    - name: "v5.0.0-teaser-01 — Polaris Goal Compiler"
+      desc: First public teaser of the staged WFGY 5.0 Polaris Protocol rollout.
+      meta: "2026-05-11"
+      cat: kit
 examples:
   heading: "// explore"
   items:
@@ -89,4 +131,8 @@ examples:
     - name: Original Artifacts
       href: ./original.html
       cta: open
+      cat: doc
+    - name: onestardao/WFGY (upstream)
+      href: https://github.com/onestardao/WFGY
+      cta: github
       cat: doc

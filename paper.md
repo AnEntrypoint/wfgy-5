@@ -3,6 +3,9 @@
 ## Abstract
 Avatar is the public flagship of the WFGY 5.0 ecosystem, a governed protocol layer for engineered language and human-machine interaction. It is not a persona prompt, static toy, or prompt pack dressed as a product. Avatar is a launchable, governable, replay-bearing runtime system that turns language persona from vague vibe imitation into bounded engineering. This paper outlines its core architecture: the master file, tuning protocols, branching strategies, recovery operations, multilingual calibration, and the dual closed-loop design that makes persistent language selves portable, governable, and recoverable.
 
+## 0. WFGY: The Foundation Beneath Avatar
+WFGY is short for Wan Fa Gui Yi — Chinese for "all methods return to one." At its base, WFGY is a portable reasoning layer that attaches to any existing large language model without retraining: paste a PDF or TXT file, or load it as a system prompt, and the host model gains a symbolic reasoning kernel meant to reduce semantic drift and hallucination across multi-step reasoning. The core mechanisms, carried into every later WFGY layer including Avatar, are a semantic-drift measurement (ΔS) and four "Big Bang" modules: BBMC (memory cleanup), BBPF (path finder), BBCR (collapse recovery), and BBAM (attention modulation). Avatar is one public direction built on this foundation — the persona-and-runtime layer. The project has also shipped a governance layer (ProblemMap, Twin Atlas, Inverse Atlas — WFGY 4.0) and, most recently, Polaris Protocol, a broader protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. Specific benchmark figures the project has published for WFGY (for example, MMLU Philosophy subset comparisons) are self-reported by the project and have not been independently reproduced or peer-reviewed; treat them as directional claims, not verified results.
+
 ## 1. What an Avatar Is
 A persona prompt instructs a model to *act as if* it were someone. An Avatar instructs the model to *host* that someone — to treat the self declared in the master file as the canonical observer of the session, with its own anchor, boundary, and resonance. The distinction matters because only the second survives context flushes, model swaps, or multilingual transpositions.
 
@@ -71,4 +74,4 @@ Avatar is already usable for:
 - Preparing custom avatars for later community sharing
 
 ## 8. Conclusion
-A self that persists is the strongest thing a language model can be made to host. Avatar is the protocol that makes such selves portable, governable, and recoverable — the flagship runtime of WFGY 5.0, scheduled for public release on 2026/5/5.
+A self that persists is the strongest thing a language model can be made to host. Avatar is the protocol that made such selves portable, governable, and recoverable — an early public direction of WFGY 5.0, later superseded as the project's active flagship by Polaris Protocol. This paper is preserved as the complete historical record of that direction.

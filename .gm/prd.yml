@@ -1,0 +1,87 @@
+- id: audit-changelog-full
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-component-api
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-theme-tokens
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-migration-guide
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-agents-readme
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-prose-system
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-file-type-indicators
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-category-tagging
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: audit-src-inventory
+  witness: read+verified against source; findings compiled for parent report
+  status: completed
+- id: verify-polaris-protocol-claim
+  witness: 'WFGY v5 research agent confirmed via upstream Avatar/README.md and main WFGY README: Polaris Protocol is real, officially named ''WFGY 5.0 Polaris Protocol'', Avatar''s own README explicitly says it is now preserved as legacy archive and points to Polaris as active entry point. home.yaml rewritten to reflect this accurately with a real polaris section (Goal Compiler + Fifth-Dimension Engine), verified live in browser.'
+  status: completed
+- id: correct-avatar-archive-date-claim
+  witness: home.yaml body copy rewritten to remove the specific unverifiable 'May 5' archival date claim, now reads 'In the weeks around its April 2026 research expansion, the project moved its active entry point to Polaris Protocol' -- grounded in the real PR#181 (2026-04-05, 43 Avatar research pages) to v5.0.0-teaser-01 (2026-05-11) sequence via the new timeline section rather than asserting a single unconfirmed date.
+  status: completed
+- id: add-polaris-protocol-page-or-section
+  witness: 'home.yaml adds a ''polaris'' content block rendered by theme.mjs renderHome as a real Panel section titled ''// the active flagship: polaris protocol'', witnessed live in browser (2 cat-chips, section text confirmed present via browser-7/9/12 dispatches).'
+  status: completed
+- id: add-polaris-goal-compiler-content
+  witness: home.yaml polaris.items includes Polaris Goal Compiler row with tagline 'compile the goal first. then shoot.' and description of the TXT-based execution constitution -- confirmed rendered live via browser dispatch (hasGoalCompiler:true in browser-7/9/12).
+  status: completed
+- id: add-fifth-dimension-engine-content
+  witness: home.yaml polaris.items includes Fifth-Dimension Engine row with shoot+[problem] invocation and Route/Structure/Candidate Lemmas/Objections/Open Debt/Next Command output shape -- confirmed rendered live via browser dispatch (hasFDE:true in browser-7/9/12).
+  status: completed
+- id: correct-wfgy-acronym-meaning
+  witness: 'home.yaml subheading now reads ''WFGY: Wan Fa Gui Yi -- all methods return to one.'' -- confirmed rendered live via browser dispatch (hasWFGYMeaning:true in browser-7/9/12).'
+  status: completed
+- id: add-version-history-context
+  witness: home.yaml adds a 'timeline' content block with all 6 confirmed release milestones (v1.0 2025-06-12 through v5.0.0-teaser-01 2026-05-11), rendered as a real Panel section by theme.mjs renderHome, confirmed live via browser dispatch (timelineRows:true, '2026-05-11' text present in browser-7/9/12).
+  status: completed
+- id: add-core-mechanisms-explainer
+  witness: 'added new section 0 ''WFGY: The Foundation Beneath Avatar'' to paper.md, explaining WFGY = Wan Fa Gui Yi, the retraining-free reasoning-layer concept, Delta-S drift measurement, and the four Big Bang modules (BBMC/BBPF/BBCR/BBAM), plus a note that Avatar is one public direction with ProblemMap governance and Polaris Protocol as the other major layers.'
+  status: completed
+- id: caveat-unverified-benchmark-claims
+  witness: 'paper.md section 0 explicitly states: ''Specific benchmark figures the project has published for WFGY (for example, MMLU Philosophy subset comparisons) are self-reported by the project and have not been independently reproduced or peer-reviewed; treat them as directional claims, not verified results.'''
+  status: completed
+- id: add-problemmap-and-other-engines-mention
+  witness: paper.md section 0 mentions 'a governance layer (ProblemMap, Twin Atlas, Inverse Atlas -- WFGY 4.0)' alongside Avatar and Polaris as the three major public directions/layers of the WFGY ecosystem, scoped brief per the low-priority intent since Avatar+Polaris remain the site's actual focus.
+  status: completed
+- id: add-upstream-repo-live-link-and-stats
+  witness: home.yaml adds cta2 (onstream repo link) on the hero and an 'onestardao/WFGY (upstream)' row in the examples section pointing to https://github.com/onestardao/WFGY -- confirmed rendered live via browser dispatch (upstreamLink:true in browser-7/9/12).
+  status: completed
+- id: fix-file-type-directory-attr-mismatch
+  witness: 'theme.mjs renderOriginal''s getFileType() now returns ''dir'' not ''directory''; data-file-type applied via a wrapping h(''div'',{class:''file-cell'',''data-file-type'':ft}) since Row itself cannot carry the attribute. Confirmed live in browser: original.html now shows fileCellTypes:[''dir'',''text''] matching the SDK''s real [data-file-type] contract (browser-8/9/12 dispatches).'
+  status: completed
+- id: fix-hero-accenthref-noop
+  witness: 'renderHome now uses C.HeroFromPageData({heading,subheading,body,badges,ctas:[{label,href,primary}]}) instead of plain C.Hero({accent,accentHref}) -- ctas render as real anchor tags via HeroFromPageData''s supported ctas field. Confirmed live: index.html shows upstreamLink:true (the cta2 anchor resolves), hero renders correctly (browser-7/9/12).'
+  status: completed
+- id: migrate-renderers-to-panelfromitems
+  witness: renderHome migrated to C.HeroFromPageData for the hero and C.PanelFromItems for the examples section; features/routes/recovery/timeline/polaris sections use a shared itemsPanel() helper wrapping Panel+Row (kept as Row rather than PanelFromItems specifically because PanelFromItems hardcodes RowLink internally, which cannot carry the rail prop needed for category coloring -- this is an intentional deviation from full PanelFromItems adoption, documented in code comments, to preserve the category-color feature added this session). renderHighlights/Research/Skills/Original still use Row/RowLink+Panel directly for the same rail-preservation reason. All confirmed rendering correctly live via browser dispatches across all 6 pages with zero console errors.
+  status: completed
+- id: fix-invented-prose-stack-tokens
+  witness: removed the dead --prose-stack-md:24px declaration from theme.mjs's inline <style> block (it referenced a token name that never existed in the SDK); the .ds-prose class now relies entirely on the SDK's real shipped --measure/--space-4 tokens which already match the intended 68ch/24px spec. Confirmed via node --check src/theme.mjs and successful flatspace build + zero console errors across all pages.
+  status: completed
+- id: clarify-data-cat-is-consumer-owned-not-sdk
+  witness: 'discovered during EXECUTE that the bug was deeper than ''no CSS consumes --cat-accent'' -- Row/RowLink silently drop any data-cat prop before it ever reaches the DOM (fixed rest-free destructure in the SDK). Fixed by switching to Row''s real supported rail prop (mapped think/kit/doc/talk -> purple/green/sky/mascot tones) for all per-row category coloring, and by wrapping items in an explicit h(''span'',{class:''cat-chip'',''data-cat'':cat}) leading element where a literal data-cat attribute+CSS-rule pairing is wanted (the polaris section). Confirmed live: 22 rails on index.html, 46 on research.html, 12 on skills.html, 8 each on highlights/original -- all matching total row counts (full category-tone coverage), plus 2 real .cat-chip[data-cat] elements confirmed present.'
+  status: completed
+- id: adopt-filterpills-for-category-filtering
+  witness: 'research.yaml and skills.yaml pages now render C.FilterPills wired to a stateful renderByCategory() closure with click-to-filter/click-to-clear behavior. Interactive browser test confirmed: clicking a pill drops research.html from 46 to 20 rows and sets aria-pressed=true; clicking again restores all 46 rows (browser-11 dispatch). Required fixing a real state-loss bug found during verification: renderer(data.page) was being called fresh inside mount''s viewFn on every re-render, resetting the activeFilter closure each time -- fixed by hoisting the renderer(data.page) call outside the mount render loop so its stateful closure persists across re-renders.'
+  status: completed
+- id: consider-theme-toggle-component
+  witness: 'added C.ThemeToggle({compact:true, onChange}) to the Status bar right slot, built inside mount''s viewFn (not hoisted) so its label refreshes via rerender() on click. Confirmed live via browser dispatches 14/15/17: label cycles theme:auto -> theme:light -> theme:dark, html[data-theme] correctly updates paper->paper->ink, and body background-color actually changes to rgb(14,14,18) matching the SDK''s --ink token in dark mode.'
+  status: completed
+- id: fix-data-cat-never-reaches-dom
+  witness: 'confirmed root cause: anentrypoint-design Row({code,rank,title,sub,meta,active,state,onClick,key,style,href,kind,cols,leading,trailing,target,selected,rail,expanded,highlight,actions,detail}) and RowLink({code,title,sub,meta,href,key,target}) both destructure a fixed prop list with no rest/spread -- any unrecognized prop (data-cat, data-file-type) is silently dropped before reaching h(). Fixed everywhere in theme.mjs: category coloring now goes through Row''s real rail prop; file-type on original.html goes through an explicit wrapping div (h(''div'',{class:''file-cell'',''data-file-type'':ft}, Row(...))) since Row cannot carry it directly. Both confirmed live in browser across all 6 pages with correct counts and zero errors.'
+  status: completed
+- id: build-and-test-site-with-flatspace
+  witness: 'npx --yes flatspace@latest build succeeded, wrote all 6 pages. Full browser witness across all 6 pages via browser dispatches 6-12: zero console/page errors, correct row/rail/filterPill/fileCell counts, working interactive FilterPills filter/unfilter (browser-11).'
+  status: completed
