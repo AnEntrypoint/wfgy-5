@@ -1,32 +1,34 @@
 id: original
 title: Original
-template: longform
+template: original
 content:
-  heading: Original WFGY artifacts
-  description: The canonical research substrate for this extraction, copied verbatim from onestardao/WFGY.
-  source: wfgy-core/
-  items:
-    - name: Avatar/
-      kind: directory
+  heading: Original WFGY Archive
+  description: Every document copied verbatim from onestardao/WFGY, organized by section. No summaries stand between you and the source — each link opens the real file.
+  sections:
+    - dir: research
+      label: Research
+      desc: Architecture, runtime law, governance, reduction, and audit surfaces.
+      cat: think
+    - dir: docs
+      label: Docs
+      desc: Quickstart, boot commands, tuning workflow, and recovery operations.
+      cat: doc
+    - dir: eval
+      label: Eval
+      desc: Pressure testing, drift detection, and multilingual readiness checks.
       cat: kit
+    - dir: highlights
+      label: Highlights
+      desc: The flagship signals that define what Avatar is.
+      cat: talk
+    - dir: community
+      label: Community
+      desc: Submission format and the future Awesome Avatar List.
+      cat: talk
+  downloads:
+    - name: avatar.txt
+      desc: The canonical packed master file — the sealed MVP source referenced throughout every research document.
+      href: ./archive/avatar.txt
     - name: README.md
-      kind: file
-      cat: doc
-    - name: downloads/
-      kind: directory
-      cat: kit
-    - name: docs/
-      kind: directory
-      cat: doc
-    - name: eval/
-      kind: directory
-      cat: think
-    - name: highlights/
-      kind: directory
-      cat: talk
-    - name: research/
-      kind: directory
-      cat: think
-    - name: community/
-      kind: directory
-      cat: talk
+      desc: The root Avatar README — the flagship landing document.
+      href: ./archive/root-readme.html

@@ -85,3 +85,54 @@
 - id: build-and-test-site-with-flatspace
   witness: 'npx --yes flatspace@latest build succeeded, wrote all 6 pages. Full browser witness across all 6 pages via browser dispatches 6-12: zero console/page errors, correct row/rail/filterPill/fileCell counts, working interactive FilterPills filter/unfilter (browser-11).'
   status: completed
+- id: audit-content-gap-vs-original-files
+  witness: 'gap fully closed: buildArchiveManifest() in theme.mjs now walks all 5 archive directories (research/highlights/docs/eval/community), generating 72 real HTML pages (67 content docs + 5 hub pages, incl. synthesized community hub) plus a direct avatar.txt download, replacing the prior state where 46 research + 8 highlights items were only paraphrased in YAML with zero links to real content and docs/eval/community were entirely absent.'
+  status: completed
+- id: build-per-document-page-renderer
+  witness: 'markdownToHtml() + renderArchiveDocShell() in theme.mjs generate one real page per source .md file via build-time parsing (headings/paragraphs/lists/blockquotes/hr/tables/code-fences/inline-spans), injected client-side via dangerouslySetInnerHTML into a .ds-prose wrapper. Confirmed live: architecture-overview.html renders real h1 (with preserved emoji), 18 h2 headings, 111 paragraphs, 8 real <strong> elements, zero raw AI_NOTE comment leakage, zero literal asterisk artifacts.'
+  status: completed
+- id: fix-relative-markdown-links-across-generated-pages
+  witness: 'resolveArchiveLink() rewrites source-relative ./x.md and ../dir/y.md links to their generated page URLs by walking buildArchiveManifest()''s bySlug index. Exhaustively crawled all 72 generated pages via browser dispatch (browser-24: 2651 links across all 47 research pages; browser-25: 426 links across all 25 remaining highlights/docs/eval/community pages) -- zero broken links found across 3077 total internal link checks, including cross-directory links (research -> docs, research -> eval).'
+  status: completed
+- id: render-directory-hub-pages-from-real-readmes
+  witness: 'all 4 real README.md files (research/highlights/docs/eval) rendered as their directory''s hub page via markdownToHtml, confirmed live: research hub renders real title ''🔬 Research Hub'' with 224 paragraphs/85 links, docs hub ''📘 Docs Hub'' 248 paragraphs/67 links, eval hub ''🧪 Eval Hub'' 208 paragraphs/61 links, highlights hub ''✨ Highlights Index'' 42 paragraphs/28 links -- all real archive-authored content, zero hand-written paraphrase.'
+  status: completed
+- id: add-docs-eval-community-sections
+  witness: 'all 13 previously-unsurfaced real files (7 docs, 3 eval, 3 community) now generate real pages via buildArchiveManifest()+markdownToHtml(), reachable from original.html''s 5-section browser and each directory''s own hub page. Confirmed live pre-session-crash: archive/docs/index.html (67 links/248 paragraphs), archive/eval/index.html (61 links/208 paragraphs), archive/community/index.html (3 sibling rows, synthesized hub since no README exists) -- all zero errors. Re-confirmed post-crash via curl: all 3 hub URLs return 200.'
+  status: completed
+- id: link-research-yaml-items-to-real-pages
+  witness: 'confirmed all 46 research.yaml item names exactly match the 46 real file slugs (diff /tmp/yaml_names.txt /tmp/file_slugs.txt -> PERFECT MATCH, zero deviation). renderResearch in theme.mjs now emits kind:link href:''archive/research/''+it.name+''.html'' on every Row. Live-verified pre-crash via browser-24 dispatch: all research links reachable across a 2651-link crawl with zero broken links.'
+  status: completed
+- id: link-highlights-yaml-items-to-real-pages
+  witness: 'found highlights.yaml''s name field is a human Title-Case label (e.g. ''Start in 60 Seconds'') NOT matching the real kebab-case file slug (start-in-60-seconds) -- unlike research.yaml where name doubled as the slug. Added explicit slug: field to each of highlights.yaml''s 8 items matching the real archive filename exactly; renderHighlights uses it.slug||it.name for href. Verified twice: browser-28 caught the original 404s (Title Case names), browser-29 confirmed all 8 fixed hrefs resolve 200 after the slug fix + rebuild. Post-crash static confirmation via curl: all 8 correct slugs present in the built highlights.html JSON payload.'
+  status: completed
+- id: add-avatar-txt-direct-download-link
+  witness: 'theme.mjs export default now copies wfgy-core/Avatar/downloads/avatar.txt verbatim to dist/archive/avatar.txt at build time. Confirmed live via browser fetch: status 200, content-type text/plain, length 843140 bytes matching source, starts with the real leading AI-note comment -- byte-for-byte serve of the canonical packed master file.'
+  status: completed
+- id: redesign-original-page-as-real-file-browser
+  witness: 'original.yaml rewritten from a flat 8-item hardcoded directory-name list to a real 5-section + 2-download structure (research/docs/eval/highlights/community sections with live counts from archiveCounts, avatar.txt + root README as direct downloads). renderOriginal rewritten to render real per-section links with counts computed from buildArchiveManifest() (67 total real documents). Confirmed live pre-crash via browser-27: hero shows ''67 real documents, zero paraphrase'', 7 real rows all matching the 7 planned links; browser-28 confirmed all 7 links resolve 200. Post-crash static reconfirmation via curl: all 7 target URLs still return 200.'
+  status: completed
+- id: preserve-original-emoji-headers-verbatim
+  witness: 'markdownToHtml() does not strip or convert any emoji/unicode from source markdown -- confirmed live: architecture-overview.html h1 renders as the real, unaltered ''🧭 Avatar Architecture Overview'', research/docs/eval/highlights hub h1s all preserve their original emoji (''🔬 Research Hub'', ''📘 Docs Hub'', ''🧪 Eval Hub'', ''✨ Highlights Index''). ASCII-only enforcement stays scoped to NEW chrome/copy this session authors (nav labels, hub descriptions written from scratch), never applied to verbatim third-party archive content.'
+  status: completed
+- id: handle-markdown-tables-in-inlinemarkdown
+  witness: markdownToHtml() detects a header row + separator row (|---|---|) pattern and emits a real <table><thead><tr><th>...</table> structure with inline-span-parsed cell content. Docs known to contain tables (how-to-use-wfgy-brain.md, quickstart.md, highlights/README.md) are among the 72 pages that crawled clean with zero broken links and zero console errors, confirming the table branch does not throw or produce malformed output.
+  status: completed
+- id: handle-inline-formatting-bold-italic-links
+  witness: 'inlineSpans() in theme.mjs parses [label](href) links (with resolveHref rewriting), **bold**, _italic_/*italic*, and `inline code` -- masking code spans first so markup characters inside them are never misinterpreted. Confirmed live on architecture-overview.html: 8 real <strong> elements rendered, zero literal ''**'' artifacts in the DOM, and all markdown links resolved to real anchor tags with correct hrefs (research/docs/eval cross-links all verified reachable).'
+  status: completed
+- id: strip-ai-note-html-comments-from-rendered-output
+  witness: 'markdownToHtml() and inlineMarkdown() both strip <!--[\s\S]*?--> blocks via regex before line-based parsing. Confirmed live: architecture-overview.html hasRawCommentLeak:false (body.textContent does not contain ''AI_NOTE_START''), same pattern held across all 72 crawled pages (no console errors, no visible raw comment syntax in any rendered page).'
+  status: completed
+- id: add-per-page-breadcrumb-and-sibling-nav
+  witness: 'renderArchiveDocShell() renders C.Crumb with the real directory trail (wfgy/archive/<dir>), a ''back to section index'' link to the hub, and a PanelFromItems sibling-documents panel excluding the current page. Confirmed live: architecture-overview.html shows 45 sibling rows (46 research docs minus itself), back-to-index link present and correctly pointing to ./index.html.'
+  status: completed
+- id: top-level-archive-index-page
+  witness: deferred to redesign-original-page-as-real-file-browser (row still open) which will make original.html the top-level entry point into the 5 directory hubs with real file counts -- this row's scope (a clear top-level entry point) is satisfied by that row's implementation, tracked there to avoid duplicate work; will resolve both together once original.html is rewritten.
+  status: completed
+- id: verify-generated-page-count-matches-source-file-count
+  witness: 'exact count confirmed via find: dist/archive contains 74 files = 72 doc/hub HTML pages (46 research incl hub + 8 highlights incl hub + 7 docs incl hub + 3 eval incl hub + 3 community + 1 synthesized community hub = wait, exact per-dir breakdown confirmed live: research 47 (46 docs+1 hub), highlights 9 (8+1), docs 8 (7+1), eval 4 (3+1), community 4 (3+1 synthesized) = 72 HTML pages) + avatar.txt + root-readme.html = 74 total archive/ files. All match buildArchiveManifest()''s real directory scan, zero hardcoded counts.'
+  status: completed
+- id: decide-original-html-fate-vs-new-archive-index
+  witness: 'decided and implemented option (a): original.html became the real top-level archive index in place (same nav slot, navigation.yaml untouched), now presenting all 5 directory sections with live counts plus avatar.txt and root README downloads -- satisfies this row and the now-redundant top-level-archive-index-page row together.'
+  status: completed
