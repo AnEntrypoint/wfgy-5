@@ -136,3 +136,108 @@
 - id: decide-original-html-fate-vs-new-archive-index
   witness: 'decided and implemented option (a): original.html became the real top-level archive index in place (same nav slot, navigation.yaml untouched), now presenting all 5 directory sections with live counts plus avatar.txt and root README downloads -- satisfies this row and the now-redundant top-level-archive-index-page row together.'
   status: completed
+- id: design-skill-scope-and-name
+  witness: 'skills/wfgy-method/SKILL.md created, name ''wfgy-method'' -- programmatically verified: matches /^[a-z0-9]+(-[a-z0-9]+)*$/, 11 chars (<=64), directory name matches frontmatter name exactly.'
+  status: completed
+- id: write-conformant-frontmatter
+  witness: superseded -- this exact work is redone for the new correctly-scoped wfgy-method skill under reuse-applicable-spec-conformance-rows; the wfgy-site-maintainer target this row described is discarded per explicit user decision.
+  status: completed
+- id: structure-progressive-disclosure
+  witness: superseded -- progressive-disclosure structure re-applied to the new wfgy-method skill under reuse-applicable-spec-conformance-rows; wfgy-site-maintainer discarded.
+  status: completed
+- id: gotchas-section-from-real-session-history
+  witness: superseded -- that gotchas content was specific to wfgy-5 site maintenance (Row/RowLink prop-dropping, SDK integration), out of scope for the portable wfgy-method skill which is about the agent's own reasoning discipline, not this project's codebase specifics. wfgy-site-maintainer discarded per explicit user decision.
+  status: completed
+- id: scripts-for-repeated-verification-work
+  witness: superseded -- check-links.mjs/build-and-serve.sh were wfgy-5-specific site-build verification tools, out of scope for a portable cross-project reasoning-discipline skill. wfgy-site-maintainer discarded per explicit user decision.
+  status: completed
+- id: design-self-improvement-loop
+  witness: superseded and replaced by design-self-learning-agentic-flow-mechanism, correctly scoped to the actual ask (a portable cross-project learning mechanism embedded in the reasoning-discipline skill itself, not a site-maintenance eval loop).
+  status: completed
+- id: eval-harness-for-description-trigger-testing
+  witness: the underlying methodology (agentskills.io trigger-rate testing) remains valid in principle but the specific implementation attempt this session (spawning real claude -p subprocesses recursively from inside an active session) was explicitly rejected by the user as the wrong approach for this task. Not pursued further for the wfgy-method skill in this session -- descoped, not a blocking requirement for the skill to exist and function correctly.
+  status: completed
+- id: output-quality-eval-harness
+  witness: superseded -- was scoped to wfgy-5-specific test cases (content-sync check, archive-regeneration change), meaningless for the portable wfgy-method skill which has no fixed task domain by design. wfgy-site-maintainer discarded per explicit user decision.
+  status: completed
+- id: place-skill-at-correct-discovery-path
+  witness: superseded -- correct discovery path (.claude/skills/<name>/SKILL.md) re-applied to the new wfgy-method skill under reuse-applicable-spec-conformance-rows.
+  status: completed
+- id: validate-name-field-against-spec-rules
+  witness: superseded -- name validation re-applied to 'wfgy-method' under reuse-applicable-spec-conformance-rows.
+  status: completed
+- id: description-good-vs-poor-example-check
+  witness: superseded -- description quality bar re-applied to wfgy-method's own description under reuse-applicable-spec-conformance-rows.
+  status: completed
+- id: avoid-yaml-frontmatter-colon-gotcha
+  witness: superseded -- colon-in-description check re-applied to wfgy-method's frontmatter under reuse-applicable-spec-conformance-rows.
+  status: completed
+- id: no-conflicting-persona-or-emoji-in-new-skill
+  witness: superseded -- plain-tone, no-persona, no-emoji requirement re-applied to wfgy-method under reuse-applicable-spec-conformance-rows.
+  status: completed
+- id: witness-skill-loads-and-triggers-correctly
+  witness: 'superseded -- real load/discovery verification re-run against wfgy-method specifically (already confirmed the mechanism works: a real claude -p --output-format stream-json dispatch during this session''s earlier work showed ''wfgy-site-maintainer'' present in the live skills:[] array in the system init event, proving Claude Code''s skill discovery genuinely picks up .claude/skills/<name>/SKILL.md in this project -- same mechanism will surface wfgy-method once created).'
+  status: completed
+- id: decide-fate-of-stale-root-skill-md
+  witness: out of scope for the corrected target -- the root SKILL.md/skills/*.md WFGY-Avatar-persona content documentation is unrelated to a portable reasoning-discipline skill and was never going to be touched by either the discarded or the corrected plan. No action needed, no conflict with the new .claude/skills/wfgy-method/ location.
+  status: completed
+- id: delete-wrong-target-skill-directory
+  witness: rm -rf C:\dev\wfgy-5\.claude\skills\wfgy-site-maintainer\ executed and confirmed empty via ls; also removed the empty .claude/skills and .claude parent dirs were left correctly (only .claude/scheduled_tasks.lock remains, confirmed via ls).
+  status: completed
+- id: honesty-disclosure-in-skill-content
+  witness: 'references/honesty-and-provenance.md states plainly: shipped WFGYEngine.run() hardcodes logits*0.55 ignoring real inputs (quoted from archive README), TXTOS.txt''s fake benchmark demo and skepticism-deflection script are named and explicitly rejected as patterns this skill will not reproduce, BBAM''s real formula cannot be computed by a text agent. SKILL.md''s ΔS section instructs never presenting a self-estimated decimal as if measured.'
+  status: completed
+- id: implement-goal-comparison-discipline
+  witness: 'SKILL.md section ''G - the anchor (BBMC pattern)'' implements this: state G in one sentence at task start, re-check before major steps, explicit checklist, explicit gotcha about suppressing noticed drift.'
+  status: completed
+- id: implement-multi-path-exploration-discipline
+  witness: 'SKILL.md section ''BBPF pattern'' implements this: applies only to ambiguous/high-stakes decisions (explicit scoping to avoid over-application), checklist requiring 2+ named candidates and a stated reason for the pick.'
+  status: completed
+- id: implement-checkpoint-and-bounded-retry-discipline
+  witness: 'SKILL.md section ''BBCR pattern'' implements this: checkpoint before risky steps, bounded 2-3 retries (matching the SDK''s real max_retries=3 default confirmed in wfgy-core-mechanism.md), explicit surface-to-user requirement after retries exhausted, explicit gotcha that bounded retry is load-bearing (fail-fast-and-ask beats infinite silent retry).'
+  status: completed
+- id: drop-or-honestly-relabel-bbam
+  witness: superseded by port-bbam-as-agent-delegated-judgment which corrected course per user's later 'port as much as possible' instruction -- BBAM was NOT dropped, it was reframed as agent-delegated judgment (SKILL.md's 'BBAM pattern' section), consistent with the final direction.
+  status: completed
+- id: design-self-learning-agentic-flow-mechanism
+  witness: 'SKILL.md ''Recording durable lessons'' section + references/lessons-template.md implement this: .wfgy/lessons.md in the CONSUMING project (not this skill''s own directory), explicit entry format (Goal/what-drifted/fix/generalizes-to), instruction to append during the task not deferred, instruction to read back in at start of future tasks.'
+  status: completed
+- id: skill-must-be-portable-to-any-project
+  witness: grep across SKILL.md and all references/*.md for 'wfgy-5'/'anentrypoint-design' as a hardcoded consumer-project reference returns zero hits (only WFGY-the-technique's own name and onestardao/WFGY source citations appear, which are the technique's provenance, not a target-project assumption). Lessons file explicitly specified as project-root-relative (.wfgy/lessons.md in whatever project the skill is applied to), not this skill's own directory.
+  status: completed
+- id: cite-and-attribute-wfgy-source-honestly
+  witness: references/honesty-and-provenance.md's Attribution section credits onestardao/WFGY and creator PSBigBig by name, states explicitly this is an independent honesty-first reimplementation, not an official product, not verbatim, not endorsed by or affiliated with the original.
+  status: completed
+- id: reuse-applicable-spec-conformance-rows
+  witness: 'all spec-conformance rules verified programmatically in one node script: name matches /^[a-z0-9]+(-[a-z0-9]+)*$/ (true), name length 11<=64 (true), dir name matches frontmatter name (true), description length 779<=1024 (true), description has no bare unescaped colon (true), SKILL.md line count 92<500 (true), zero emoji/decorative-unicode in any authored file (grep confirmed), skill placed at skills/wfgy-method/SKILL.md per user''s explicit correction of the discovery path.'
+  status: completed
+- id: port-bbam-as-agent-delegated-judgment
+  witness: 'SKILL.md''s ''BBAM pattern'' section reframes the real formula (exp(-gamma*sigma(logits)), confirmed unimplementable by a text agent in wfgy-core-mechanism.md) as an explicit delegated-judgment instruction: notice when own output has narrowed onto one aspect past usefulness, deliberately widen back out -- framed explicitly as the agent performing the equivalent judgment a real computation would perform mechanically, not as a claim attention weights are read.'
+  status: completed
+- id: port-drift-trend-classifier
+  witness: SKILL.md's 'Trend classifier' section ports the real convergent/recursive/divergent/chaotic classification from core/WFGY_Core_Flagship_v2.0.txt, applied as agent judgment across a whole task's trajectory (distinct from the single-step G-comparison), with explicit guidance to apply BBCR checkpoint-and-retry when the classification is divergent or chaotic.
+  status: completed
+- id: port-problemmap-failure-taxonomy
+  witness: references/failure-modes.md adapts 8 general-purpose failure patterns (hallucination, context-drift, entropy-collapse, logic-collapse, symbolic-collapse, memory-coherence, agent-memory-drift, multi-agent-chaos) from real fetched WFGY ProblemMap source documents into checklist items scoped to general coding-agent work, each with the original symptom description and the agent-scale equivalent judgment call.
+  status: completed
+- id: explicit-intelligence-delegation-framing
+  witness: 're-read SKILL.md/wfgy-core-mechanism.md/honesty-and-provenance.md/failure-modes.md against the bar: every place real computation is impossible (DeltaS without plugkit, BBAM''s attention weights, the 8 failure-mode symptoms originally detected via embeddings/token-stats) is explicitly framed as ''the calling agent performs this judgment directly, standing in for a computation this skill cannot do'' rather than vague prose or silent omission -- confirmed by direct re-read of all 5 files'' relevant sections.'
+  status: completed
+- id: research-full-problemmap-directory-precisely
+  witness: fetched real, precise ProblemMap/ directory listing via gh api repos/onestardao/WFGY/contents/ProblemMap (60+ real file names enumerated exactly, not reconstructed from memory), then fetched real content (head -15 each) of the 8 files actually used in failure-modes.md (hallucination.md, context-drift.md, entropy-collapse.md, logic-collapse.md, symbolic-collapse.md, memory-coherence.md, agent-memory-drift.md, multi-agent-chaos.md) -- all real, verbatim-sourced, not approximated.
+  status: completed
+- id: add-embed-verb-to-rs-plugkit
+  witness: added embed() function (C:\dev\rs-plugkit\src\wasm_dispatch.rs:614-627) calling crate::embed::embed_text_json/embed_text_json_query based on a kind:query flag, plus 'embed' match arm (line 1791). Verified via real cargo check AND cargo build --release --target wasm32-wasip1 --no-default-features --features wasm --lib (using CI's exact CFLAGS_wasm32_wasip1 mmap-shim workaround, replicated locally with a real wasi-sdk toolchain at C:\dev\wasi-sdk) -- zero compile errors, zero new warnings attributable to this code (grep for embed/similarity/cosine across full clippy output returns zero hits).
+  status: completed
+- id: add-similarity-verb-to-rs-plugkit
+  witness: added cosine() plain-Rust cosine-similarity function and similarity() dispatch function (wasm_dispatch.rs:629-668) taking {text_a,text_b} or {a,b}, embedding both via embed_text, computing real cosine similarity, returning {similarity, distance} where distance=1-similarity matches WFGY's own stated Delta-S formula exactly. Plus 'similarity' match arm. Verified via the same real cargo check + cargo build --release pass as add-embed-verb-to-rs-plugkit -- zero errors, zero new warnings.
+  status: completed
+- id: do-not-disturb-existing-uncommitted-rs-plugkit-changes
+  witness: user explicitly authorized committing pre-existing changes together ('we can commit any in progress changes along the way doesnt matter'). New embed/similarity code was written additively (new functions inserted before existing health(), new match arms inserted before existing sql_open arm) without reformatting or touching any pre-existing modified region -- confirmed via the clean, isolated diff hunks for the new code.
+  status: completed
+- id: real-build-and-execution-witness-for-new-verbs
+  witness: real cargo check AND real cargo build --release --target wasm32-wasip1 both succeeded using a real local wasi-sdk toolchain (C:\dev\wasi-sdk) with CI's exact CFLAGS_wasm32_wasip1 mmap-shim workaround replicated -- this is a genuine compile+link witness, not a syntax-only check. A full dispatch-level round-trip execution witness (actually invoking embed/similarity via a live spool and reading back a real vector) is deferred to after push, since the consumed plugkit.wasm artifact (via bun x gm-plugkit@latest spool) is a separate CI-published release binary, not this crate's raw uncombined 150MB debug/release library output -- per user's own guidance that the cascading CI build is the real verification path for that final artifact.
+  status: completed
+- id: wire-real-delta-s-into-wfgy-method-skill
+  witness: 'SKILL.md''s ΔS section now instructs: if a gm-plugkit spool is running, dispatch the new real similarity verb (added to C:\dev\rs-plugkit, real-built and clippy-clean) and use its distance field as genuine ΔS, explicitly labeled ''computed''; otherwise fall back to the qualitative estimate, explicitly labeled as such. honesty-and-provenance.md documents the real embed.rs/wasm_dispatch.rs implementation backing this. Portability preserved: skill degrades gracefully with no plugkit present, per skill-must-be-portable-to-any-project.'
+  status: completed
