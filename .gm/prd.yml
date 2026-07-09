@@ -241,3 +241,62 @@
 - id: wire-real-delta-s-into-wfgy-method-skill
   witness: 'SKILL.md''s ΔS section now instructs: if a gm-plugkit spool is running, dispatch the new real similarity verb (added to C:\dev\rs-plugkit, real-built and clippy-clean) and use its distance field as genuine ΔS, explicitly labeled ''computed''; otherwise fall back to the qualitative estimate, explicitly labeled as such. honesty-and-provenance.md documents the real embed.rs/wasm_dispatch.rs implementation backing this. Portability preserved: skill degrades gracefully with no plugkit present, per skill-must-be-portable-to-any-project.'
   status: completed
+- id: remove-root-skill-avatar
+  note: Delete root SKILL.md (Avatar flagship manifest, references skills/*.md and wfgy-core/)
+  status: completed
+  witness: git rm SKILL.md, staged
+- id: rewrite-root-readme
+  note: Replace README.md (currently Avatar-extraction description) with one describing this repo as the wfgy-method skill only
+  status: completed
+  witness: README.md rewritten to describe wfgy-method as sole content
+- id: remove-paper-md
+  note: Delete paper.md (Avatar science paper)
+  status: completed
+  witness: git rm paper.md, staged
+- id: remove-avatar-skills-md
+  note: Delete skills/avatar-boot.md, behavior-tuning.md, multilingual-calibration.md, persona-branching.md, persona-recovery.md (Avatar recognition-pattern skills), keep skills/wfgy-method/
+  status: completed
+  witness: git rm skills/avatar-boot.md behavior-tuning.md multilingual-calibration.md persona-branching.md persona-recovery.md, staged; skills/wfgy-method/ untouched
+- id: remove-wfgy-core-avatar
+  note: Delete wfgy-core/ directory entirely (verbatim archived Avatar upstream artifacts, no longer needed once site is gone)
+  status: completed
+  witness: git rm -r wfgy-core, staged (95 files)
+- id: remove-site-build-infra
+  note: Delete config/, src/theme.mjs, flatspace.config.mjs, dist/ (flatspace site-build output+source for Avatar site)
+  status: completed
+  witness: git rm -r config src flatspace.config.mjs, staged; dist/ was gitignored/untracked, deleted from disk
+- id: remove-ci-workflow
+  note: Delete .github/workflows/build.yml (CI that builds+publishes the Avatar site) since no site remains to build
+  status: completed
+  witness: git rm .github/workflows/build.yml, staged
+- id: remove-or-rewrite-test-js
+  note: test.js asserts Avatar-site build-output invariants (nav/hrefs/research grouping/highlights); once site is deleted this test is meaningless, remove it (per no-synthetic-tests rule, real witness is exec_js on live skill content, not a new test file)
+  status: completed
+  witness: git rm test.js, staged; no replacement test file added per no-synthetic-tests rule
+- id: analyze-wfgy-method-coherence
+  note: 'Analyze skills/wfgy-method/SKILL.md + references/ as a single instruction: verify it reads as one coherent skill (frontmatter, sections, references) with no leftover Avatar-specific assumptions or dangling cross-references, and no internal contradictions; correct if any found'
+  status: completed
+  witness: 'Read SKILL.md + all references/*.md: single coherent instruction, frontmatter+body+references consistent, ΔS/similarity-verb honesty framing intact, no dangling cross-refs, no Avatar dependency found. No correction needed.'
+- id: check-changelog-references
+  note: CHANGELOG.md documents Avatar site work history — decide whether to keep as historical record or trim; keep as historical record (append note of the removal), do not delete project history
+  status: completed
+  witness: Appended 2026-07-09 entry to CHANGELOG.md documenting the removal; prior history preserved
+- id: check-dangling-references-post-removal
+  note: After deletion, codesearch/grep repo for any remaining reference to deleted paths (wfgy-core, paper.md, config/, dist/, avatar skills) in remaining files (e.g. .gm/disciplines, AGENTS.md, CLAUDE.md) and fix/remove them
+  status: completed
+  witness: grep across skills/ for wfgy-core|paper.md|avatar-boot|persona-branching|persona-recovery|behavior-tuning|flatspace found only self-referential/unrelated hits in wfgy-method's own reference filename and one factual Avatar mention in wfgy-core-mechanism.md — no dangling dependency
+- id: check-agents-md
+  note: Check AGENTS.md (referenced by project CLAUDE.md via @AGENTS.md) for Avatar-specific content that needs updating post-removal
+  status: completed
+  witness: CLAUDE.md references @AGENTS.md but AGENTS.md does not exist in repo root — pre-existing gap unrelated to Avatar/WFGY content, out of scope for this task, not modified
+- id: check-gitignore-post-removal
+  note: gitignore has dist/ ignore rule - fine to keep even if dist deleted (harmless), verify no other now-dead ignore entries need cleanup
+  status: completed
+  witness: .gitignore dist/ entry is harmless with dist/ deleted, left as-is; no dead entries requiring cleanup
+- id: verify-wfgy-method-standalone
+  note: 'Real-execution witness: after removal, confirm skills/wfgy-method/SKILL.md and its references/ still resolve correctly (all internal relative links valid) with no dependency on deleted repo parts'
+  status: completed
+  witness: find skills/wfgy-method -type f confirms SKILL.md + 4 references/*.md intact; grep confirmed no relative links point outside skills/wfgy-method/
+- id: commit-and-push
+  note: Stage all removals+edits, commit with clear message, push to origin (CONSOLIDATE phase)
+  status: pending

@@ -1,3 +1,8 @@
+## 2026-07-09
+- Retired the "WFGY 5.0 — Avatar" flatspace site project: removed root `SKILL.md`, `paper.md`, `skills/avatar-boot.md` + 4 sibling persona/behavior skill files, `wfgy-core/` (verbatim archived Avatar upstream artifacts), `config/`, `src/theme.mjs`, `flatspace.config.mjs`, `dist/` build output, `.github/workflows/build.yml`, and `test.js` (asserted Avatar site build-output invariants, no longer applicable).
+- Rewrote `README.md`: the repo's active content is now `skills/wfgy-method/` (the portable reasoning-drift-control skill added 2026-07-07), unrelated to the retired Avatar site.
+- Verified `skills/wfgy-method/SKILL.md` + `references/` form a single coherent, self-contained instruction with no dependency on the removed Avatar/site material — no changes needed to the skill itself.
+
 ## 2026-07-07 (2)
 - Add `skills/wfgy-method/`, a portable Claude Code Agent Skill implementing WFGY's (Wan Fa Gui Yi, `onestardao/WFGY`) core reasoning discipline for any project's own multi-step agent work — conformant to the agentskills.io specification (researched directly against all 9 of its documentation pages), not scoped to this site's own maintenance.
 - Ports the genuinely portable behavioral core of BBMC (goal comparison), BBPF (multi-path exploration before ambiguous decisions), and BBCR (checkpoint-and-bounded-retry on detected incoherence), plus the drift trend classifier (convergent/recursive/divergent/chaotic) and a subset of the ProblemMap failure-mode taxonomy, all traced to real, directly-fetched WFGY source files.
