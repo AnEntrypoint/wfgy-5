@@ -1,9 +1,20 @@
-# wfgy-method
+# WFGY 5.0 — Polaris Protocol
 
-A portable Claude Code Agent Skill applying WFGY (Wan Fa Gui Yi, `onestardao/WFGY`)'s reasoning-drift-control discipline to any project's own multi-step agent work.
+Exposing the complete original WFGY Polaris Protocol and Fifth-Dimension Engine from onestardao/WFGY — the active flagship (WFGY 5.0).
 
-See [`skills/wfgy-method/SKILL.md`](skills/wfgy-method/SKILL.md).
+Polaris Protocol implements drift-control and decision-gating mechanisms for autonomous reasoning at scale, with the Fifth-Dimension Engine providing theorem-complete solving for the Seven Millennium Problems.
 
-## History
+## Contents
 
-This repo previously hosted a flatspace-built static site extracting and presenting the WFGY "Avatar" research (governed avatar runtime, persona branching, multilingual calibration). That project has been retired; see `CHANGELOG.md` for its history. `skills/wfgy-method/` is unrelated to it and is the repo's current content.
+- **site**: Flatspace-built static site presenting the Polaris Protocol research and engine
+- **wfgy-core/Polaris/**: Original research artifacts from onestardao/WFGY, verbatim
+- **skills/wfgy-method/**: Portable Claude Code Agent Skill adapting WFGY's core reasoning discipline for any project's own multi-step work
+- **paper.md**: Science paper covering Polaris mechanisms and theoretical foundations
+
+## Build & Deploy
+
+```bash
+npx --yes flatspace@latest build
+```
+
+Builds the site into `dist/`, published to GitHub Pages.

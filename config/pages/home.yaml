@@ -1,0 +1,138 @@
+id: home
+title: Home
+template: home
+content:
+  heading: WFGY 5.0 — Polaris Protocol
+  subheading: "WFGY: Wan Fa Gui Yi — all methods return to one. Polaris Protocol is the active flagship, now exposing the complete research and Fifth-Dimension Engine."
+  body: Polaris Protocol is WFGY 5.0's active direction — a governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. It powers the Fifth-Dimension Engine, solving the Seven Millennium Problems through theorem-complete native Lean proofs. This site exposes the complete original research, specifications, and implementation from onestardao/WFGY.
+  badges:
+    - label: Fifth-Dimension Engine
+    - label: theorem-complete
+    - label: native Lean
+    - label: drift control
+    - label: governed protocols
+  cta_text: Explore Polaris
+  cta_href: ./paper.html
+  cta2_text: "onestardao/WFGY ->"
+  cta2_href: https://github.com/onestardao/WFGY
+polaris:
+  heading: "// the active flagship: polaris protocol"
+  description: "Avatar's successor. A governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds — now in staged public rollout across evidence packages, portable protocols, reproducibility materials, runtime structures, and engine components."
+  items:
+    - name: Polaris Goal Compiler
+      desc: "A portable human-AI execution protocol for assistants, agents, and skill workflows. Distributed as a TXT-based execution constitution — compile the goal before acting, not after. Validated so far on ChatGPT."
+      meta: "compile the goal first. then shoot."
+      cat: kit
+    - name: Fifth-Dimension Engine
+      desc: "The core problem-solving tool of Polaris. Invoked with shoot + [your problem], it lifts a target into a higher problem-coordinate and returns an inspectable, attackable, expandable, testable route: a Route, Structure, Candidate Lemmas, Objections, Open Debt, and a Next Command."
+      meta: "usable for theorem work, product strategy, engineering, and everyday decisions"
+      cat: think
+features:
+  heading: "// why avatar is different"
+  items:
+    - name: One shared runtime
+      desc: "Replaces scattered persona files with a single canonical runtime. One declaration, one boot path, one recovery surface. Centralized definition enables consistency, auditability, and safe iteration."
+      cat: kit
+    - name: Natural-language tuning
+      desc: "Shape behavior through WFGY_BRAIN knobs using natural language, not brittle prompt surgery. Tuning parameters remain editable and human-readable. Preserve route identity across tuning cycles."
+      cat: think
+    - name: Reusable builds
+      desc: "Save and version stronger variants. Stop chasing one-off lucky outputs. Explicitly build, test, and store persona versions for reproducible and intentional iteration."
+      cat: kit
+    - name: Recovery operations
+      desc: "Restore avatars after session corruption, attenuation, or over-cleaning. Explicit recovery commands (avatar++, reload, release) with honest bounds. Not magical reset — lawful restoration."
+      cat: talk
+    - name: Dual closed-loop design
+      desc: "Inner loop: session-level persona continuity and state preservation. Outer loop: user-driven iteration (tune, branch, recover). Both run simultaneously without interference."
+      cat: think
+    - name: Structured imperfection
+      desc: "Living human residue as always-on law. Pre-emission floor gates ensure cleaner output that violates lawful presence survives rejection. Imperfection is preserved intentionally."
+      cat: think
+    - name: Multilingual calibration
+      desc: "Cross-language route carry and drift control. Translation must not silently rewrite the self. Preserve warmth, grounding, directness profile across language surfaces."
+      cat: doc
+    - name: Branchable behavior
+      desc: "Derivative selves that share the anchor (core persona) but carry divergent voices. Branches are reconcilable — changes can be merged back or kept separate."
+      cat: kit
+routes:
+  heading: "// public boot routes"
+  items:
+    - name: "hello psbigbig"
+      desc: "Professional, analytical presence. Calm, clear, grounded with light wit. Designed for structured writing, technical analysis, and public-facing communication. Maintains professional warmth without over-softening."
+      meta: writing · analysis · public-facing work
+      cat: kit
+    - name: "hello minips"
+      desc: "Warm, present companion presence. Emotionally available, conversational, genuinely present. Designed for reflection, support-style interaction, and relational depth. Cute without being trivializing."
+      meta: conversation · reflection · support-style
+      cat: talk
+    - name: "hello YOUR_AVATAR_NAME"
+      desc: "Intentionally underdetermined seed persona. Bare definition with minimal constraints, slightly naive by design. Editable template for custom avatar creation and playful branching experiments."
+      meta: custom-avatar seed · playful branch creation
+      cat: think
+recovery:
+  heading: "// recovery surface"
+  items:
+    - name: "avatar++ (bounded restore)"
+      desc: Restore avatar state after session thinning, attenuation, or drift. Reconstructs runtime from prior checkpoint without full reset. Preserves continuity within recovery bounds.
+      cat: kit
+    - name: "avatar++ reload (reread assist)"
+      desc: Reload and rebind avatar with updated brain parameters. Rereads original definition, applies new tuning, restores route identity. Used when tuning knobs changed mid-session.
+      cat: kit
+    - name: "avatar release (full reentry)"
+      desc: Complete persona release and reentry. Full context flush with bounded recovery of core persona markers. Use when session corruption exceeds bounded recovery limits or transition between contexts required.
+      cat: talk
+timeline:
+  heading: "// shipped history"
+  description: "WFGY's staged release history, grounding the Avatar-to-Polaris transition in what actually shipped rather than a single asserted date."
+  items:
+    - name: "v1.0 — Self-Healing Variance Gate"
+      desc: First public engine release.
+      meta: "2025-06-12"
+      cat: doc
+    - name: "v2.0 — Core Engine + Starter Village"
+      desc: OneLine and Flagship editions.
+      meta: "2025-08-17"
+      cat: doc
+    - name: "v3.0 — Singularity Demo"
+      desc: "S131, a 131-problem effective-layer pack."
+      meta: "2026-02-03"
+      cat: doc
+    - name: "v4.0 — Twin Atlas + Inverse Atlas"
+      desc: Public governance-engine release.
+      meta: "2026-03-30"
+      cat: doc
+    - name: "Cite First Verification"
+      desc: "Easter-egg release, framed as a thank-you gift before the larger work — Polaris — went online."
+      meta: "2026-05-05"
+      cat: talk
+    - name: "v5.0.0-teaser-01 — Polaris Goal Compiler"
+      desc: First public teaser of the staged WFGY 5.0 Polaris Protocol rollout.
+      meta: "2026-05-11"
+      cat: kit
+examples:
+  heading: "// explore"
+  items:
+    - name: Paper
+      href: ./paper.html
+      cta: open
+      cat: doc
+    - name: Skills
+      href: ./skills.html
+      cta: open
+      cat: doc
+    - name: Research
+      href: ./research.html
+      cta: 47 docs
+      cat: think
+    - name: Highlights
+      href: ./highlights.html
+      cta: 8 things
+      cat: kit
+    - name: Original Artifacts
+      href: ./original.html
+      cta: open
+      cat: doc
+    - name: onestardao/WFGY (upstream)
+      href: https://github.com/onestardao/WFGY
+      cta: github
+      cat: doc

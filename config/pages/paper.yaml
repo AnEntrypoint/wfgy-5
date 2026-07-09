@@ -1,0 +1,7 @@
+id: paper
+title: Paper
+template: longform
+content:
+  heading: "Science paper"
+  description: "The full paper for this extraction."
+  source: paper.md

@@ -1,7 +1,11 @@
+## 2026-07-09 (2)
+- Pivot from Avatar to Polaris Protocol: restored flatspace site infrastructure from d2f92e2 commit and reoriented the entire site to present WFGY 5.0's active flagship (Polaris Protocol and Fifth-Dimension Engine) instead of the archived Avatar.
+- Fetched core Polaris artifacts from onestardao/WFGY upstream (README.md, Goal-Compiler.md, Fifth-Dimension-Engine.md, plus directory structure for protocols, engine, experiments, demos, frontier-challenges).
+- Updated all project metadata: `SKILL.md` (wfgy-5-0-polaris), `README.md` (describes Polaris + site + wfgy-method skill), home page config (heading, badges, CTA), `paper.md` (complete rewrite covering Polaris mechanisms, Fifth-Dimension Engine, drift control, Goal Compiler, and relationship to archived Avatar).
+- Verified `skills/wfgy-method/` is unrelated to either Avatar or Polaris — a portable reasoning-discipline skill reusable in any project.
+
 ## 2026-07-09
-- Retired the "WFGY 5.0 — Avatar" flatspace site project: removed root `SKILL.md`, `paper.md`, `skills/avatar-boot.md` + 4 sibling persona/behavior skill files, `wfgy-core/` (verbatim archived Avatar upstream artifacts), `config/`, `src/theme.mjs`, `flatspace.config.mjs`, `dist/` build output, `.github/workflows/build.yml`, and `test.js` (asserted Avatar site build-output invariants, no longer applicable).
-- Rewrote `README.md`: the repo's active content is now `skills/wfgy-method/` (the portable reasoning-drift-control skill added 2026-07-07), unrelated to the retired Avatar site.
-- Verified `skills/wfgy-method/SKILL.md` + `references/` form a single coherent, self-contained instruction with no dependency on the removed Avatar/site material — no changes needed to the skill itself.
+- Removed Avatar site project in initial commit, keeping only `skills/wfgy-method/` — now being reversed to build Polaris Protocol site.
 
 ## 2026-07-07 (2)
 - Add `skills/wfgy-method/`, a portable Claude Code Agent Skill implementing WFGY's (Wan Fa Gui Yi, `onestardao/WFGY`) core reasoning discipline for any project's own multi-step agent work — conformant to the agentskills.io specification (researched directly against all 9 of its documentation pages), not scoped to this site's own maintenance.

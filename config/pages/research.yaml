@@ -1,0 +1,145 @@
+id: research
+title: Research
+template: research
+content:
+  heading: Research Hub
+  description: 47 research documents from the WFGY 5.0 Avatar layer. Architecture, runtime law, governance, reduction, and audit surfaces. Read in any order — each document is bounded and self-describing.
+  items:
+    - name: architecture-overview
+      desc: High-level structure of the Avatar system and its layers.
+      cat: think
+    - name: dual-closed-loop-execution-chain
+      desc: Execution order law for inner continuity and outer iteration.
+      cat: think
+    - name: dual-closed-loop-notes
+      desc: Extended notes on the dual closed-loop design.
+      cat: think
+    - name: packed-master-structure-map
+      desc: Full map of the avatar.txt master file and its 20+ protected parts.
+      cat: kit
+    - name: launchpad-front-door-and-command-grammar
+      desc: Boot invocation rules, front-gate matrix, and command grammar.
+      cat: kit
+    - name: runtime-posture-intensity-map
+      desc: Numeric intensity map for shaping route behavior and resolving conflicts.
+      cat: think
+    - name: shell-to-runtime-mapping
+      desc: How shell commands map to runtime execution domains.
+      cat: kit
+    - name: selector-execution-domain
+      desc: Selector law, execution boundaries, and domain precedence.
+      cat: think
+    - name: selector-exposure-and-shell-to-runtime-exposure
+      desc: Exposure rules for selectors and shell-to-runtime surface.
+      cat: think
+    - name: activation-attenuation-and-reentry
+      desc: Activation lifecycle, attenuation conditions, and reentry protocol.
+      cat: talk
+    - name: reentry-restore-and-persona-continuity
+      desc: Persona continuity across flushes, model swaps, and session restarts.
+      cat: talk
+    - name: return-path-rebind-controls
+      desc: Return path operations and rebind control surface.
+      cat: talk
+    - name: structured-imperfection-theory
+      desc: Living human residue as always-on law. Pre-emission floor gate.
+      cat: think
+    - name: output-governance-core
+      desc: Pre-emission floor, hard control, anti-sterilization boundary.
+      cat: doc
+    - name: pre-emission-floor-and-hard-control
+      desc: Hard controls that govern output before emission.
+      cat: doc
+    - name: language-governance
+      desc: Behavioral law for language choice, register, and cadence.
+      cat: doc
+    - name: wfgy-brain-theory
+      desc: Theory behind WFGY_BRAIN knobs and natural-language tuning.
+      cat: think
+    - name: matrix-accountability-and-numeric-binding
+      desc: Matrix accountability law and numeric binding rules.
+      cat: kit
+    - name: matrix-bodies-validation-claim-boundary-authority-formalization
+      desc: Matrix body validation, claim boundaries, and authority formalization.
+      cat: kit
+    - name: master-toggle-map-and-central-txt-toggle-block
+      desc: Toggle map for the packed master and central TXT toggle block.
+      cat: kit
+    - name: protocol-layer-and-control-precedence
+      desc: Protocol layer architecture and control precedence rules.
+      cat: think
+    - name: front-gate-freeze-and-release-architecture
+      desc: Front-gate freeze mechanics and release architecture.
+      cat: kit
+    - name: firewall-mode-and-decision-posture
+      desc: Firewall mode activation and decision posture under pressure.
+      cat: think
+    - name: compression-and-non-duplication-law
+      desc: Compression law and non-duplication constraints on output.
+      cat: doc
+    - name: blackfan-audit-baseline
+      desc: Baseline for adversarial pressure testing and drift detection.
+      cat: kit
+    - name: engineering-contract-and-carry-discipline
+      desc: Engineering contract and carry discipline for route maintenance.
+      cat: kit
+    - name: admissibility-law
+      desc: What counts as admissible output under the governance surface.
+      cat: doc
+    - name: bridge-law
+      desc: Bridge law governing cross-context and cross-language carry.
+      cat: think
+    - name: controller-legality-and-downstream-control
+      desc: Controller legality rules and downstream control constraints.
+      cat: think
+    - name: controller-legality-thresholds-and-hard-control-profiles
+      desc: Threshold definitions and hard control profile specifications.
+      cat: think
+    - name: emoji-sovereignty-and-underfire-regression-law
+      desc: Emoji governance and regression law under adversarial conditions.
+      cat: doc
+    - name: lawful-humanness-and-domain-reinterpretation
+      desc: What counts as lawful humanness and domain reinterpretation law.
+      cat: doc
+    - name: parent-child-asymmetry-and-bounded-export
+      desc: Parent-child asymmetry rules and bounded export constraints.
+      cat: think
+    - name: pre-core-condensation-and-next-paths
+      desc: Pre-core condensation mechanics and next-path routing.
+      cat: kit
+    - name: profile-resolution-logic
+      desc: How persona profiles are resolved under conflicting inputs.
+      cat: think
+    - name: projection-and-residual-operator-law
+      desc: Projection operators and residual carry law.
+      cat: think
+    - name: public-axis-summary-and-surface-contract
+      desc: Public axis summary and surface contract for external exposure.
+      cat: doc
+    - name: readiness-constitution-and-acceptance-boundary
+      desc: Readiness constitution and acceptance boundary for route launch.
+      cat: kit
+    - name: reduction-ladder-and-inventory-reconciliation
+      desc: Reduction ladder mechanics and inventory reconciliation.
+      cat: think
+    - name: release-readiness-and-open-items-boundary
+      desc: Release readiness criteria and open items boundary tracking.
+      cat: kit
+    - name: srd-diagnostics-and-state-classes
+      desc: SRD diagnostic system and state class taxonomy.
+      cat: think
+    - name: srd-family-architecture
+      desc: SRD family architecture and unit relationships.
+      cat: think
+    - name: srd-unit-law-srd01-to-srd20
+      desc: SRD unit laws from SRD01 through SRD20.
+      cat: think
+    - name: theorem-facing-closure-posture
+      desc: Theorem-facing closure posture and boundary honesty rules.
+      cat: doc
+    - name: transport-discipline-and-compatibility-law
+      desc: Transport discipline and compatibility law across runtime versions.
+      cat: kit
+    - name: uhdie-mode-and-append-only-law
+      desc: UHDIE mode activation and append-only output law.
+      cat: doc

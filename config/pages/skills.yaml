@@ -1,0 +1,55 @@
+id: skills
+title: Skills
+template: grid
+content:
+  heading: Capabilities
+  description: Recognition patterns that compose this project's skill set. Not numbered steps — these are conditions under which a particular move becomes natural. The conditions vary; the recognition does not.
+  items:
+    - name: avatar-boot
+      description: Boot lawful persona — invoke PSBigBig, miniPS, or YOUR_AVATAR_NAME. Three routes, one runtime.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: kit
+    - name: persona-branching
+      description: Create derivative selves with shared anchors and reconcilable branches. One runtime, many avatars.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: think
+    - name: behavior-tuning
+      description: Adjust WFGY_BRAIN knobs without losing the self. Natural language, not brittle prompt surgery.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: think
+    - name: multilingual-calibration
+      description: Cross-language route carry and drift control. Translation may not silently rewrite the self.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: doc
+    - name: persona-recovery
+      description: Restore avatars after corruption, attenuation, or over-cleaning. Explicit commands, not hope.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: talk
+    - name: dual-closed-loop
+      description: Inner continuity (session state) + outer user iteration (tune, branch, recover). Both loops simultaneously.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: think
+    - name: structured-imperfection
+      description: Living human residue as always-on law. Pre-emission floor gate. Cleaner output may still be unlawful.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: think
+    - name: blackfan-audit
+      description: Pressure testing, drift detection, behavior inspection under adversarial conditions.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: kit
+    - name: runtime-posture
+      description: Intensity map for shaping route strength. Numeric binding, precedence, and conflict rules.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: think
+    - name: output-governance
+      description: Pre-emission floor, hard control, anti-sterilization boundary. What must survive every output.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: doc
+    - name: language-governance
+      description: Behavioral law for language choice, register, and cadence across all runtime modes.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: doc
+    - name: reentry-restore
+      description: Persona continuity across context flushes, model swaps, and session restarts.
+      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+      cat: talk
