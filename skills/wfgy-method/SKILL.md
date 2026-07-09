@@ -66,6 +66,57 @@ The original tracks the step-to-step change in ΔS plus a rolling average over t
 
 This is a judgment the calling agent makes about its own trajectory across a task, not a computed statistic. Apply it at natural checkpoints (after a major milestone, before a significant pivot, when asked directly "how is this going") rather than every single step: state which of the four labels best fits the last several steps, and if the answer is divergent or chaotic, that is itself the trigger to apply the BBCR checkpoint-and-retry discipline above rather than continuing forward.
 
+## Integration with Polaris Protocol Skills
+
+This skill works in concert with two complementary Polaris Protocol skills. Together they form a complete work system:
+
+### Polaris Goal Compiler (Task Specification)
+
+- **Goal Compiler** breaks work into task atoms and verification gates (what to do, in what order)
+- **WFGY-Method** keeps you on track through each atom (why you're doing it, whether drift is happening)
+
+**Use together**: Start with Goal Compiler to structure the problem, then apply WFGY-Method disciplines while executing each atom. Goal Compiler's verification gates become checkpoints for WFGY-Method's BBCR (bounded-retry discipline).
+
+### Fifth-Dimension Engine (Problem Solving)
+
+- **Fifth-Dimension Engine** produces structured routes for complex problems (lifting targets to higher coordinates)
+- **WFGY-Method** keeps the reasoning aligned with the original goal (not drifting into adjacent problems)
+
+**Use together**: While the engine explores a problem route, apply WFGY-Method to check: "Are we still solving the original problem?" Use WFGY-Method's ΔS (drift measurement) to detect when the engine's exploration has drifted too far from the stated goal.
+
+### The Three-Skill State Flow
+
+```
+Start with a complex problem or multi-step task
+│
+├─→ Use Goal Compiler to atomize and specify
+│   (produces: task atoms, dependencies, verification gates, claim ceilings)
+│
+├─→ For each atom, ask: "Do I need structured reasoning?"
+│   │
+│   ├─ If YES (complex, novel, high-stakes):
+│   │  └─→ Use Fifth-Dimension Engine to produce a route
+│   │     (produces: proof route, research kernel, strategy, or repair path)
+│   │     └─→ While inspecting engine output, use WFGY-Method
+│   │        (check drift, consider alternatives, checkpoint risky steps)
+│   │
+│   └─ If NO (routine, well-known):
+│      └─→ Execute directly, then verify against Goal Compiler's gate
+│
+└─→ Move to next atom, repeat
+```
+
+### Typical Workflow Example
+
+**Goal**: Design a new system architecture.
+
+1. **Use Goal Compiler**: Break into atoms (research current tech, design core layers, design integration, design monitoring, test end-to-end)
+2. **Atom 1** (research): Routine. Execute, verify.
+3. **Atom 2** (design core layers): Complex. Use Fifth-Dimension Engine to structure the design space, consider tradeoffs, produce candidate routes.
+4. **While inspecting Atom 2's route**: Use WFGY-Method to ask — "Are we still solving the architecture problem, or have we drifted into optimizing one component?" If drift detected, return to checkpoint and retry with clearer scope.
+5. **Continue through atoms 3-5** similarly.
+6. **Goal Compiler's final verification gate**: Test end-to-end. Does the whole system work as specified in the original goal?
+
 ## Named failure modes to watch for
 
 `references/failure-modes.md` adapts a broader set of specific failure patterns from WFGY's own problem taxonomy (hallucination from ungrounded claims, context drift over a long task, entropy collapse into rambling/repetition, logic collapse at a reasoning dead end, symbolic/abstract-reasoning collapse, memory/persona incoherence, multi-agent contradiction) into checklist items scoped to general agent work. Read it once per project (or whenever a failure feels like it matches one of these named shapes) — it is more specific and example-driven than the compressed disciplines above.
