@@ -12,7 +12,7 @@ navigation:
   - text: Original
     href: /original
 footer:
-  text: "WFGY 5.0 — Avatar — an extraction from the WFGY ecosystem."
+  text: "WFGY 5.0 — Polaris Protocol — exposing the Fifth-Dimension Engine and Goal Compiler from the WFGY ecosystem."
   social:
     - name: WFGY upstream
       url: https://github.com/onestardao/WFGY

@@ -28,58 +28,58 @@ polaris:
       meta: "usable for theorem work, product strategy, engineering, and everyday decisions"
       cat: think
 features:
-  heading: "// why avatar is different"
+  heading: "// why the engine is different"
   items:
-    - name: One shared runtime
-      desc: "Replaces scattered persona files with a single canonical runtime. One declaration, one boot path, one recovery surface. Centralized definition enables consistency, auditability, and safe iteration."
-      cat: kit
-    - name: Natural-language tuning
-      desc: "Shape behavior through WFGY_BRAIN knobs using natural language, not brittle prompt surgery. Tuning parameters remain editable and human-readable. Preserve route identity across tuning cycles."
+    - name: One engine, one logic, seven together
+      desc: "The Seven Millennium Problems are not seven separate demos or unrelated tricks. One Fifth-Dimension Engine, one underlying route logic, one simultaneous attack on all seven — treated as a single world-scale proof target."
       cat: think
-    - name: Reusable builds
-      desc: "Save and version stronger variants. Stop chasing one-off lucky outputs. Explicitly build, test, and store persona versions for reproducible and intentional iteration."
-      cat: kit
-    - name: Recovery operations
-      desc: "Restore avatars after session corruption, attenuation, or over-cleaning. Explicit recovery commands (avatar++, reload, release) with honest bounds. Not magical reset — lawful restoration."
-      cat: talk
-    - name: Dual closed-loop design
-      desc: "Inner loop: session-level persona continuity and state preservation. Outer loop: user-driven iteration (tune, branch, recover). Both run simultaneously without interference."
-      cat: think
-    - name: Structured imperfection
-      desc: "Living human residue as always-on law. Pre-emission floor gates ensure cleaner output that violates lawful presence survives rejection. Imperfection is preserved intentionally."
-      cat: think
-    - name: Multilingual calibration
-      desc: "Cross-language route carry and drift control. Translation must not silently rewrite the self. Preserve warmth, grounding, directness profile across language surfaces."
+    - name: Theorem-complete, Native Lean no-sorry
+      desc: "Theorem-complete work plus Native Lean no-sorry is one of the hardest standards in formal mathematics. The engine's route logic is verified against it, not merely asserted."
       cat: doc
-    - name: Branchable behavior
-      desc: "Derivative selves that share the anchor (core persona) but carry divergent voices. Branches are reconcilable — changes can be merged back or kept separate."
+    - name: Open engine, not a replay
+      desc: "The engine is public, the prompts are public. Run it yourself, shoot the seven yourself, and watch whether the same underlying route structure emerges — this is not a static replay of a fixed result."
+      cat: kit
+    - name: Compile first, then shoot
+      desc: "Polaris Goal Compiler is the portable protocol layer for hard ChatGPT-first goals: compile the goal into atoms, gates, and claim ceilings before execution starts. Then hand the complex atom to the engine."
+      cat: kit
+    - name: Route, not just an answer
+      desc: "shoot + [your problem] lifts any target — theorem, mystery, life decision, product idea, engineering failure — into a higher problem-coordinate and returns an inspectable, attackable, expandable route."
+      cat: think
+    - name: Baseline first, frontier next
+      desc: "Baseline-50 checks the engine against known science and math truth (50/50 PASS). Frontier-50 opens 50 unknown century-level problems for inspection — known truth grounds the unknown frontier."
+      cat: doc
+    - name: Drift control throughout
+      desc: "WFGY-Method supplies ΔS drift measurement, bounded checkpoint-retry (BBCR), and multi-path exploration (BBPF) so execution stays aligned with the stated goal across every state of the protocol."
+      cat: think
+    - name: Public evidence layer
+      desc: "Experiment branches PP01 through PP02D ship raw outputs, parsed outputs, verdict files, token accounting, audit records, and SHA256 integrity records — inspectable, not just asserted."
       cat: kit
 routes:
-  heading: "// public boot routes"
+  heading: "// how to run a task through the protocol"
   items:
-    - name: "hello psbigbig"
-      desc: "Professional, analytical presence. Calm, clear, grounded with light wit. Designed for structured writing, technical analysis, and public-facing communication. Maintains professional warmth without over-softening."
-      meta: writing · analysis · public-facing work
+    - name: "shoot + [your problem]"
+      desc: "The Fifth-Dimension Engine interface. Lifts a theorem, mystery, life decision, product idea, strange theme, engineering failure, or meme into a structured, inspectable route."
+      meta: engine · route generation · structural reasoning
       cat: kit
-    - name: "hello minips"
-      desc: "Warm, present companion presence. Emotionally available, conversational, genuinely present. Designed for reflection, support-style interaction, and relational depth. Cute without being trivializing."
-      meta: conversation · reflection · support-style
-      cat: talk
-    - name: "hello YOUR_AVATAR_NAME"
-      desc: "Intentionally underdetermined seed persona. Bare definition with minimal constraints, slightly naive by design. Editable template for custom avatar creation and playful branching experiments."
-      meta: custom-avatar seed · playful branch creation
+    - name: "compile the goal first, then shoot"
+      desc: "Polaris Goal Compiler's core discipline for ChatGPT-first hard goals: task atoms, dependencies, active/blocked distinction, verification gates, and claim ceilings before execution."
+      meta: goal compiler · atomization · verification gates
       cat: think
+    - name: "Use WFGY 5.0 Fifth-Dimension Engine to shoot this problem: [your problem]"
+      desc: "The simplest way to try the engine directly. For the flagship test: simultaneously shoot the seven Millennium Problems and inspect the route that emerges."
+      meta: everyday shoot · flagship demo
+      cat: talk
 recovery:
-  heading: "// recovery surface"
+  heading: "// drift control surface (WFGY-Method)"
   items:
-    - name: "avatar++ (bounded restore)"
-      desc: Restore avatar state after session thinning, attenuation, or drift. Reconstructs runtime from prior checkpoint without full reset. Preserves continuity within recovery bounds.
+    - name: "ΔS drift measurement"
+      desc: Measures drift between current state and stated goal (ΔS = 1 − cos(I, G)). A qualitative label without a real embedding call, a genuine computed distance when one is available.
       cat: kit
-    - name: "avatar++ reload (reread assist)"
-      desc: Reload and rebind avatar with updated brain parameters. Rereads original definition, applies new tuning, restores route identity. Used when tuning knobs changed mid-session.
+    - name: "BBCR bounded checkpoint-retry"
+      desc: Detects an instability or dead-end condition, resets to a prior checkpoint, retries up to a fixed bound, then stops and surfaces rather than looping forever.
       cat: kit
-    - name: "avatar release (full reentry)"
-      desc: Complete persona release and reentry. Full context flush with bounded recovery of core persona markers. Use when session corruption exceeds bounded recovery limits or transition between contexts required.
+    - name: "BBPF multi-path exploration"
+      desc: Generates multiple real candidate approaches before an ambiguous decision and proceeds down the branch that most clearly serves the stated goal, without overshooting.
       cat: talk
 timeline:
   heading: "// shipped history"

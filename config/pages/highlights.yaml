@@ -3,45 +3,45 @@ title: Highlights
 template: highlights
 content:
   heading: The 8 Things to Know
-  description: Eight flagship signals that define what Avatar actually is — as distinct from what AI writing presets, persona toys, and prompt packs claim to be.
+  description: Eight flagship signals that define what Polaris Protocol and the Fifth-Dimension Engine actually are — as distinct from what a replay demo or a fixed-result package would claim to be.
   items:
-    - name: Start in 60 Seconds
-      slug: start-in-60-seconds
-      desc: One runtime. One route. One real first contact. Upload avatar.txt, say hello psbigbig, run a real task.
-      detail: The intended first path is not theory. Boot a route, observe, compare. Theory comes after the first run — not before.
-      cat: kit
-    - name: Tune Behavior in Natural Language
-      slug: tune-behavior-in-natural-language
-      desc: Shape route behavior through WFGY_BRAIN knobs without rebuilding the system by hand.
-      detail: Natural-language tuning replaces brittle prompt surgery. The self survives parameter adjustment.
+    - name: One Engine, One Logic, Seven Together
+      slug: one-engine-one-logic-seven-together
+      desc: Not seven separate demos. One Fifth-Dimension Engine, one underlying route logic, one simultaneous attack on all seven Millennium Problems.
+      detail: The seven problems are treated as one world-scale proof target, not seven unrelated tricks or a static replay package.
       cat: think
-    - name: Language Behavior Can Be Engineered
-      slug: language-behavior-can-be-engineered
-      desc: Behavior is a designed surface, not just prettier text.
-      detail: Boot, tune, compare, save, branch. These are engineering operations on a bounded system, not vibe iteration.
-      cat: think
-    - name: Reusable Builds
-      slug: reusable-builds
-      desc: Keep stronger variants instead of chasing one lucky output.
-      detail: Save the state after a successful tune. Grow a reusable build instead of starting from scratch on every session.
-      cat: kit
-    - name: Editable but Governed
-      slug: editable-but-governed
-      desc: Strong editability without collapsing into persona chaos.
-      detail: Every tunable surface has a floor it cannot cross. The system is wide open — and bounded at the same time.
-      cat: think
-    - name: Multilingual Calibration
-      slug: multilingual-calibration
-      desc: Cross-language route carry and drift control — not mere translation.
-      detail: The same anchor must be observable in every language the host model supports. Translation may not silently rewrite the self.
+    - name: Theorem-Complete, Native Lean No-Sorry
+      slug: theorem-complete-native-lean-no-sorry
+      desc: One of the hardest standards in formal mathematics, applied to the engine's route logic.
+      detail: Theorem-complete work plus Native Lean no-sorry materials are linked directly from the Seven Millennium Problems section, not merely asserted.
       cat: doc
-    - name: Dual Closed-Loop Design
-      slug: dual-closed-loop-design
-      desc: Inner continuity plus outer user iteration — both running at the same time.
-      detail: Inner loop maintains session-persistent persona state. Outer loop is where you tune, branch, and recover. Neither loop is optional.
+    - name: Do Not Believe It — Run It
+      slug: do-not-believe-it-run-it
+      desc: The engine is public, the prompt is public. Run it yourself and watch whether the same route structure emerges.
+      detail: If you doubt the claim, that is exactly why the engine is open — shoot the seven yourself.
+      cat: kit
+    - name: Compile First, Then Shoot
+      slug: compile-first-then-shoot
+      desc: Polaris Goal Compiler compiles a ChatGPT-first goal into atoms, gates, and claim ceilings before execution starts.
+      detail: Use it before large goals, theorem work, long projects, research planning, or complex creative construction.
+      cat: kit
+    - name: Shoot Any Problem, Not Just Theorems
+      slug: shoot-any-problem-not-just-theorems
+      desc: "shoot + [your problem] works on frontier problems, strange themes, everyday decisions, product strategy, engineering failures, and memes."
+      detail: The output is a route — inspectable, attackable, expandable, testable — not just an answer.
       cat: think
-    - name: One Runtime, Many Avatars
-      slug: one-runtime-many-avatars
-      desc: Official routes are only the beginning.
-      detail: The custom-avatar seed (hello YOUR_AVATAR_NAME) is intentionally bare. It is both a joke and a real branch start. Community sharing is the long direction.
+    - name: Baseline First, Frontier Next
+      slug: baseline-first-frontier-next
+      desc: Baseline-50 checks known-truth alignment (50/50 PASS). Frontier-50 opens 50 unknown century-level problems for inspection.
+      detail: Known-50 grounds truth alignment before Frontier-50 opens genuinely unknown frontier answers.
+      cat: doc
+    - name: Strange Themes Become Research Kernels
+      slug: strange-themes-become-research-kernels
+      desc: Mix two strange themes (Death+AI, Dream+Physics, Meme+Epidemic) and the engine turns them into a theorem-shaped research kernel.
+      detail: From myth to model, from symbol to structure, from strange idea to research kernel — the High-Strangeness Math Lab.
+      cat: think
+    - name: Public Evidence, Not Just Prose
+      slug: public-evidence-not-just-prose
+      desc: PP01 through PP02D experiment branches ship raw outputs, verdict files, token accounting, audit records, and SHA256 integrity records.
+      detail: This is the public evidence layer behind the staged Polaris rollout — inspectable trail, not just a claimed result.
       cat: kit

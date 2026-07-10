@@ -2,33 +2,30 @@ id: original
 title: Original
 template: original
 content:
-  heading: Original WFGY Archive
-  description: Every document copied verbatim from onestardao/WFGY, organized by section. No summaries stand between you and the source — each link opens the real file.
+  heading: Original WFGY Polaris Archive
+  description: Every document copied verbatim from onestardao/WFGY's Polaris directory. No summaries stand between you and the source — each link opens the real file.
   sections:
-    - dir: research
-      label: Research
-      desc: Architecture, runtime law, governance, reduction, and audit surfaces.
-      cat: think
-    - dir: docs
-      label: Docs
-      desc: Quickstart, boot commands, tuning workflow, and recovery operations.
-      cat: doc
-    - dir: eval
-      label: Eval
-      desc: Pressure testing, drift detection, and multilingual readiness checks.
+    - dir: protocols
+      label: Protocols
+      desc: Polaris Goal Compiler — the portable, ChatGPT-first execution protocol layer.
       cat: kit
-    - dir: highlights
-      label: Highlights
-      desc: The flagship signals that define what Avatar is.
-      cat: talk
-    - dir: community
-      label: Community
-      desc: Submission format and the future Awesome Avatar List.
-      cat: talk
+    - dir: engine
+      label: Engine
+      desc: Fifth-Dimension Engine — the current main product surface of WFGY 5.0.
+      cat: think
+    - dir: demos
+      label: Demos
+      desc: Seven Millennium Problems, Baseline-50, Frontier-50, High-Strangeness Math Lab, and Everyday Shoot Modes.
+      cat: kit
+    - dir: frontier-challenges
+      label: Frontier Challenges
+      desc: Century-level problems beyond the flagship Seven Millennium Problems set.
+      cat: think
+    - dir: experiments
+      label: Experiments
+      desc: Public evidence layer — PP01-PP02D branches, raw outputs, verdict files, and SHA256 integrity records.
+      cat: doc
   downloads:
-    - name: avatar.txt
-      desc: The canonical packed master file — the sealed MVP source referenced throughout every research document.
-      href: ./archive/avatar.txt
-    - name: README.md
-      desc: The root Avatar README — the flagship landing document.
+    - name: Polaris README.md
+      desc: The root Polaris document — the flagship landing page for WFGY 5.0.
       href: ./archive/root-readme.html

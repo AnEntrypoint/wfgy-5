@@ -5,51 +5,39 @@ content:
   heading: Capabilities
   description: Recognition patterns that compose this project's skill set. Not numbered steps — these are conditions under which a particular move becomes natural. The conditions vary; the recognition does not.
   items:
-    - name: avatar-boot
-      description: Boot lawful persona — invoke PSBigBig, miniPS, or YOUR_AVATAR_NAME. Three routes, one runtime.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: polaris-protocol
+      description: Tree root and state machine wiring the three child skills below (COMPILE, SHOOT, DRIFT CONTROL) into one dispatch sequence for complex, multi-step, or long-horizon work.
+      href: https://github.com/AnEntrypoint/wfgy-5/blob/main/skills/polaris-protocol/SKILL.md
       cat: kit
-    - name: persona-branching
-      description: Create derivative selves with shared anchors and reconcilable branches. One runtime, many avatars.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: polaris-goal-compiler
+      description: Compile a goal into task atoms, dependencies, active/blocked work, verification gates, and claim ceilings before execution starts. Compile first, then shoot.
+      href: https://github.com/AnEntrypoint/wfgy-5/blob/main/skills/polaris-goal-compiler/SKILL.md
       cat: think
-    - name: behavior-tuning
-      description: Adjust WFGY_BRAIN knobs without losing the self. Natural language, not brittle prompt surgery.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: fifth-dimension-engine
+      description: Shoot a complex atom into an inspectable route — structure, candidate lemmas, objections, open debt, and next command. The current main product surface of WFGY 5.0.
+      href: https://github.com/AnEntrypoint/wfgy-5/blob/main/skills/fifth-dimension-engine/SKILL.md
       cat: think
-    - name: multilingual-calibration
-      description: Cross-language route carry and drift control. Translation may not silently rewrite the self.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
-      cat: doc
-    - name: persona-recovery
-      description: Restore avatars after corruption, attenuation, or over-cleaning. Explicit commands, not hope.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
-      cat: talk
-    - name: dual-closed-loop
-      description: Inner continuity (session state) + outer user iteration (tune, branch, recover). Both loops simultaneously.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: wfgy-method
+      description: Drift control across every state — ΔS measurement, BBCR bounded checkpoint-retry, BBPF multi-path exploration, BBAM delegated attention-widening, and the named failure-mode checklist.
+      href: https://github.com/AnEntrypoint/wfgy-5/blob/main/skills/wfgy-method/SKILL.md
       cat: think
-    - name: structured-imperfection
-      description: Living human residue as always-on law. Pre-emission floor gate. Cleaner output may still be unlawful.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
-      cat: think
-    - name: blackfan-audit
-      description: Pressure testing, drift detection, behavior inspection under adversarial conditions.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: shoot-the-seven-millennium-problems
+      description: One engine, one logic, one simultaneous attack on all seven Millennium Problems. Theorem-complete, Native Lean no-sorry.
+      href: https://github.com/onestardao/WFGY/tree/main/Polaris/demos/seven-millennium-problems
       cat: kit
-    - name: runtime-posture
-      description: Intensity map for shaping route strength. Numeric binding, precedence, and conflict rules.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: high-strangeness-math-lab
+      description: Mix two strange themes and let the engine turn them into a theorem-shaped research kernel — from myth to model, from symbol to structure.
+      href: https://github.com/onestardao/WFGY/tree/main/Polaris/demos/high-strangeness-math-lab
       cat: think
-    - name: output-governance
-      description: Pre-emission floor, hard control, anti-sterilization boundary. What must survive every output.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
-      cat: doc
-    - name: language-governance
-      description: Behavioral law for language choice, register, and cadence across all runtime modes.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
-      cat: doc
-    - name: reentry-restore
-      description: Persona continuity across context flushes, model swaps, and session restarts.
-      href: https://github.com/onestardao/WFGY/tree/main/Avatar
+    - name: everyday-shoot-modes
+      description: Life decisions, relationships, work, product strategy, research, debugging, and absurd/meme problems — before you decide, shoot first.
+      href: https://github.com/onestardao/WFGY/tree/main/Polaris/demos/everyday-shoot-modes
       cat: talk
+    - name: baseline-and-frontier
+      description: Baseline-50 checks known-truth alignment (50/50 PASS). Frontier-50 opens 50 unknown century-level problems for inspection.
+      href: https://github.com/onestardao/WFGY/tree/main/Polaris/demos
+      cat: doc
+    - name: public-evidence-layer
+      description: PP01-PP02D experiment branches with raw outputs, verdict files, token accounting, audit records, and SHA256 integrity records.
+      href: https://github.com/onestardao/WFGY/tree/main/Polaris/experiments
+      cat: doc

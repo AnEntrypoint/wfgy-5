@@ -1,11 +1,13 @@
-title: "WFGY 5.0 — Avatar"
-description: "The flagship: governed avatar runtime, branchable behavior, multilingual calibration."
+title: "WFGY 5.0 — Polaris Protocol"
+description: "The active flagship: Polaris Protocol and the Fifth-Dimension Engine, exposing theorem-complete drift control for the Seven Millennium Problems."
 author: WFGY Extractions
 year: 2026
 url: https://anentrypoint.github.io/wfgy-5
 keywords:
   - wfgy
-  - avatar
+  - polaris
+  - fifth-dimension-engine
+  - goal-compiler
   - llm
   - reasoning
-  - governance
+  - drift-control
