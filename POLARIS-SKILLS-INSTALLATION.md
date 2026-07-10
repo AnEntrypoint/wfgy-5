@@ -71,7 +71,6 @@ skills/
 │   ├── SKILL.md
 │   └── references/
 │       ├── route-structure.md
-│       ├── seven-millennium-problems.md
 │       ├── research-kernel-extraction.md
 │       └── route-inspection-guide.md
 ├── wfgy-method/
