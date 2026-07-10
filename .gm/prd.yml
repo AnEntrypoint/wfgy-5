@@ -387,10 +387,13 @@
   witness: 'git_commit on C:\dev\wfgy-5 produced sha 4ec24e7 (summary: refactor(skills): build Polaris Protocol into a 4-skill tree with state machine root). Worktree clean after commit (git status --porcelain empty). Staged 200 files incl. skill changes + codeinsight reindex.'
 - id: commit-gm
   note: 'Stage and commit the distributed Polaris skill tree in ..\gm (C:\dev\gm): polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, updated wfgy-method. Clear commit message.'
-  status: pending
+  status: completed
+  witness: C:\dev\gm committed after rebase onto origin/main (AnEntrypoint/gm.git). Commit adds the 4-skill Polaris tree + updated wfgy-method. SHA 728bd2cdd, matches origin/main after push.
 - id: push-both-repos
   note: 'Push C:\dev\wfgy-5 and C:\dev\gm to their origins after confirming each worktree is clean and commits are in. Respect: git push only when status --porcelain is empty.'
-  status: pending
+  status: completed
+  witness: 'Both repos pushed and clean: wfgy-5 HEAD 2e88030 == origin/main (559f35f..2e88030); gm HEAD 728bd2cdd == origin/main. git status --porcelain empty in both.'
 - id: ci-validated-marker
   note: After push succeeds on both repos, write .gm/exec-spool/.ci-validated with head_sha of current HEAD (COMPLETE gate requires it). Verify SHA matches current HEAD.
-  status: pending
+  status: completed
+  witness: Wrote .gm/exec-spool/.ci-validated with head_sha 2e88030553286b17066f855c87a3864c9cf9fed2, matching current wfgy-5 HEAD (git rev-parse HEAD == same). Both repos pushed, worktree clean.
