@@ -16,14 +16,14 @@ function assert(label, cond) {
   else { console.error('FAIL', label); fail++; }
 }
 
-assert('skills hrefs point to github.com', skills.includes('github.com/onestardao/WFGY/tree/main/Avatar'));
+assert('skills hrefs point to github.com', skills.includes('github.com/AnEntrypoint/wfgy-5'));
 assert('no broken local .md hrefs in skills', !skills.includes('./skills/') && !skills.includes('./research/'));
 assert('index nav has all 6 pages', ['paper','highlights','research','skills','original'].every(p => index.includes(p + '.html')));
-assert('index has 47 research docs badge', index.includes('47 research docs'));
-assert('research page includes architecture-overview', research.includes('architecture-overview'));
+assert('research page includes the Polaris README doc', research.includes('polaris-readme'));
+assert('research page includes the Seven Millennium Problems doc', research.includes('seven-millennium-problems'));
 assert('research grouped by cat label', research.includes('reasoning + architecture'));
-assert('highlights has Start in 60 Seconds', highlights.includes('Start in 60 Seconds'));
-assert('highlights has 8 items', highlights.includes('One Runtime, Many Avatars'));
+assert('highlights has One Engine One Logic Seven Together', highlights.includes('one-engine-one-logic-seven-together'));
+assert('highlights has 8 items', highlights.includes('public-evidence-not-just-prose'));
 
 console.log(`
 ${pass} passed, ${fail} failed`);
