@@ -383,7 +383,8 @@
   witness: 'node verify_align.js across this repo''s 4 skills: no ''direct-extraction-from-upstream'' remains; goal-compiler carries honest ChatGPT-first compatibility; engine uses ''shoot + [your problem]'' + full output shape; root states engine is main product surface and Goal Compiler is first public protocol component; canonical compile/shoot phrases + state-machine framing present. checks=[] pass=true.'
 - id: commit-wfgy-5
   note: 'Stage and commit all skill changes in this repo (C:\dev\wfgy-5): new polaris-protocol root skill, fixed goal-compiler/engine skills, new reference files, updated guide, enhanced wfgy-method, deleted stale root SKILL.md. Clear commit message.'
-  status: pending
+  status: completed
+  witness: 'git_commit on C:\dev\wfgy-5 produced sha 4ec24e7 (summary: refactor(skills): build Polaris Protocol into a 4-skill tree with state machine root). Worktree clean after commit (git status --porcelain empty). Staged 200 files incl. skill changes + codeinsight reindex.'
 - id: commit-gm
   note: 'Stage and commit the distributed Polaris skill tree in ..\gm (C:\dev\gm): polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, updated wfgy-method. Clear commit message.'
   status: pending
