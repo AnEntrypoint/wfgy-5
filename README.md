@@ -2,7 +2,7 @@
 
 Exposing the complete original WFGY Polaris Protocol and Fifth-Dimension Engine from onestardao/WFGY — the active flagship (WFGY 5.0).
 
-Polaris Protocol implements drift-control and decision-gating mechanisms for autonomous reasoning at scale, with the Fifth-Dimension Engine providing theorem-complete solving for the Seven Millennium Problems.
+Polaris Protocol implements drift-control and decision-gating mechanisms for autonomous reasoning at scale, with the Fifth-Dimension Engine providing theorem-complete solving for arbitrary problems.
 
 ## Contents
 

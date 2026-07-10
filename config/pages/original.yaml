@@ -13,14 +13,6 @@ content:
       label: Engine
       desc: Fifth-Dimension Engine — the current main product surface of WFGY 5.0.
       cat: think
-    - dir: demos
-      label: Demos
-      desc: Seven Millennium Problems, Baseline-50, Frontier-50, High-Strangeness Math Lab, and Everyday Shoot Modes.
-      cat: kit
-    - dir: frontier-challenges
-      label: Frontier Challenges
-      desc: Century-level problems beyond the flagship Seven Millennium Problems set.
-      cat: think
     - dir: experiments
       label: Experiments
       desc: Public evidence layer — PP01-PP02D branches, raw outputs, verdict files, and SHA256 integrity records.

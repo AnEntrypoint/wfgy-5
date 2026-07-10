@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Polaris Protocol is the active flagship of WFGY 5.0, a governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. It powers the Fifth-Dimension Engine, a problem-solving tool for theorem work, strategy, engineering, and reasoning — solving the Seven Millennium Problems through native Lean proofs without unsupported lemmas.
+Polaris Protocol is the active flagship of WFGY 5.0, a governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. It powers the Fifth-Dimension Engine, a problem-solving tool for theorem work, strategy, engineering, and reasoning — lifting a target into a higher problem-coordinate and returning a route verified by native Lean proofs without unsupported lemmas.
 
 This paper outlines the core Polaris mechanisms: the Goal Compiler (a human-AI execution protocol), the Fifth-Dimension Engine (the core solver), drift control and decision-gating systems, and the reasoning discipline that makes autonomous multi-step work verifiable, auditable, and recoverable.
 

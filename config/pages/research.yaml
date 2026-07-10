@@ -3,10 +3,10 @@ title: Research
 template: research
 content:
   heading: Research Hub
-  description: 15 research documents from the real WFGY 5.0 Polaris Protocol layer — engine, demos, frontier challenges, and the Goal Compiler protocol. Fetched verbatim from onestardao/WFGY. Read in any order — each document is bounded and self-describing.
+  description: Research documents from the real WFGY 5.0 Polaris Protocol layer — engine, Goal Compiler protocol, and public evidence. Fetched verbatim from onestardao/WFGY. Read in any order — each document is bounded and self-describing.
   items:
     - name: polaris-readme
-      desc: The Polaris root document. Flagship claim (Seven Millennium Problems, one engine, one logic), quick links, FAQ, and legacy note on the Avatar-to-Polaris transition.
+      desc: The Polaris root document — protocol overview, quick links, FAQ, and legacy note on the Avatar-to-Polaris transition.
       cat: doc
     - name: fifth-dimension-engine
       desc: The Fifth-Dimension Engine README — the current main product surface of WFGY 5.0.
@@ -17,39 +17,6 @@ content:
     - name: goal-compiler-protocol-txt
       desc: POLARIS_GOAL_COMPILER.txt — the full portable execution constitution behind the Goal Compiler, as a plain-text protocol file.
       cat: doc
-    - name: seven-millennium-problems
-      desc: The flagship demo — shooting the underlying route logic behind all seven Millennium Problems with one engine.
-      cat: think
-    - name: seven-millennium-problems-prompts
-      desc: The exact prompts used to shoot the Seven Millennium Problems demo.
-      cat: kit
-    - name: seven-millennium-problems-verification
-      desc: Verification and review materials for the Seven Millennium Problems result.
-      cat: doc
-    - name: seven-millennium-problems-native-lean
-      desc: Native Lean no-sorry materials — theorem-complete formal verification evidence.
-      cat: doc
-    - name: baseline-50
-      desc: Baseline-50 — known science and math questions used to check truth alignment (50/50 PASS against known truth).
-      cat: think
-    - name: frontier-50
-      desc: Frontier-50 — 50 unknown century-level problems shot for inspection, opening frontier answers beyond known truth.
-      cat: think
-    - name: high-strangeness-math-lab
-      desc: Mixing two strange themes (Death+AI, Dream+Physics, Meme+Epidemic) into a theorem-shaped research kernel.
-      cat: think
-    - name: judgmentday-seven-trumpet
-      desc: The JudgmentDay + Tension Universe demo — a High-Strangeness Math Lab worked example.
-      cat: think
-    - name: everyday-shoot-modes
-      desc: Seven everyday shoot modes — life decisions, relationships, work, product strategy, research, debugging, and absurd/meme problems.
-      cat: talk
-    - name: frontier-challenges
-      desc: Frontier challenges hub — century-level problems beyond the Seven Millennium Problems flagship set.
-      cat: think
-    - name: frontier-challenges-millennium-problems
-      desc: Detail page for the Millennium Problems track within the frontier challenges layer.
-      cat: doc
     - name: experiments
-      desc: Public evidence layer — PP01-PP02D experiment branches with raw outputs, verdict files, token accounting, and SHA256 integrity records.
+      desc: Public evidence layer — experiment branches with raw outputs, verdict files, token accounting, and SHA256 integrity records.
       cat: kit

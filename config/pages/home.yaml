@@ -4,11 +4,10 @@ template: home
 content:
   heading: WFGY 5.0 — Polaris Protocol
   subheading: "WFGY: Wan Fa Gui Yi — all methods return to one. Polaris Protocol is the active flagship, now exposing the complete research and Fifth-Dimension Engine."
-  body: Polaris Protocol is WFGY 5.0's active direction — a governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. It powers the Fifth-Dimension Engine, solving the Seven Millennium Problems through theorem-complete native Lean proofs. This site exposes the complete original research, specifications, and implementation from onestardao/WFGY.
+  body: Polaris Protocol is WFGY 5.0's active direction — a governed protocol layer for building, tuning, verifying, and carrying structured language systems across sessions, tasks, and worlds. It powers the Fifth-Dimension Engine, a problem-solving tool that lifts any target into a higher problem-coordinate and returns an inspectable, attackable route. This site exposes the complete original research, specifications, and implementation from onestardao/WFGY.
   badges:
     - label: Fifth-Dimension Engine
-    - label: theorem-complete
-    - label: native Lean
+    - label: goal compiler
     - label: drift control
     - label: governed protocols
   cta_text: Explore Polaris
@@ -30,45 +29,38 @@ polaris:
 features:
   heading: "// why the engine is different"
   items:
-    - name: One engine, one logic, seven together
-      desc: "The Seven Millennium Problems are not seven separate demos or unrelated tricks. One Fifth-Dimension Engine, one underlying route logic, one simultaneous attack on all seven — treated as a single world-scale proof target."
+    - name: One engine, one logic
+      desc: "A single Fifth-Dimension Engine and one underlying route logic, applied uniformly rather than switching methods per problem class."
       cat: think
-    - name: Theorem-complete, Native Lean no-sorry
-      desc: "Theorem-complete work plus Native Lean no-sorry is one of the hardest standards in formal mathematics. The engine's route logic is verified against it, not merely asserted."
+    - name: Theorem-complete verification
+      desc: "The engine's route logic is verified formally, not merely asserted — one of the hardest standards a reasoning system can be held to."
       cat: doc
-    - name: Open engine, not a replay
-      desc: "The engine is public, the prompts are public. Run it yourself, shoot the seven yourself, and watch whether the same underlying route structure emerges — this is not a static replay of a fixed result."
+    - name: Open engine, not a black box
+      desc: "The engine is public and the prompts are public. Run it yourself and inspect whether the same underlying route structure emerges."
       cat: kit
     - name: Compile first, then shoot
       desc: "Polaris Goal Compiler is the portable protocol layer for hard ChatGPT-first goals: compile the goal into atoms, gates, and claim ceilings before execution starts. Then hand the complex atom to the engine."
       cat: kit
     - name: Route, not just an answer
-      desc: "shoot + [your problem] lifts any target — theorem, mystery, life decision, product idea, engineering failure — into a higher problem-coordinate and returns an inspectable, attackable, expandable route."
+      desc: "shoot + [your problem] lifts any target into a higher problem-coordinate and returns an inspectable, attackable, expandable route."
       cat: think
-    - name: Baseline first, frontier next
-      desc: "Baseline-50 checks the engine against known science and math truth (50/50 PASS). Frontier-50 opens 50 unknown century-level problems for inspection — known truth grounds the unknown frontier."
-      cat: doc
     - name: Drift control throughout
       desc: "WFGY-Method supplies ΔS drift measurement, bounded checkpoint-retry (BBCR), and multi-path exploration (BBPF) so execution stays aligned with the stated goal across every state of the protocol."
       cat: think
     - name: Public evidence layer
-      desc: "Experiment branches PP01 through PP02D ship raw outputs, parsed outputs, verdict files, token accounting, audit records, and SHA256 integrity records — inspectable, not just asserted."
+      desc: "Experiment branches ship raw outputs, parsed outputs, verdict files, token accounting, audit records, and SHA256 integrity records — inspectable, not just asserted."
       cat: kit
 routes:
   heading: "// how to run a task through the protocol"
   items:
     - name: "shoot + [your problem]"
-      desc: "The Fifth-Dimension Engine interface. Lifts a theorem, mystery, life decision, product idea, strange theme, engineering failure, or meme into a structured, inspectable route."
+      desc: "The Fifth-Dimension Engine interface. Lifts any target into a structured, inspectable route."
       meta: engine · route generation · structural reasoning
       cat: kit
     - name: "compile the goal first, then shoot"
       desc: "Polaris Goal Compiler's core discipline for ChatGPT-first hard goals: task atoms, dependencies, active/blocked distinction, verification gates, and claim ceilings before execution."
       meta: goal compiler · atomization · verification gates
       cat: think
-    - name: "Use WFGY 5.0 Fifth-Dimension Engine to shoot this problem: [your problem]"
-      desc: "The simplest way to try the engine directly. For the flagship test: simultaneously shoot the seven Millennium Problems and inspect the route that emerges."
-      meta: everyday shoot · flagship demo
-      cat: talk
 recovery:
   heading: "// drift control surface (WFGY-Method)"
   items:
@@ -122,7 +114,7 @@ examples:
       cat: doc
     - name: Research
       href: ./research.html
-      cta: 47 docs
+      cta: open
       cat: think
     - name: Highlights
       href: ./highlights.html

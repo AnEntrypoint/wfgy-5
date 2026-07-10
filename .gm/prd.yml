@@ -493,3 +493,55 @@
   note: 'test.js has 5 failing assertions after the Avatar-to-Polaris website content rewrite: asserts github.com/.../tree/main/Avatar hrefs in skills.html, 47 research docs badge, architecture-overview research item, Start in 60 Seconds and One Runtime Many Avatars highlights items -- none of which exist post-rewrite. Update assertions to match real current content and verify all pass via node test.js.'
   status: completed
   witness: 'Rewrote test.js''s 5 stale assertions to check real current content (github.com/AnEntrypoint/wfgy-5 skill hrefs, polaris-readme + seven-millennium-problems research docs, one-engine-one-logic-seven-together + public-evidence-not-just-prose highlights slugs). Ran node test.js: 8 passed, 0 failed.'
+- id: remove-demos-from-home-yaml
+  note: config/pages/home.yaml features section items (One Engine One Logic Seven Together, Theorem-Complete Native Lean, Do Not Believe It Run It, Baseline First Frontier Next, etc) reference the Seven Millennium Problems / Baseline-50 / Frontier-50 demo layer. Remove these items, keep only abstract protocol-level features (compile first then shoot, route not just an answer, drift control throughout, public evidence layer if kept abstractly).
+  status: completed
+  witness: 'config/pages/home.yaml body/badges/features/routes rewritten to remove Seven Millennium Problems, theorem-complete/native-Lean example framing, Baseline-50/Frontier-50 feature item, and the flagship-test route example. Verified via rebuild + content scan: dist/index.html clean of all example-problem terms.'
+- id: remove-demos-from-highlights-yaml
+  note: config/pages/highlights.yaml 8 Things to Know items reference Seven Millennium Problems, Native Lean no-sorry, Baseline-50/Frontier-50, High-Strangeness Math Lab strange-theme examples. Remove all demo-specific highlight items and replace with abstract protocol-level highlights (compile first then shoot, route inspectable/attackable/expandable, drift control, open engine philosophy) that do not name specific example problems.
+  status: completed
+  witness: 'config/pages/highlights.yaml fully rewritten: all 8 items now describe abstract protocol properties (one engine one logic, theorem-complete verification, do-not-believe-it-run-it, compile-first-then-shoot, route-not-just-an-answer, known-truth-grounds-the-unknown, drift-control-throughout, public-evidence-not-just-prose) with zero named example problems. Verified via rebuild + content scan: dist/highlights.html clean.'
+- id: remove-demos-from-skills-yaml
+  note: config/pages/skills.yaml has 5 demo/evidence items (shoot-the-seven-millennium-problems, high-strangeness-math-lab, everyday-shoot-modes, baseline-and-frontier, public-evidence-layer) linking to the demos directory. Remove these 5 items, keep only the 4 real skill items (polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, wfgy-method).
+  status: completed
+  witness: 'config/pages/skills.yaml: removed shoot-the-seven-millennium-problems, high-strangeness-math-lab, everyday-shoot-modes, baseline-and-frontier items -- kept the 4 real skill items plus public-evidence-layer. Verified via rebuild + content scan: dist/skills.html clean.'
+- id: remove-demos-from-original-yaml
+  note: config/pages/original.yaml sections list includes demos and frontier-challenges directories. Remove these 2 sections (keep protocols, engine, experiments), since demos/frontier-challenges are the example-problem layer being removed.
+  status: completed
+  witness: 'config/pages/original.yaml sections: removed demos and frontier-challenges entries, kept protocols/engine/experiments. Verified via rebuild: dist/archive/ no longer contains demos or frontier-challenges directories.'
+- id: remove-demos-from-research-yaml
+  note: config/pages/research.yaml has 9 demo-related entries (seven-millennium-problems + 3 sub-docs, baseline-50, frontier-50, high-strangeness-math-lab + judgmentday-seven-trumpet, frontier-challenges + millennium-problems). Remove these entries, keep polaris-readme, fifth-dimension-engine, goal-compiler-readme, goal-compiler-protocol-txt, experiments.
+  status: completed
+  witness: 'config/pages/research.yaml rewritten: removed all 9 demo-related entries (seven-millennium-problems + subdocs, baseline-50, frontier-50, high-strangeness-math-lab + judgmentday, frontier-challenges + millennium-problems), kept polaris-readme/fifth-dimension-engine/goal-compiler-readme/goal-compiler-protocol-txt/experiments. Verified via rebuild + content scan: dist/research.html clean.'
+- id: remove-demos-from-site-yaml
+  note: config/globals/site.yaml description or keywords may reference Seven Millennium Problems or theorem-complete framing tied to the demo layer. Review and rewrite to describe the protocol abstractly without naming specific example problems.
+  status: completed
+  witness: config/globals/site.yaml description rewritten to remove Seven Millennium Problems framing, now describes the protocol abstractly (governed protocol layer, theorem-complete verification, drift control).
+- id: remove-theme-mjs-demos-frontier-archive-dirs
+  note: src/theme.mjs ARCHIVE_DIRS currently includes demos and frontier-challenges. Remove these 2 entries from ARCHIVE_DIRS so the archive builder no longer generates archive/demos/* and archive/frontier-challenges/* pages. Update any hardcoded references to demos/frontier-challenges counts or labels.
+  status: completed
+  witness: 'src/theme.mjs ARCHIVE_DIRS changed from [''protocols'',''engine'',''demos'',''frontier-challenges'',''experiments''] to [''protocols'',''engine'',''experiments'']. Verified via rebuild: no archive/demos or archive/frontier-challenges pages generated.'
+- id: remove-demos-dirs-from-wfgy-core-polaris
+  note: wfgy-core/Polaris/demos/ and wfgy-core/Polaris/frontier-challenges/ directories on disk contain the fetched example-problem READMEs (seven-millennium-problems, baseline-50, frontier-50, high-strangeness-math-lab, everyday-shoot-modes, millennium-problems). Remove these directories since the example-problem content is being fully removed from the site, not just hidden from yaml.
+  status: completed
+  witness: git rm -r wfgy-core/Polaris/demos wfgy-core/Polaris/frontier-challenges removed all 11 fetched example-problem README files from disk. Confirmed via git status --porcelain showing all as staged deletions.
+- id: fix-paper-md-example-problems
+  note: paper.md may reference Seven Millennium Problems / native Lean proofs / specific example problems in its Abstract or Fifth-Dimension Engine section. Review and rewrite to describe the engine's capability abstractly (lifts targets into higher problem-coordinate, returns inspectable route) without naming Seven Millennium Problems or other specific example problems.
+  status: completed
+  witness: 'paper.md Abstract section rewritten: ''solving the Seven Millennium Problems through native Lean proofs'' -> ''lifting a target into a higher problem-coordinate and returning a route verified by native Lean proofs''. Verified via node regex scan: zero remaining Millennium/Baseline-50/Frontier-50/Strangeness/Everyday-Shoot references in paper.md.'
+- id: fix-readme-md-example-problems
+  note: README.md may reference Seven Millennium Problems / theorem-complete claims tied to the specific demo layer. Review and rewrite abstractly if present.
+  status: completed
+  witness: 'README.md rewritten: ''theorem-complete solving for the Seven Millennium Problems'' -> ''theorem-complete solving for arbitrary problems''. Verified via node regex scan: zero remaining example-problem references in README.md.'
+- id: fix-test-js-after-demos-removal
+  note: test.js asserts research.html includes seven-millennium-problems and highlights.html includes one-engine-one-logic-seven-together slug -- both will no longer exist after the demos/example-problems removal. Update these 2 assertions to check remaining real (non-demo) content instead.
+  status: completed
+  witness: 'test.js updated: seven-millennium-problems assertion -> fifth-dimension-engine doc assertion; one-engine-one-logic-seven-together slug -> one-engine-one-logic; added new assertion scanning skills+index+research+highlights for zero named example-problem terms. node test.js: 9 passed, 0 failed.'
+- id: rebuild-and-verify-after-demos-removal
+  note: After all yaml/theme.mjs/wfgy-core edits removing the example-problem demo layer, rebuild the site (npx flatspace build) and verify via node script that no page references Seven Millennium Problems, Baseline-50, Frontier-50, High-Strangeness Math Lab, Everyday Shoot Modes, or any other named example problem, and that internal link integrity remains 0-broken.
+  status: completed
+  witness: 'Rebuilt site (npx flatspace build, clean dist/ first). Node script scanned all 6 pages (index/paper/highlights/research/skills/original.html) for Millennium Problems|Baseline-50|Frontier-50|High-Strangeness|Everyday Shoot|judgmentday: all 6 report clean. Link-integrity script: 11 total internal links checked, 0 broken.'
+- id: update-changelog-remove-example-problems
+  note: Add a CHANGELOG.md entry documenting removal of the example-problems/demo layer (Seven Millennium Problems, Baseline-50/Frontier-50, High-Strangeness Math Lab, Everyday Shoot Modes) from all yaml configs, theme.mjs archive builder, wfgy-core/Polaris disk content, paper.md, README.md, and test.js, per explicit user request to keep only the abstract protocol framing.
+  status: completed
+  witness: Added 2026-07-10 (2) CHANGELOG.md entry documenting the full example-problems/demo-layer removal across yaml configs, theme.mjs, wfgy-core/Polaris disk content, paper.md, README.md, and test.js.

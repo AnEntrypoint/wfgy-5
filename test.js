@@ -20,10 +20,11 @@ assert('skills hrefs point to github.com', skills.includes('github.com/AnEntrypo
 assert('no broken local .md hrefs in skills', !skills.includes('./skills/') && !skills.includes('./research/'));
 assert('index nav has all 6 pages', ['paper','highlights','research','skills','original'].every(p => index.includes(p + '.html')));
 assert('research page includes the Polaris README doc', research.includes('polaris-readme'));
-assert('research page includes the Seven Millennium Problems doc', research.includes('seven-millennium-problems'));
+assert('research page includes the Fifth-Dimension Engine doc', research.includes('fifth-dimension-engine'));
 assert('research grouped by cat label', research.includes('reasoning + architecture'));
-assert('highlights has One Engine One Logic Seven Together', highlights.includes('one-engine-one-logic-seven-together'));
+assert('highlights has One Engine One Logic', highlights.includes('one-engine-one-logic'));
 assert('highlights has 8 items', highlights.includes('public-evidence-not-just-prose'));
+assert('no named example problems remain on any scanned page', !/Millennium Problems|Baseline-50|Frontier-50|High-Strangeness|Everyday Shoot/i.test(skills + index + research + highlights));
 
 console.log(`
 ${pass} passed, ${fail} failed`);

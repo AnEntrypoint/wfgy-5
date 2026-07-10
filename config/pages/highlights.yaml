@@ -5,43 +5,43 @@ content:
   heading: The 8 Things to Know
   description: Eight flagship signals that define what Polaris Protocol and the Fifth-Dimension Engine actually are — as distinct from what a replay demo or a fixed-result package would claim to be.
   items:
-    - name: One Engine, One Logic, Seven Together
-      slug: one-engine-one-logic-seven-together
-      desc: Not seven separate demos. One Fifth-Dimension Engine, one underlying route logic, one simultaneous attack on all seven Millennium Problems.
-      detail: The seven problems are treated as one world-scale proof target, not seven unrelated tricks or a static replay package.
+    - name: One Engine, One Logic
+      slug: one-engine-one-logic
+      desc: A single Fifth-Dimension Engine and one underlying route logic, applied uniformly rather than switching methods per problem class.
+      detail: The engine's route structure is the same regardless of what target it is lifted onto.
       cat: think
-    - name: Theorem-Complete, Native Lean No-Sorry
-      slug: theorem-complete-native-lean-no-sorry
+    - name: Theorem-Complete Verification
+      slug: theorem-complete-verification
       desc: One of the hardest standards in formal mathematics, applied to the engine's route logic.
-      detail: Theorem-complete work plus Native Lean no-sorry materials are linked directly from the Seven Millennium Problems section, not merely asserted.
+      detail: The engine's route logic is checked against a formal verification standard, not merely asserted.
       cat: doc
     - name: Do Not Believe It — Run It
       slug: do-not-believe-it-run-it
       desc: The engine is public, the prompt is public. Run it yourself and watch whether the same route structure emerges.
-      detail: If you doubt the claim, that is exactly why the engine is open — shoot the seven yourself.
+      detail: If you doubt the claim, that is exactly why the engine is open.
       cat: kit
     - name: Compile First, Then Shoot
       slug: compile-first-then-shoot
       desc: Polaris Goal Compiler compiles a ChatGPT-first goal into atoms, gates, and claim ceilings before execution starts.
       detail: Use it before large goals, theorem work, long projects, research planning, or complex creative construction.
       cat: kit
-    - name: Shoot Any Problem, Not Just Theorems
-      slug: shoot-any-problem-not-just-theorems
-      desc: "shoot + [your problem] works on frontier problems, strange themes, everyday decisions, product strategy, engineering failures, and memes."
+    - name: A Route, Not Just an Answer
+      slug: a-route-not-just-an-answer
+      desc: "shoot + [your problem] lifts a target into a higher problem-coordinate and returns a route, not a bare answer."
       detail: The output is a route — inspectable, attackable, expandable, testable — not just an answer.
       cat: think
-    - name: Baseline First, Frontier Next
-      slug: baseline-first-frontier-next
-      desc: Baseline-50 checks known-truth alignment (50/50 PASS). Frontier-50 opens 50 unknown century-level problems for inspection.
-      detail: Known-50 grounds truth alignment before Frontier-50 opens genuinely unknown frontier answers.
+    - name: Known Truth Grounds the Unknown
+      slug: known-truth-grounds-the-unknown
+      desc: The engine is checked against known-truth cases before being trusted on genuinely open questions.
+      detail: Known-truth alignment is verified first; unknown-frontier answers are opened for inspection afterward, not asserted outright.
       cat: doc
-    - name: Strange Themes Become Research Kernels
-      slug: strange-themes-become-research-kernels
-      desc: Mix two strange themes (Death+AI, Dream+Physics, Meme+Epidemic) and the engine turns them into a theorem-shaped research kernel.
-      detail: From myth to model, from symbol to structure, from strange idea to research kernel — the High-Strangeness Math Lab.
+    - name: Drift Control Throughout
+      slug: drift-control-throughout
+      desc: WFGY-Method's ΔS measurement, bounded checkpoint-retry, and multi-path exploration keep execution aligned with the stated goal at every state.
+      detail: Drift is checked continuously, not only at the end of a run.
       cat: think
     - name: Public Evidence, Not Just Prose
       slug: public-evidence-not-just-prose
-      desc: PP01 through PP02D experiment branches ship raw outputs, verdict files, token accounting, audit records, and SHA256 integrity records.
+      desc: Experiment branches ship raw outputs, verdict files, token accounting, audit records, and SHA256 integrity records.
       detail: This is the public evidence layer behind the staged Polaris rollout — inspectable trail, not just a claimed result.
       cat: kit
