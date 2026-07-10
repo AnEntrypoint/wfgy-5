@@ -1,14 +1,17 @@
 # Polaris Protocol Skills Integration Guide
 
-Three complementary skills work together to handle complex, multi-step reasoning work. This guide shows how they integrate.
+Four skills form a **tree**: one discoverable root that wires three children together. This guide shows how they integrate — both as a DAG and as a state machine.
 
-## The Three Skills
+## The Skill Tree
 
 | Skill | Role | When to Use |
 |---|---|---|
-| **Polaris Goal Compiler** | Task specification, atomization, verification | Before starting any complex work |
-| **Fifth-Dimension Engine** | Problem solving, route generation, structural reasoning | For complex problems that need structured exploration |
-| **WFGY-Method** | Drift control, decision discipline, bounded recovery | Throughout all work to stay aligned with goals |
+| **polaris-protocol** (root) | Tree root + state machine; dispatches the children | First — to run a task through the protocol |
+| **Polaris Goal Compiler** | Task specification, atomization, verification (COMPILE) | Before starting any complex work |
+| **Fifth-Dimension Engine** | Problem solving, route generation, structural reasoning (SHOOT) | For complex problems that need structured exploration |
+| **WFGY-Method** | Drift control, decision discipline, bounded recovery (DRIFT CONTROL) | Throughout all work to stay aligned with goals |
+
+The root (`skills/polaris-protocol/SKILL.md`) is the entry point. It defines the states and the explicit transitions; each transition is a dispatch to a child skill. Load it first.
 
 ## The Integration DAG
 
@@ -53,8 +56,46 @@ Use Fifth-Dimension Engine
    ▼
 Verify against Goal Compiler's gate
    │
-   └─→ Move to next atom, repeat
+    └─→ Move to next atom, repeat
 ```
+
+## State Machine View (the tree behaves like a state machine)
+
+The DAG above is the shape; the **state machine** is how you actually drive it. `polaris-protocol` defines explicit states and transitions. You do not narrate the next step — you dispatch it (the same explicit-transition style the `gm` skill uses).
+
+### States
+
+| State | Meaning |
+|---|---|
+| `UNCOMPILED` | Raw human request, no structure. |
+| `COMPILED` | Goal Compiler emitted atoms, gates, claim ceilings, closure template. |
+| `SHOOTING` | A complex atom is lifted by Fifth-Dimension Engine into a route. |
+| `EXECUTING` | An atom (routine, or a route's result) is being carried out. |
+| `VERIFYING` | Output checked against the atom's verification gate and against drift (ΔS, via WFGY-Method). |
+| `CLOSED` | Claim ceiling met, closure record written, atom done. |
+
+### Transitions
+
+```
+UNCOMPILED --Skill(polaris-goal-compiler)--> COMPILED
+COMPILED --complex atom? Skill(fifth-dimension-engine)--> SHOOTING
+COMPILED --routine atom? execute directly---------------> EXECUTING
+SHOOTING --inspect route, then carry out---------------> EXECUTING
+EXECUTING --Skill(wfgy-method) drift + gate check----> VERIFYING
+VERIFYING --gate pass + claim ceiling honored--------> CLOSED
+VERIFYING --gate fail / drift --> BBCR checkpoint ----> COMPILED (re-compile or re-shoot)
+CLOSED --next atom------------------------------------> COMPILED
+```
+
+`wfgy-method` is the drift-control observer on **every** state, not a single transition.
+
+### Canonical syntax (use exactly this)
+
+- **Compile first. Execute one active atom. Verify before unlock. Claim only what is supported.** (Goal Compiler)
+- **shoot + [your problem]** — Fifth-Dimension Engine interface.
+- **ΔS = 1 − cos(I, G)** — drift between current state (I) and goal (G); without a real embedding call it is a qualitative label, never a computed decimal.
+
+"Compile first. Then shoot." is the spine of the whole protocol.
 
 ## State Machine View
 
@@ -243,6 +284,7 @@ If you notice:
 
 ## References
 
+- `skills/polaris-protocol/SKILL.md` — tree root and state machine (start here)
 - `skills/polaris-goal-compiler/SKILL.md` — task specification details
 - `skills/fifth-dimension-engine/SKILL.md` — problem-solving mechanics
 - `skills/wfgy-method/SKILL.md` — drift control and reasoning discipline

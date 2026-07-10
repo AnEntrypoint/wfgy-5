@@ -2,10 +2,10 @@
 name: polaris-goal-compiler
 description: A human-AI communication protocol layer that compiles goals into task atoms, active/blocked work, verification gates, and claim ceilings before execution. Part of WFGY 5.0 Polaris Protocol. Use before complex AI work to make it inspectable, harder to fake, and less likely to collapse into premature completion.
 license: MIT
-compatibility: Works with any AI assistant, especially ChatGPT and Claude Code agents. Portable TXT-based protocol.
+compatibility: Upstream Polaris Goal Compiler is released ChatGPT-first (teaser compatibility is ChatGPT only); portability to other assistants, coding agents, and skill systems is a stated design direction, not an officially supported target in the teaser release. This skill is a portable Claude Code adaptation of that protocol.
 metadata:
   origin: onestardao-wfgy-5.0-polaris-protocol
-  provenance: direct-extraction-from-upstream
+  provenance: adapted-and-honest-reimplementation-not-verbatim
 ---
 
 # Polaris Goal Compiler
@@ -24,6 +24,7 @@ Polaris Goal Compiler adds the missing protocol layer between human requests and
 - **Verification gates**: What must be checked before unlock
 - **Truth objects**: What is known vs. claimed
 - **Claim ceilings**: What the assistant is allowed to claim
+- **Closure records**: What is done, missing, partial, or unsafe
 
 This is not a normal prompt template. It is a portable TXT-based execution protocol for making complex AI work:
 - Easier to inspect
@@ -101,6 +102,10 @@ What must be checked *before* moving forward:
 - Are there hidden assumptions?
 - What could break downstream?
 
+### Truth Objects
+
+What must actually become true for the work to count as done, as opposed to prose that merely reads as if it were true. A verification gate passes against a truth object, not against a well-written paragraph.
+
 ### Claim Ceilings
 
 Honest limits on what can be claimed:
@@ -108,7 +113,11 @@ Honest limits on what can be claimed:
 - "Correct" means checked against requirements, not "sounds right"
 - "Ready" means tested for the next stage, not "looks polished"
 
-Over-claiming (saying something is done when it's only drafted) is the most common trap in AI work.
+Over-claiming (saying something is done when it's only drafted) is the most common trap in AI work. See `references/claim-ceiling-examples.md` for concrete examples in different contexts.
+
+### Closure Records
+
+For each atom, record what is done, what is missing, what is only partially true, and what is still unsafe to claim. A closure record preserves continuity across rounds so that unfinished work stays visible instead of being buried in prose — this is what stops a local step from being promoted into fake global completion.
 
 ## Interaction with Other Skills
 
@@ -137,7 +146,7 @@ See `references/` directory for:
 - `task-atomization.md` — how to break work into atoms
 - `verification-gates.md` — designing verification for each stage
 - `claim-ceiling-examples.md` — what "complete" actually means in different contexts
-- `polaris-protocol-overview.md` — relationship to full Polaris Protocol
+- `skills/polaris-protocol/SKILL.md` — the Polaris Protocol tree root and state machine that wires this skill to Fifth-Dimension Engine and WFGY-Method
 
 ## What This Is Not
 
@@ -146,3 +155,4 @@ This skill does not:
 - Control drift during execution (that's WFGY-Method)
 - Replace thinking (it enhances it by making structure visible)
 - Guarantee success (only guard against fake completion)
+- Claim to be the full WFGY 5.0 system (it is one public protocol component; the upstream engine is the main product surface)

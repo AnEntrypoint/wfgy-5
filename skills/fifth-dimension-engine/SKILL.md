@@ -2,10 +2,10 @@
 name: fifth-dimension-engine
 description: WFGY 5.0's core problem-solving tool. Lifts targets into higher problem-coordinates and returns structured routes (proof paths, strategy kernels, research structures, repair paths, positioning routes). Theorem work to everyday decisions. Use after Goal Compiler to execute the compiled problem specification.
 license: MIT
-compatibility: Works with any AI assistant. Interface is "shoot + [problem]" command.
+compatibility: Portable "shoot + [problem]" command; works wherever an assistant can run a natural-language prompt. Upstream ships it as the current main product surface of WFGY 5.0 Polaris Protocol.
 metadata:
   origin: onestardao-wfgy-5.0-polaris-protocol
-  provenance: direct-extraction-from-upstream
+  provenance: adapted-and-honest-reimplementation-not-verbatim
 ---
 
 # Fifth-Dimension Engine
@@ -123,6 +123,8 @@ Shoot the flagship: all seven famous unsolved mathematics problems simultaneousl
 shoot + Seven Millennium Problems
 ```
 
+See `references/seven-millennium-problems.md` for the flagship claim and what it does and does not assert.
+
 ### Baseline-50 + Frontier-50
 
 - **Baseline-50**: Known-truth math problems (check engine accuracy)
@@ -137,9 +139,11 @@ shoot + [theme 1] + [theme 2]
 ```
 
 Examples:
-- Death + AI → digital exit operators, hell-state boundaries
-- Dream + Physics → dream-observer collapse, reality drift
-- Love + Source Poisoning → attachment trust graph, false-closure lemmas
+- Death + AI -> digital exit operators, hell-state boundaries
+- Dream + Physics -> dream-observer collapse, reality drift
+- Love + Source Poisoning -> attachment trust graph, false-closure lemmas
+
+See `references/research-kernel-extraction.md` for how strange themes become research kernels.
 
 ### Everyday Shoot Modes
 
@@ -157,13 +161,7 @@ The same engine works on everyday problems:
 
 ## Verification
 
-The engine output is inspectable, which means verifiable:
-
-- Check candidate lemmas independently
-- Challenge objections
-- Validate open debt is actually open (not hidden dependencies)
-- Walk the route step-by-step
-- Expand on anything unclear
+The engine output is inspectable, which means verifiable. See `references/route-inspection-guide.md` for how to inspect, attack, and verify a route.
 
 **This is not:** a black box. You can (and should) inspect, attack, and refine.
 
@@ -174,11 +172,13 @@ This skill does not:
 - Control drift during execution (that's WFGY-Method)
 - Produce a final answer (it produces a route, which you then verify and decide on)
 - Guarantee the route is correct (inspection and verification are your job)
+- Claim every shoot becomes a final theorem (a shoot creates a structured route; final proof, empirical truth, or real-world correctness depends on verification, review, formalization, or testing)
 
 ## References
 
 See `references/` directory for:
+- `route-structure.md` — what a route is and how it is structured
 - `seven-millennium-problems.md` — the flagship demonstration
-- `proof-route-structure.md` — how theorem routes are structured
 - `research-kernel-extraction.md` — turning ideas into research kernels
 - `route-inspection-guide.md` — how to verify and attack a route
+- `skills/polaris-protocol/SKILL.md` — the Polaris Protocol tree root and state machine

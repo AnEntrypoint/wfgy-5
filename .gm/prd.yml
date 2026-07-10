@@ -299,4 +299,97 @@
   witness: find skills/wfgy-method -type f confirms SKILL.md + 4 references/*.md intact; grep confirmed no relative links point outside skills/wfgy-method/
 - id: commit-and-push
   note: Stage all removals+edits, commit with clear message, push to origin (CONSOLIDATE phase)
+  status: completed
+  witness: git merge-base --is-ancestor 3574e0e HEAD -> YES (Avatar-removal commit 3574e0e is ancestor of pushed HEAD 559f35f == origin/main, 0 ahead/0 behind). Work committed and pushed in prior session.
+- id: fix-goal-compiler-compatibility
+  note: 'In skills/polaris-goal-compiler/SKILL.md, replace the false `compatibility: Works with any AI assistant...` line with an honest statement matching upstream: Polaris Goal Compiler is released ChatGPT-first (teaser compatibility: ChatGPT only); portability to other assistants/agents/skills is a stated design direction, not an officially supported target in this teaser.'
+  status: completed
+  witness: 'skills/polaris-goal-compiler/SKILL.md frontmatter compatibility line rewritten to honest ChatGPT-first/portable-design statement matching upstream goal-compiler README ''Current teaser compatibility: ChatGPT only'' note.'
+- id: fix-goal-compiler-provenance
+  note: In skills/polaris-goal-compiler/SKILL.md frontmatter, change metadata.provenance from 'direct-extraction-from-upstream' to 'adapted-and-honest-reimplementation-not-verbatim' and keep origin accurate ('onestardao-wfgy-5.0-polaris-protocol'). The skill is an adaptation, not verbatim extraction — matches the honest standard set by skills/wfgy-method.
+  status: completed
+  witness: skills/polaris-goal-compiler/SKILL.md metadata.provenance changed 'direct-extraction-from-upstream' -> 'adapted-and-honest-reimplementation-not-verbatim'; matches wfgy-method honesty standard.
+- id: add-goal-compiler-closure-records
+  note: Add a 'Closure records' concept to skills/polaris-goal-compiler/SKILL.md key concepts, matching upstream Goal Compiler which lists Closure records (what is done, missing, partial, or unsafe) as a core field alongside Active/Blocked/Atoms/Verification gates/Truth objects/Claim ceilings.
+  status: completed
+  witness: skills/polaris-goal-compiler/SKILL.md Key Concepts now lists 'Closure records' (done/missing/partial/unsafe) matching upstream Goal Compiler field table; also added 'Truth objects' concept.
+- id: fix-goal-compiler-references
+  note: 'Fix the References section of skills/polaris-goal-compiler/SKILL.md: keep task-atomization.md and verification-gates.md (exist); replace the missing polaris-protocol-overview.md reference with a pointer to the new root skill skills/polaris-protocol/SKILL.md; ensure claim-ceiling-examples.md is created (see create-goal-compiler-claim-ceiling-examples). No dangling references.'
+  status: completed
+  witness: skills/polaris-goal-compiler/SKILL.md References section kept task-atomization.md + verification-gates.md (exist), points claim-ceiling-examples.md (now created), and replaces missing polaris-protocol-overview.md with pointer to skills/polaris-protocol/SKILL.md root. Zero dangling references.
+- id: create-goal-compiler-claim-ceiling-examples
+  note: Create skills/polaris-goal-compiler/references/claim-ceiling-examples.md — a real, upstream-aligned reference giving concrete claim-ceiling examples in different contexts (e.g. 'Complete' = verified end-to-end not 'looks finished'; 'Correct' = checked vs requirements; 'Ready' = tested for next stage), derived from upstream Goal Compiler 'What This Does Not Claim' and claim-ceiling-control sections. No invented benchmarks.
+  status: completed
+  witness: skills/polaris-goal-compiler/references/claim-ceiling-examples.md created with real upstream-aligned content (claim-ceiling-control + 'What This Does Not Claim' sections from upstream Goal Compiler README). File present on disk.
+- id: fix-engine-provenance
+  note: In skills/fifth-dimension-engine/SKILL.md frontmatter, change metadata.provenance from 'direct-extraction-from-upstream' to 'adapted-and-honest-reimplementation-not-verbatim'. Engine content is accurate to upstream but is an adaptation, not verbatim.
+  status: completed
+  witness: skills/fifth-dimension-engine/SKILL.md metadata.provenance changed 'direct-extraction-from-upstream' -> 'adapted-and-honest-reimplementation-not-verbatim'.
+- id: fix-engine-references
+  note: 'Fix the References section of skills/fifth-dimension-engine/SKILL.md: change the missing ''proof-route-structure.md'' reference to the existing route-structure.md; decide on the 3 other missing refs (seven-millennium-problems.md, research-kernel-extraction.md, route-inspection-guide.md) — create them as real upstream-aligned files (see create-engine-* rows) so references resolve. No dangling references.'
+  status: completed
+  witness: 'skills/fifth-dimension-engine/SKILL.md References section fixed: ''proof-route-structure.md'' -> ''route-structure.md'' (existing); references seven-millennium-problems.md, research-kernel-extraction.md, route-inspection-guide.md (all now created). Zero dangling references.'
+- id: create-engine-seven-millennium-problems
+  note: 'Create skills/fifth-dimension-engine/references/seven-millennium-problems.md — real upstream-aligned content from Polaris/README.md flagship section: one engine, one underlying logic, simultaneous attack on all seven Millennium Problems; theorem-complete; Native Lean no-sorry; shoot + Seven Millennium Problems. No overstated claims beyond upstream.'
+  status: completed
+  witness: skills/fifth-dimension-engine/references/seven-millennium-problems.md created from upstream Polaris/README.md flagship section (one engine/one logic/seven together; Native Lean no-sorry; no overstated claims). On disk.
+- id: create-engine-route-inspection-guide
+  note: 'Create skills/fifth-dimension-engine/references/route-inspection-guide.md — real upstream-aligned content from the engine ''Verification'' section: how to inspect/attack/verify a route (check candidate lemmas independently, challenge objections, validate open debt, walk route step by step, expand unclear parts).'
+  status: completed
+  witness: skills/fifth-dimension-engine/references/route-inspection-guide.md created from upstream engine 'Verification' section (walk route, check lemmas, challenge objections, validate open debt, expand, run next command). On disk.
+- id: create-engine-research-kernel-extraction
+  note: 'Create skills/fifth-dimension-engine/references/research-kernel-extraction.md — real upstream-aligned content from the High-Strangeness Math Lab / research-kernel material: turning strange themes into a theorem-shaped research kernel (Death+AI, Dream+Physics, etc.), mix two themes, engine finds the mathematical skeleton.'
+  status: completed
+  witness: skills/fifth-dimension-engine/references/research-kernel-extraction.md created from upstream High-Strangeness Math Lab / research-kernel material (Death+AI, Dream+Physics; myth-to-model; no false theorem claim). On disk.
+- id: create-polaris-protocol-root-skill
+  note: 'Create skills/polaris-protocol/SKILL.md as the discoverable TREE ROOT (name ''polaris-protocol''). Model it as a state machine (per user guidance, like the gm skill''s explicit-transition model): define states UNCOMPILED -> COMPILED -> SHOOTING/EXECUTING -> VERIFYING -> CLOSED, and explicit transitions that are skill dispatches (Skill(skill="polaris-goal-compiler") to compile, Skill(skill="fifth-dimension-engine") to shoot, Skill(skill="wfgy-method") for drift control throughout). Honest provenance metadata. References the three child skills + POLARIS-SKILLS-GUIDE.md.'
+  status: completed
+  witness: skills/polaris-protocol/SKILL.md created — discoverable tree root (name 'polaris-protocol'), presents the skill tree (root + 3 children) and a state machine (states UNCOMPILED/COMPILED/SHOOTING/EXECUTING/VERIFYING/CLOSED) with explicit Skill(skill=...) transitions, modeled on gm's transition style, plus canonical syntax (compile-first-then-shoot; 'shoot + [problem]'; ΔS). Honest provenance metadata.
+- id: delete-stale-root-skill-md
+  note: Check whether the repo-root SKILL.md (name wfgy-5-0-polaris) is referenced anywhere (site build, README, CLAUDE.md). If only a non-discoverable thin stub, delete it after folding its accurate content (Polaris is active WFGY 5.0 route; engine is main surface) into skills/polaris-protocol/SKILL.md. If referenced by build, replace reference with skills/polaris-protocol.
+  status: completed
+  witness: git_rm removed repo-root SKILL.md (name wfgy-5-0-polaris) after codesearch confirmed it was only self-referenced + README prose, not a discoverable skills/<name>/SKILL.md and not imported by flatspace.config.mjs site build. Its accurate content (Polaris = active WFGY 5.0 route; engine = main surface) was folded into the new skills/polaris-protocol/SKILL.md root.
+- id: rewrite-polaris-skills-guide
+  note: 'Update skills/POLARIS-SKILLS-GUIDE.md to reflect the new state-machine tree: add the polaris-protocol root skill as entry point, show the state machine (UNCOMPILED/COMPILED/SHOOTING/EXECUTING/VERIFYING/CLOSED) alongside the existing DAG, fix any references to the now-relocated/missing files, and note the canonical syntax (compile-first-then-shoot; ''shoot + [problem]'').'
+  status: completed
+  witness: 'skills/POLARIS-SKILLS-GUIDE.md updated: intro now ''Four skills form a tree'', added polaris-protocol root row to table, added ''State Machine View (the tree behaves like a state machine)'' section with states/transitions/canonical syntax, updated References to list polaris-protocol root. POLARIS-SKILLS-INSTALLATION.md rewritten to 4-skill tree, honest provenance, corrected gm-bundling claim.'
+- id: enhance-wfgy-method-integration
+  note: In skills/wfgy-method/SKILL.md, add an explicit pointer to the new polaris-protocol root skill and the state-machine transitions, so the three-skill system reads as one tree with a discoverable root (currently the integration section names the two sibling skills but not the root). Keep existing BBMC/BBPF/BBCR/BBAM/ΔS content intact.
+  status: completed
+  witness: skills/wfgy-method/SKILL.md 'Integration with Polaris Protocol Skills' now points to polaris-protocol root + state machine (COMPILE/SHOOT/VERIFY/CLOSE) and states WFGY-Method is drift observer on every state; heading 'Three-Skill State Flow' -> 'Polaris tree state flow'. BBMC/BBPF/BBCR/BBAM/ΔS content intact.
+- id: verify-skill-spec-conformance
+  note: 'Programmatically verify all four Polaris skills (polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, wfgy-method) against agentskills spec: name matches /^[a-z0-9]+(-[a-z0-9]+)*$/, name length <=64, dir name matches frontmatter name exactly, description length <=1024 with no bare unescaped colon, zero emoji/decorative-unicode in authored files, each at skills/<name>/SKILL.md. Fix any violation.'
+  status: completed
+  witness: 'exec_js node script checked all 4 skills (polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, wfgy-method): name regex ok, dir==name, len<=64, description<=1024, zero emoji/decorative-unicode (accepted emoji-only range), each at skills/<name>/SKILL.md. Result: problems=[] count=0.'
+- id: verify-no-broken-references
+  note: After all skill/reference edits, grep every skills/**/SKILL.md and references/*.md for relative file references and confirm each target file exists on disk. Witness zero broken references across the whole tree.
+  status: completed
+  witness: 'exec_js reference check across all skills: every `references/<file>` and `skills/<name>/...` link resolves to an existing file (placeholder `skills/<skill-name>/` excluded). problems=[] count=0. Also confirmed new reference files (claim-ceiling-examples.md, seven-millennium-problems.md, route-inspection-guide.md, research-kernel-extraction.md) and route-structure.md all exist.'
+- id: distribute-polaris-tree-to-gm
+  note: 'Copy the full improved Polaris skill tree into ..\gm (sibling repo): skills/polaris-protocol, skills/polaris-goal-compiler, skills/fifth-dimension-engine, and the improved skills/wfgy-method. Use Write to create the files at C:\dev\gm\skills\<name>\... mirroring this repo''s versions exactly.'
+  status: completed
+  witness: Copied skills/polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, and updated wfgy-method into C:\dev\gm\skills\ (Copy-Item -Recurse -Force). ..\gm now contains the full 4-skill Polaris tree alongside gm + gm-continue. Files normalized to CRLF to match gm repo convention.
+- id: merge-gm-wfgy-method-gm-continue-note
+  note: In the ..\gm copy of skills/wfgy-method/SKILL.md, preserve the gm-harness-specific distinction note ('Distinct from gm-continue ...') that the existing ..\gm version has, merged into this repo's richer version, so ..\gm's wfgy-method keeps both the Polaris integration and the gm-continue distinction.
+  status: completed
+  witness: 'C:\dev\gm\skills\wfgy-method\SKILL.md description carries both the richer Polaris integration (from this repo) AND the gm-continue distinction note (''Distinct from gm-continue: that skill is the post-gm-COMPLETE remaining-work check...''). Description length 1009 <= 1024. No duplication (fixed earlier duplicate).'
+- id: verify-gm-distribution
+  note: After distribution, confirm ..\gm skills tree contains polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, and updated wfgy-method, all spec-conformant, and that the three new skills cross-reference the root correctly. Witness via directory listing + grep.
+  status: completed
+  witness: 'node verification (verify_gm.js) on C:\dev\gm\skills: all 4 polaris skills (polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, wfgy-method) pass spec (name regex, dir==name, desc<=1024, zero emoji, refs resolve). problems=[] count=0. gm-continue note merged (true).'
+- id: verify-upstream-alignment
+  note: Re-read the four improved skills against the fetched upstream facts (engine is main surface, goal compiler ChatGPT-first teaser, 'compile first then shoot', 'shoot + [problem]' syntax, output shape route/structure/lemmas/objections/open debt/next command, closure records). Confirm no overstatement, no false 'verbatim' claims, no broken canonical phrases.
+  status: completed
+  witness: 'node verify_align.js across this repo''s 4 skills: no ''direct-extraction-from-upstream'' remains; goal-compiler carries honest ChatGPT-first compatibility; engine uses ''shoot + [your problem]'' + full output shape; root states engine is main product surface and Goal Compiler is first public protocol component; canonical compile/shoot phrases + state-machine framing present. checks=[] pass=true.'
+- id: commit-wfgy-5
+  note: 'Stage and commit all skill changes in this repo (C:\dev\wfgy-5): new polaris-protocol root skill, fixed goal-compiler/engine skills, new reference files, updated guide, enhanced wfgy-method, deleted stale root SKILL.md. Clear commit message.'
+  status: pending
+- id: commit-gm
+  note: 'Stage and commit the distributed Polaris skill tree in ..\gm (C:\dev\gm): polaris-protocol, polaris-goal-compiler, fifth-dimension-engine, updated wfgy-method. Clear commit message.'
+  status: pending
+- id: push-both-repos
+  note: 'Push C:\dev\wfgy-5 and C:\dev\gm to their origins after confirming each worktree is clean and commits are in. Respect: git push only when status --porcelain is empty.'
+  status: pending
+- id: ci-validated-marker
+  note: After push succeeds on both repos, write .gm/exec-spool/.ci-validated with head_sha of current HEAD (COMPLETE gate requires it). Verify SHA matches current HEAD.
   status: pending

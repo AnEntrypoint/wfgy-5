@@ -68,7 +68,7 @@ This is a judgment the calling agent makes about its own trajectory across a tas
 
 ## Integration with Polaris Protocol Skills
 
-This skill works in concert with two complementary Polaris Protocol skills. Together they form a complete work system:
+This skill works in concert with the other Polaris Protocol skills. Together they form a complete work **tree**, rooted at `polaris-protocol` (`skills/polaris-protocol/SKILL.md`), which defines the states and explicit transitions: COMPILE (Polaris Goal Compiler) -> SHOOT (Fifth-Dimension Engine) -> VERIFY (drift check here) -> CLOSE. WFGY-Method is the drift-control observer on **every** state, not a single step.
 
 ### Polaris Goal Compiler (Task Specification)
 
@@ -84,7 +84,7 @@ This skill works in concert with two complementary Polaris Protocol skills. Toge
 
 **Use together**: While the engine explores a problem route, apply WFGY-Method to check: "Are we still solving the original problem?" Use WFGY-Method's ΔS (drift measurement) to detect when the engine's exploration has drifted too far from the stated goal.
 
-### The Three-Skill State Flow
+### The Polaris tree state flow
 
 ```
 Start with a complex problem or multi-step task

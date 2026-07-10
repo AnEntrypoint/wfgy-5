@@ -1,110 +1,79 @@
-# Polaris Protocol Skills — Installation & Auto-Update
+# Polaris Protocol Skills — Installation & Distribution
 
-Three complementary skills from WFGY 5.0 Polaris Protocol are bundled and auto-installed via the `gm` skill. This document explains the installation, discovery, and auto-update mechanism.
+The WFGY 5.0 Polaris Protocol ships as a **tree of four skills**: one discoverable root plus three children. They are distributed via the `gm` harness repo (so they install alongside `gm`) and developed in this repo (`wfgy-5`).
 
-## The Three Skills
+## The Skill Tree
 
-| Skill | Location | Purpose |
+| Skill | Role | When to dispatch |
 |---|---|---|
-| **polaris-goal-compiler** | `~/.claude/skills/polaris-goal-compiler/` | Task specification, atomization, verification gates |
-| **fifth-dimension-engine** | `~/.claude/skills/fifth-dimension-engine/` | Problem solving, route generation, structural reasoning |
-| **wfgy-method** | `~/.claude/skills/wfgy-method/` | Drift control, decision discipline, bounded recovery |
+| **polaris-protocol** (root) | Tree root + state machine; wires the children together | First — to run a task through the protocol |
+| **polaris-goal-compiler** | COMPILE — task specification, atomization, verification gates, claim ceilings | Before execution / when a goal is unclear |
+| **fifth-dimension-engine** | SHOOT — problem solving, route generation, structural reasoning | For complex atoms that need structured reasoning |
+| **wfgy-method** | DRIFT CONTROL — drift measurement, decision discipline, bounded recovery | Throughout, at every state |
 
-Plus a master integration guide:
-| Guide | Location | Purpose |
+Plus two integration docs in this repo:
+| Doc | Location | Purpose |
 |---|---|---|
-| **POLARIS-SKILLS-GUIDE** | `skills/POLARIS-SKILLS-GUIDE.md` | DAG, workflows, integration examples |
+| **POLARIS-SKILLS-GUIDE** | `skills/POLARIS-SKILLS-GUIDE.md` | DAG, state machine, workflows, integration examples |
+| **This doc** | `POLARIS-SKILLS-INSTALLATION.md` | Installation & distribution |
 
 ## Installation
 
-### Option 1: Via gm Skill (Recommended)
+### Option 1: Via the gm harness (recommended)
 
-When the `gm` skill is installed, all three Polaris skills are automatically installed to:
+The `gm` harness repo bundles the Polaris skills under `skills/`, so they are installed together with `gm` into the assistant's skill directory (e.g. `~/.claude/skills/`). When `gm` is present, the four Polaris skills are available alongside it — no separate setup.
 
-```
-~/.claude/skills/polaris-goal-compiler/
-~/.claude/skills/fifth-dimension-engine/
-~/.claude/skills/wfgy-method/
-```
+### Option 2: Manual installation
 
-The `gm` SKILL.md documents that these three skills are bundled and auto-installed. No additional setup needed.
-
-### Option 2: Manual Installation
-
-Copy the three skill directories from this repo:
+Copy the four skill directories from this repo (or from the `gm` repo's `skills/`):
 
 ```bash
-cp -r skills/polaris-goal-compiler ~/.claude/skills/
-cp -r skills/fifth-dimension-engine ~/.claude/skills/
-cp -r skills/wfgy-method ~/.claude/skills/
+cp -r skills/polaris-protocol        ~/.claude/skills/
+cp -r skills/polaris-goal-compiler   ~/.claude/skills/
+cp -r skills/fifth-dimension-engine   ~/.claude/skills/
+cp -r skills/wfgy-method             ~/.claude/skills/
 ```
 
 Each skill is self-contained:
-- `SKILL.md` — Skill definition with name, description, metadata
-- `references/` — Supporting documentation (task-atomization.md, verification-gates.md, etc.)
-- Integrated via links in SKILL.md cross-references
+- `SKILL.md` — skill definition with `name`, `description`, `metadata`
+- `references/` — supporting documentation
+- Integrated via explicit cross-references and the root's state machine
 
 ## Discovery
 
-Claude Code automatically discovers skills in `~/.claude/skills/` by scanning for directories containing `SKILL.md` with valid frontmatter.
+Assistants discover skills by scanning for directories containing a `SKILL.md` with valid frontmatter (`name`, `description`). Invoking `/polaris-protocol`, `/polaris-goal-compiler`, `/fifth-dimension-engine`, or `/wfgy-method` loads the matching skill. **Discovery is automatic** — no registration or manifest needed (the `gm` plugin scans its own directory; the Polaris skills live as sibling skill directories).
 
-When you invoke `/polaris-goal-compiler`, `/fifth-dimension-engine`, or `/wfgy-method`, Claude Code:
-1. Finds the matching directory in `~/.claude/skills/`
-2. Reads the frontmatter (name, description, metadata)
-3. Loads the full SKILL.md content
-4. Makes it available as a callable skill
+## Provenance & honesty
 
-**Discovery is automatic.** No registration or manifest needed.
+Every Polaris skill's frontmatter carries:
 
-## Auto-Update Mechanism
-
-### How It Works
-
-When `gm` is updated (via `bun x gm-plugkit@latest spool` or Claude Code's built-in auto-update):
-
-1. The gm skill in `~/.claude/skills/gm/` is updated
-2. The three bundled Polaris skills are updated in place:
-   - `~/.claude/skills/polaris-goal-compiler/`
-   - `~/.claude/skills/fifth-dimension-engine/`
-   - `~/.claude/skills/wfgy-method/`
-
-The update mechanism is **automatic** — no manual steps required.
-
-### Version Pinning
-
-Each skill's frontmatter includes metadata:
 ```yaml
 metadata:
   origin: onestardao-wfgy-5.0-polaris-protocol
-  provenance: direct-extraction-from-upstream
+  provenance: adapted-and-honest-reimplementation-not-verbatim
 ```
 
-This allows tracking of where each skill originated and enables selective updates if needed (though the default is to update all three together).
+These skills are **adaptations** of the public WFGY 5.0 Polaris Protocol components (the upstream Goal Compiler is released ChatGPT-first; the Fifth-Dimension Engine is the current main product surface). They are not verbatim extractions and do not reproduce upstream's private engine or any demo-benchmark output. `wfgy-method` additionally adapts WFGY's core drift-control mechanism.
 
-### Update Checking
-
-Claude Code checks for skill updates:
-- When the CLI starts
-- When a skill is invoked
-- During idle periods if configured
-
-The update is applied immediately to the installed directory.
-
-## Directory Structure
-
-### In This Repo (Source)
+## Directory structure (source, this repo)
 
 ```
 skills/
+├── polaris-protocol/              ← tree root (state machine)
+│   └── SKILL.md
 ├── polaris-goal-compiler/
 │   ├── SKILL.md
 │   └── references/
 │       ├── task-atomization.md
-│       └── verification-gates.md
+│       ├── verification-gates.md
+│       └── claim-ceiling-examples.md
 ├── fifth-dimension-engine/
 │   ├── SKILL.md
 │   └── references/
-│       └── route-structure.md
+│       ├── route-structure.md
+│       ├── seven-millennium-problems.md
+│       ├── research-kernel-extraction.md
+│       └── route-inspection-guide.md
 ├── wfgy-method/
 │   ├── SKILL.md
 │   └── references/
@@ -115,99 +84,28 @@ skills/
 └── POLARIS-SKILLS-GUIDE.md
 ```
 
-### In User's Claude Config (Installed)
+## How the tree behaves (state machine)
 
-```
-~/.claude/skills/
-├── gm/
-│   ├── SKILL.md (includes bundled Polaris skills documentation)
-│   └── .tessl-plugin/
-├── polaris-goal-compiler/        ← Automatically installed with gm
-│   ├── SKILL.md
-│   └── references/
-├── fifth-dimension-engine/       ← Automatically installed with gm
-│   ├── SKILL.md
-│   └── references/
-├── wfgy-method/                  ← Automatically installed with gm
-│   ├── SKILL.md
-│   └── references/
-└── ... (other skills)
-```
+The tree is not just a folder of related skills — it behaves like a state machine. `polaris-protocol` defines the states (`UNCOMPILED → COMPILED → SHOOTING/EXECUTING → VERIFYING → CLOSED`) and the explicit transitions between them, each transition being a dispatch to a child skill. See `skills/polaris-protocol/SKILL.md` and `skills/POLARIS-SKILLS-GUIDE.md` for the full machine and workflows.
 
-## Integration
+## Keeping the two repos in sync
 
-The three skills form a **state-flow DAG**, documented in `POLARIS-SKILLS-GUIDE.md`:
+The same four skills live in two places:
+1. **This repo (`wfgy-5`)** — source of truth for development and documentation.
+2. **The `gm` harness repo (`..\\gm`)** — bundled copy, installed alongside `gm`.
 
-1. **Goal Compiler** specifies work (atomizes, creates gates)
-2. **Fifth-Dimension Engine** solves complex atoms
-3. **WFGY-Method** keeps reasoning on track
-
-**Integration points:**
-- Goal Compiler's **verification gates** become WFGY-Method's **checkpoints**
-- WFGY-Method's **ΔS (drift)** detects when engine exploration has drifted
-- Engine's **output** is verified against Goal Compiler's **gates**
-
-See `POLARIS-SKILLS-GUIDE.md` for detailed workflows and examples.
-
-## Cross-Repository Consistency
-
-The same three skills exist in two places:
-
-1. **This repo** (`wfgy-5`): Source of truth, used for development and documentation
-2. **User's Claude config** (`~/.claude/skills/`): Installed version, used by Claude Code
-
-**Keeping them in sync:**
-- Changes to skills in this repo are committed and tracked
-- When `gm` is updated, those changes propagate to `~/.claude/skills/`
-- No manual syncing needed — auto-update handles it
+When you improve a skill here, copy the changed `skills/<name>/` directory into the `gm` repo's `skills/` so the installed version stays current. No manifest edit is required; discovery is directory-based.
 
 ## Troubleshooting
 
-### Skills Not Discovered
-
-If `/polaris-goal-compiler` doesn't work:
-
-1. **Check installation**:
-   ```bash
-   ls ~/.claude/skills/polaris-goal-compiler/SKILL.md
-   ```
-
-2. **Check frontmatter**:
-   ```bash
-   head -10 ~/.claude/skills/polaris-goal-compiler/SKILL.md
-   ```
-   Must have:
-   ```yaml
-   ---
-   name: polaris-goal-compiler
-   description: ...
-   ---
-   ```
-
-3. **Reload Claude Code**: Close and reopen the IDE/terminal
-
-### Stale Skills After Update
-
-If the skills don't update with `gm`:
-
-1. **Force update**:
-   ```bash
-   bun x gm-plugkit@latest spool
-   ```
-
-2. **Manually copy** (if needed):
-   ```bash
-   rm -rf ~/.claude/skills/polaris-goal-compiler ~/.claude/skills/fifth-dimension-engine
-   cp -r skills/polaris-goal-compiler ~/.claude/skills/
-   cp -r skills/fifth-dimension-engine ~/.claude/skills/
-   ```
-
-3. **Reload Claude Code**
+If a skill is not discovered:
+1. Confirm the directory contains `SKILL.md` with valid `name`/`description` frontmatter.
+2. Reload the assistant.
 
 ## References
 
-- `POLARIS-SKILLS-GUIDE.md` — Full integration guide, DAG, workflows
-- `skills/polaris-goal-compiler/SKILL.md` — Goal Compiler skill definition
-- `skills/fifth-dimension-engine/SKILL.md` — Fifth-Dimension Engine skill definition
-- `skills/wfgy-method/SKILL.md` — WFGY-Method skill definition
-- `~/.claude/skills/gm/SKILL.md` — gm skill (includes bundled skills documentation)
+- `skills/polaris-protocol/SKILL.md` — tree root + state machine
+- `skills/POLARIS-SKILLS-GUIDE.md` — full integration guide, DAG, workflows
+- `skills/polaris-goal-compiler/SKILL.md` — Goal Compiler skill
+- `skills/fifth-dimension-engine/SKILL.md` — Fifth-Dimension Engine skill
+- `skills/wfgy-method/SKILL.md` — WFGY-Method skill
