@@ -41,3 +41,4 @@ node_modules/
 .gm/gm.db-wal
 .gm/.embed-generation.*
 .gm/config-source-cache-*
+.gm/claim-audit-fired
