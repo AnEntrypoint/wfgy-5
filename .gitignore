@@ -42,3 +42,4 @@ node_modules/
 .gm/.embed-generation.*
 .gm/config-source-cache-*
 .gm/claim-audit-fired
+.gm/.gm-continue-count
