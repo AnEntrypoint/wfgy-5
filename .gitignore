@@ -34,3 +34,10 @@ node_modules/
 .gm/pw-sock-*/
 .gm/browser-profile/
 .gm/browser-profile-*/
+# new shared-daemon runtime state (gm-plugkit 0.1.1201+), not yet covered by the gm-managed block above
+.agentplug-kv/
+.gm/gm.db
+.gm/gm.db-shm
+.gm/gm.db-wal
+.gm/.embed-generation.*
+.gm/config-source-cache-*
