@@ -1,0 +1,6 @@
+- SESSION_ID: ff1006bc-d4a5-41f9-9114-ce8b68711ff0
+  id: agents-md-missing
+  status: witnessed
+  witness: CLAUDE.md at C:/dev/wfgy-5/CLAUDE.md contains only "@AGENTS.md" (an include directive) but no AGENTS.md file exists anywhere in the repo tree (root or any subdirectory) - confirmed via Read on CLAUDE.md and a bash find with no hits.
+  question: Was AGENTS.md deleted/never created, or does @AGENTS.md resolve from a different root gm expects? Determine whether to create AGENTS.md (repo/agent operating instructions) or whether this is a broken/stale include.
+  witness_evidence: 'git log --all -- AGENTS.md returns zero hits, confirming AGENTS.md never existed in repo history (broken/never-fulfilled @AGENTS.md include in CLAUDE.md, not a deletion). Created C:/dev/wfgy-5/AGENTS.md (Write tool, file confirmed created) documenting repo structure: verbatim Polaris vendoring policy (wfgy-core/Polaris/), flatspace build command, upstream-sync method, and the no-test-files constraint - content grounded in README.md, config/globals/site.yaml, config/globals/navigation.yaml, and src/theme.mjs.'
